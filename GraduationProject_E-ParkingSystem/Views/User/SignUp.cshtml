@@ -1,0 +1,870 @@
+﻿@{
+	Layout = null;
+}
+@model User
+@* <html>
+<head>
+	<title>SignUp</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+	<link rel="stylesheet" href="~/css/SignInUpStyle.css">
+	<style>
+		.success-message {
+			font-size: 18px;
+			text-align: center;
+			margin-top: 20px;
+		}
+
+		.text-success {
+			color: green;
+		}
+		@@media (max-width: 900px) {
+    .alll .sign-in {
+        width: 100%;
+        min-height: 100vh;
+        height: 100vh;
+        padding: 60px;
+        box-sizing: border-box;
+    }
+        .alll .sign-in.up {
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Increase font sizes */
+        .alll .sign-in h2 {
+            font-size: 50px; /* Larger font for the heading */
+        }
+
+        .alll .sign-in input {
+            font-size: 24px; /* Increase input font size */
+            padding: 10px;
+        }
+
+        .alll .sign-in button {
+            font-size: 26px; /* Bigger button text */
+        }
+
+        .alll .sign-in p {
+            font-size: 20px; /* Increase paragraph font size */
+        }
+
+        .alll .sign-in a {
+            font-size: 20px; /* Increase link font size */
+        }
+}
+
+    @@media(max-width: 450px) {
+    /* Full-page sign-in for mobile devices */
+    .alll .sign-in {
+        width: 100%;
+        height: 100vh;
+        padding: 40px;
+        box-sizing: border-box;
+    }
+
+        .alll .sign-in.up {
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Further increase font sizes for smaller screens */
+        .alll .sign-in h2 {
+            font-size: 40px; /* Larger font for the heading on mobile */
+        }
+
+        .alll .sign-in input {
+            font-size: 22px; /* Increase input font size */
+            padding: 8px;
+        }
+
+        .alll .sign-in button {
+            font-size: 24px; /* Bigger button text */
+        }
+
+        .alll .sign-in p {
+            font-size: 18px; /* Increase paragraph font size */
+        }
+
+        .alll .sign-in a {
+            font-size: 18px; /* Increase link font size */
+        }
+}
+	</style>
+
+</head>
+<body>
+	<div class="alll">
+		<a href="index.html"><i class="fa-solid fa-xmark"></i></a>
+		<div class="sign-in up">
+            <form asp-action="SaveUser" asp-controller="User" method="post" id="registrationForm" autocomplete="off">
+				<h2>PAB, Registration</h2>
+
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="Inputs">
+                    <label asp-for="FName" for="FName">FName</label>
+                    <input type="text" asp-for="FName" value="@Model?.FName">
+                    <span asp-validation-for="FName"></span>
+				</div>
+                <div class="Inputs">
+                    <label asp-for="LName" for="LName">LName</label>
+                    <input type="text" asp-for="LName" value="@Model?.LName">
+                    <span asp-validation-for="LName"></span>
+                </div>
+                <div class="Inputs">
+                    <label asp-for="Gender" for="Gender">Gender</label>
+                    <input type="Gender" asp-for="Gender" value="@Model?.Gender">
+                    <span asp-validation-for="Gender"></span>
+                </div>
+				<div class="Inputs">
+					<label for="email" asp-for="Email">Email Address</label><br>
+					<input asp-for="Email" type="email" name="email" value="@Model?.Email"><br>
+					<span asp-validation-for="Email"></span>
+				</div>
+
+				<div class="Inputs">
+
+					<label asp-for="Password" for="password">Password</label><br>
+					<input asp-for="Password" type="password" value="@Model?.Password" name="password">
+					<span asp-validation-for="Password"></span>
+				</div>
+
+				<button type="submit">Register</button>
+				<p>Already have an account? &nbsp;&nbsp;<a asp-action="SignIn" asp-controller="User">Login</a></p>
+			</form>
+			@if (TempData["SuccessMessage"] != null)
+			{
+				<div class="success-message">
+					<p style="color: green; font-weight: bold" class="text-success">@TempData["SuccessMessage"]</p>
+				</div>
+			}
+
+		</div>
+	</div>
+
+    <script>
+        function resetForm() {
+            document.getElementById('registrationForm').reset();
+        }
+    </script>
+</body>
+</html> *@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration Form</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+	@*For inter font*@
+	@*--------------------------------------------------------------------------------*@
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&family=Spline+Sans:wght@300..700&display=swap" rel="stylesheet">
+	@*--------------------------------------------------------------------------------*@
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Inter', sans-serif;
+		}
+
+		/* body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-color: #d3d3d3;
+		} */
+		body {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			width: 100%;
+			background-color: #d3d3d3;
+			overflow: hidden; /* to contain the pseudo element */
+		}
+
+			body::before {
+				content: "";
+				position: absolute;
+				top: -10px;
+				left: -10px;
+				right: -10px;
+				bottom: -10px;
+				background-image: url('/Images/CarPhoto.jpeg');
+				background-size: 200% 200%;
+				background-repeat: no-repeat;
+				background-position: calc(50% - 420px) calc(50% + 100px);
+				/* filter: blur(6px); */
+				/* opacity: 0.8; */
+				z-index: -1;
+			}
+
+		.container {
+			/* background: #d3d3d3; */
+			background: rgba(250, 250, 250, 0.7);
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+			text-align: center;
+			/*was 30%*/
+			width: 32%;
+		}
+
+		h2 {
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 15px;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			text-align: left;
+		}
+
+		label {
+			font-size: 14px;
+			font-weight: bold;
+			margin: 10px 0 5px;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background: #f8f8f8;
+		}
+
+		.name-fields {
+			display: flex;
+			gap: 10px;
+		}
+
+			.name-fields input {
+				width: 50%;
+			}
+
+		.gender {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin-bottom: 10px;
+		}
+
+		button {
+			background: black;
+			color: white;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+
+			button:hover {
+				background: #333;
+			}
+
+		p {
+			margin-top: 10px;
+			font-size: 15px;
+		}
+
+			p a {
+				color: #001B7E;
+				text-decoration: none;
+			}
+
+				p a:hover {
+					color: #001B7E;
+					text-decoration: underline;
+				}
+
+		.success-message {
+			font-size: 20px;
+			text-align: center;
+			margin-top: 20px;
+		}
+
+		.text-success {
+			color: green;
+		}
+
+		.modal {
+
+			display: none;
+			position: fixed;
+			z-index: 1000;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.5);
+			backdrop-filter: blur(5px);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.3s ease;
+		}
+
+			.modal.show {
+				display:block;
+				opacity: 1;
+				pointer-events: auto;
+			}
+
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1000;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.5);
+			backdrop-filter: blur(5px);
+			/* مهم جداً */
+			pointer-events: none;
+			opacity: 0;
+			transition: all 0.3s ease;
+		}
+
+			.modal.show {
+				display: block;
+				pointer-events: auto;
+				opacity: 1;
+			}
+
+
+		.modal-content {
+			background: #ffffff;
+			padding: 25px 30px;
+			border-radius: 16px;
+			width: 90%;
+			max-width: 550px;
+			text-align: center;
+			box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+			transform: scale(0.8);
+			opacity: 0;
+			
+			transition: all 0.3s ease;
+		}
+
+		.modal.show .modal-content {
+			opacity: 1;
+			transform: scale(1);
+		}
+
+		#closeModal {
+			margin-top: 20px;
+			padding: 10px 24px;
+			background-color: #000;
+			color: white;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+			font-weight: 500;
+			transition: background-color 0.3s;
+		}
+
+			#closeModal:hover {
+				background-color: #333;
+			}
+
+		.modal-content ul {
+			list-style: none; /* نشيل شكل النقاط العادي */
+			padding-left: 0;
+		}
+
+		.modal-content li {
+			position: relative;
+			padding-left: 28px;
+			margin-bottom: 12px;
+			font-size: 16px;
+			line-height: 1.6;
+		}
+
+			.modal-content li::before {
+				content: "✔";
+				position: absolute;
+				left: 0;
+				top: 0;
+				color: #28a745; /* أخضر بسيط يدل على الإيجابية */
+				font-weight: bold;
+				font-size: 18px;
+			}
+
+		.modal-heading {
+			margin-top: 0;
+			margin-bottom: 20px;
+			font-size: 24px;
+			font-weight: 600;
+			color: #000;
+			text-align: center;
+			border-bottom: 1px solid #ddd;
+			padding-bottom: 10px;
+		}
+
+
+		@@media (max-width: 900px) {
+			.container {
+				width: 70%;
+			}
+
+			body::before {
+				content: "";
+				position: absolute;
+				top: -10px;
+				left: -10px;
+				right: -10px;
+				bottom: -10px;
+				background-image: url('/Images/CarPhoto.jpeg');
+				background-size: 200% 200%;
+				background-repeat: no-repeat;
+				background-position: calc(50%) calc(50% + 100px);
+				/* filter: blur(6px); */
+				/* opacity: 0.8; */
+				z-index: -1;
+			}
+		}
+
+		@@media (max-width: 400px) {
+			.container {
+				width: 90%;
+			}
+		}
+
+		/* لما checkbox يكون مفوكس عليه و NOT checked */
+
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Rakntak, Registration</h2>
+		<form asp-action="SaveUser" asp-controller="User" method="post" id="registrationForm" autocomplete="off">
+			<label>User Name</label>
+			<div class="name-fields" style=" display: flex; gap: 10px;">
+				<div style="flex: 1;">
+					<input style="width:100%" type="text" value="@Model?.FName" asp-for="FName" placeholder="First Name" id="FName" oninput="validateInput(this)">
+					<span id="fnamevalidation" asp-validation-for="FName" class="text-danger" style="display: block; font-size: 15px"></span>
+				</div>
+				<div style="flex: 1;">
+					<input type="text" style="width: 100%" value="@Model?.LName" asp-for="LName" placeholder="Last Name" id="LName" oninput="validateInput(this)">
+					<span id="lnamevalidation" asp-validation-for="LName" class="text-danger" style="display: block;font-size: 15px"></span>
+				</div>
+			</div>
+
+			@* <div style="display: flex; gap: 50px;">
+			<span asp-validation-for="FName" class="text-danger" style="flex-grow: 1;"></span>
+			<span asp-validation-for="LName" class="text-danger" style="flex-grow: 1;"></span>
+			</div>
+			*@
+
+			<label asp-for="Email">Email</label>
+			<input type="email" asp-for="Email" value="@Model?.Email" placeholder="Enter your email" id="email">
+			<span id="EmailValidation" asp-validation-for="Email" class="text-danger" style="font-size: 15px"></span>
+			<div style="">
+				<div style="display: flex; margin-bottom: 0;  height: 30px; align-content: center; align-items: center">
+					<label asp-for="Gender">Gender:</label>
+					<div class="gender" style=" display: flex; justify-content:space-around; width: 50%; height: 100%; margin:0; margin-left: 60px;">
+						<div>
+							<input type="radio" id="male" name="gender" value="Male" asp-for="Gender">
+							<label for="male">Male</label>
+						</div>
+						<div>
+							<input type="radio" id="female" name="gender" value="Female" asp-for="Gender">
+							<label for="female">Female</label>
+						</div>
+					</div>
+				</div>
+				<span id="GenderValidation" asp-validation-for="Gender" class="text-danger" style="font-size: 15px; margin-top: 0"></span>
+			</div>
+			<label>Password</label>
+			<div style="position: relative">
+				<input type="password" placeholder="Enter strong password" value="@Model?.Password" asp-for="Password" id="password" style="padding-right: 30px;" autocomplete="off">
+				<span id="toggleIcon" onclick="togglePassword()" style="position: absolute; right: 10px; top: 40%; transform: translateY(-50%); cursor: pointer;">
+					<i id="eyeIcon" class="fa-regular fa-eye fa-fw" style="color:#333;"></i>
+				</span>
+			</div>
+
+			<span asp-validation-for="Password" class="text-danger" style="font-size: 15px"></span>
+			@* <label>Confirm Password</label> *@
+			<div style="position: relative">
+				<input type="password" placeholder="Confirm your password" id="confirmPassword" style="padding-right: 30px;" autocomplete="off">
+			</div>
+			<span id="confirmPasswordError" class="text-danger" style="font-size: 15px; display: none;">Passwords do not match</span>
+
+
+
+			<div class="form-check checkbox-wrapper" id="checkboxWrapper">
+				<input class="form-check-input" type="checkbox" id="checkDefault" style="margin-top: 11.7px">
+@* 				<span id="checkErrorMark" style="color: red; display: none; margin-left: 5px;">❌</span>
+ *@				<label class="form-check-label" for="checkDefault" style="font-size: 13px; margin-left: 5px;">
+					@* I agree to the fine policy: If I don’t leave on time, the spot will stay unavailable, a fine will apply based on the delay, and my booking will end as scheduled even if I don’t show up. *@
+					I agree the <a href="#" id="policyLink" style="color: black; font-weight: 900">policies</a>
+				</label>
+			</div>
+			@* <span id="checkboxError" class="checkbox-error">You must agree to the fine policy before submitting.</span> *@
+			<div id="policyModal" class="modal">
+				<div class="modal-content" style="text-align: left">
+					<h2 class="modal-heading">Policies</h2>
+
+					<ul>
+						<li>
+							If you don’t leave on time, the spot will remain unavailable to others.
+						</li>
+						<li>
+							A fine will apply based on the duration of your delay.
+						</li>
+						<li>
+							If you don’t show up, your booking will still end as scheduled.
+						</li>
+						<li>
+							The reserved spot will be locked during your booking period.
+						</li>
+						<li>
+							No refunds or time extensions for late arrivals or no-shows.
+						</li>
+					</ul>
+
+					<button id="closeModal" type="button">OK</button>
+				</div>
+			</div>
+
+			<button type="submit">Register</button>
+		</form>
+		<p>Already has an account? <a asp-action="SignIn" asp-controller="User">Login</a></p>
+
+		@if (TempData["SuccessMessage"] != null)
+		{
+			<div class="success-message">
+				<p style="color: green; font-weight: bold; font-size: 18px" class="text-success">@TempData["SuccessMessage"]</p>
+			</div>
+		}
+
+	</div>
+	<script>
+
+
+		function validateInput(input) {
+			// حفظ موقع المؤشر قبل التعديل
+			const start = input.selectionStart;
+			const end = input.selectionEnd;
+
+			// إزالة الأرقام فقط
+			let cleaned = input.value.replace(/[0-9]/g, '');
+
+			// تحويل أول حرف من كل كلمة إلى Capital
+			cleaned = cleaned
+				.split(' ')
+				.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+				.join(' ');
+
+			// حساب الفرق في الطول
+			const diff = input.value.length - cleaned.length;
+
+			// تعيين القيمة الجديدة
+			input.value = cleaned;
+
+			// إرجاع المؤشر لمكانه المناسب بعد التعديل
+			input.setSelectionRange(start - diff, end - diff);
+		}
+		function togglePassword() {
+			const passwordInput = document.getElementById("password");
+			const eyeIcon = document.getElementById("eyeIcon");
+
+			// احفظ موقع الكارسر الحالي
+			const cursorPosition = passwordInput.selectionStart;
+
+			// غيّر نوع الحقل
+			if (passwordInput.type === "password") {
+				passwordInput.type = "text";
+				eyeIcon.classList.remove("fa-eye");
+				eyeIcon.classList.add("fa-eye-slash");
+			} else {
+				passwordInput.type = "password";
+				eyeIcon.classList.remove("fa-eye-slash");
+				eyeIcon.classList.add("fa-eye");
+			}
+
+			// رجّع الكارسر لمكانه
+			passwordInput.setSelectionRange(cursorPosition, cursorPosition);
+			// passwordInput.focus();
+		}
+		const modal = document.getElementById("policyModal");
+		const link = document.getElementById("policyLink");
+		const close = document.getElementById("closeModal");
+
+		// Open modal
+		link.addEventListener("click", (e) => {
+			e.preventDefault();
+			modal.style.display = "flex"; // flex, not block
+			setTimeout(() => modal.classList.add("show"), 10);
+		});
+
+		// Close modal by button
+		close.addEventListener("click", () => {
+			modal.classList.remove("show");
+			setTimeout(() => modal.style.display = "none", 300);
+		});
+
+		// Close modal by clicking outside the content
+		window.addEventListener("click", (e) => {
+			if (e.target === modal) {
+				modal.classList.remove("show");
+				setTimeout(() => modal.style.display = "none", 300);
+			}
+		});
+
+		async function checkEmailExists(email) {
+			const response = await fetch(`/User/CheckEmailExists?email=${encodeURIComponent(email)}`);
+			const isAvailable = await response.json(); // true إذا الإيميل غير موجود
+			return isAvailable;
+		}
+		const firsname = document.getElementById('FName');
+		const lastname = document.getElementById('LName');
+		const email = document.getElementById('email');
+		const form = document.getElementById('registrationForm');
+		const password = document.getElementById("password");
+		const confirmPassword = document.getElementById("confirmPassword");
+		const confirmPasswordError = document.getElementById("confirmPasswordError");
+		const fnamevalidation = document.getElementById("fnamevalidation")
+		const lnamevalidation = document.getElementById("lnamevalidation")
+		const emailvalidation = document.getElementById("EmailValidation")
+		const genderRadios = document.querySelectorAll('input[name="gender"]');
+		const genderValidation = document.getElementById("GenderValidation");
+		const checkDefault = document.getElementById('checkDefault');
+		const checkboxWrapper = document.getElementById('checkboxWrapper');
+		const checkboxError = document.getElementById('checkboxError');
+		// التحقق من البريد الإلكتروني
+		const emailRegex = /^[a-z0-9._%+-]+\x40[a-z0-9.-]+\.[a-z]{2,}$/i;
+
+		function validatePasswordLive(pwd) {
+			let messages = [];
+
+			if (pwd.length === 0) {
+				return { valid: false, message: "Password is required" };
+			}
+			if (pwd.length < 8) {
+				messages.push("Minimum 8 characters");
+			}
+			if (!/[A-Z]/.test(pwd)) {
+				messages.push("missing uppercase");
+			}
+			if (!/[a-z]/.test(pwd)) {
+				messages.push("missing lowercase");
+			}
+			if (!/[0-9]/.test(pwd)) {
+				messages.push("missing digit");
+			}
+			if (!/[!@@#$%^&*(),.?\":{}|<>]/.test(pwd)) {
+				messages.push("missing symbol");
+			}
+
+			if (messages.length > 0) {
+				return { valid: false, message: "Password issue: " + messages.join(", ") };
+			}
+
+			return { valid: true };
+		}
+
+		async function validateEmailField(email) {
+			let hasEmailError = false;
+
+			email = email.trim();
+
+			if (email === "") {
+				emailvalidation.textContent = "Email is required.";
+				emailvalidation.style.display = "block";
+				hasEmailError = true;
+			} else if (!emailRegex.test(email)) {
+				emailvalidation.textContent = "Please enter a valid email address.";
+				emailvalidation.style.display = "block";
+				hasEmailError = true;
+			} else {
+				const available = await checkEmailExists(email);
+				if (!available) {
+					emailvalidation.textContent = "This email is already registered.";
+					emailvalidation.style.display = "block";
+					hasEmailError = true;
+				} else {
+					emailvalidation.style.display = "none";
+				}
+			}
+
+			return hasEmailError;
+		}
+
+		// إزالة المسافات من البداية عند الكتابة
+		firsname.addEventListener('input', function (e) {
+			if (this.value.startsWith(' ')) {
+				this.value = this.value.trimStart(); // يمسح المسافات من البداية فقط
+			}
+		});
+		lastname.addEventListener('input', function (e) {
+			if (this.value.startsWith(' ')) {
+				this.value = this.value.trimStart(); // يمسح المسافات من البداية فقط
+			}
+		});
+		email.addEventListener('input', function (e) {
+			if (this.value.startsWith(' ')) {
+				this.value = this.value.trimStart(); // يمسح المسافات من البداية فقط
+			}
+		});
+
+		password.addEventListener('input', function () {
+			const result = validatePasswordLive(password.value);
+
+			if (!result.valid) {
+				confirmPasswordError.textContent = result.message;
+				confirmPasswordError.style.display = "block";
+			} else {
+				confirmPasswordError.style.display = "none";
+			}
+		});
+		checkDefault.addEventListener('change', function () {
+			if (this.checked) {
+				this.style.boxShadow = "none";
+			}
+		});
+
+		document.addEventListener('DOMContentLoaded', function () {
+
+			form.addEventListener('submit', async function (e) {
+				e.preventDefault(); // ✨ امنع الإرسال في كل الحالات أولاً
+
+				// مسح المسافات من الحقول
+				firsname.value = firsname.value.trim();
+				lastname.value = lastname.value.trim();
+				email.value = email.value.trim();
+
+				let pwd = password.value;
+				const confirmPwd = confirmPassword.value;
+
+				let hasError = false; // نعرف المتغير هنا
+
+				// التحقق من الاسم الأول
+				if (firsname.value === "") {
+					fnamevalidation.textContent = "First name is required.";
+					fnamevalidation.style.display = "block";
+					hasError = true;
+				} else if (firsname.value.length < 3) {
+					fnamevalidation.textContent = "First Name should be correct.";
+					fnamevalidation.style.display = "block";
+					hasError = true;
+				} else {
+					fnamevalidation.style.display = "none";
+				}
+
+				// التحقق من الاسم الأخير
+				if (lastname.value === "") {
+					lnamevalidation.textContent = "Last name is required.";
+					lnamevalidation.style.display = "block";
+					hasError = true;
+				} else if (lastname.value.length < 3) {
+					lnamevalidation.textContent = "Last Name should be correct.";
+					lnamevalidation.style.display = "block";
+					hasError = true;
+				} else {
+					lnamevalidation.style.display = "none";
+				}
+
+
+				// ✅ استدعِ التحقق من الإيميل
+				const emailHasError = await validateEmailField(email.value);
+				if (emailHasError) {
+					hasError = true;
+				}
+
+				const checkErrorMark = document.getElementById('checkErrorMark');
+
+				if (!checkDefault.checked) {
+					checkDefault.focus(); // يركز عليه
+					checkDefault.style.boxShadow = "0 0 0 3px rgba(255, 0, 0, 0.7)";
+					checkDefault.style.borderRadius = "4px";
+					hasError = true;
+				} else {
+					checkDefault.style.boxShadow = "none";
+				}
+
+
+
+
+
+				// التحقق من اختيار الجندر
+				let genderSelected = false;
+				for (let i = 0; i < genderRadios.length; i++) {
+					if (genderRadios[i].checked) {
+						genderSelected = true;
+						break;
+					}
+				}
+				if (!genderSelected) {
+					genderValidation.textContent = "Gender is required.";
+					genderValidation.style.display = "block";
+					hasError = true;
+					e.preventDefault();
+
+				} else {
+					genderValidation.style.display = "none";
+				}
+
+				// // التحقق من اختيار الـ checkbox
+				// if (!checkDefault.checked) {
+				// 	checkboxError.style.display = 'block';
+				// 	checkboxWrapper.classList.add('error');
+				// 	checkDefault.focus();
+				// 	hasError = true;
+				// 	e.preventDefault();
+
+				// } else {
+				// 	checkboxError.style.display = 'none';
+				// 	checkboxWrapper.classList.remove('error');
+				// 	e.preventDefault();
+
+				// }
+
+				// التحقق من طول كلمة المرور
+				const result = validatePasswordLive(pwd);
+				if (!result.valid) {
+					confirmPasswordError.textContent = result.message;
+					confirmPasswordError.style.display = "block";
+					hasError = true;
+				}
+
+				// تأكيد الباسورد (فقط عند الإرسال)
+				else if (confirmPwd.length === 0) {
+					confirmPasswordError.textContent = "Confirm your password!";
+					confirmPasswordError.style.display = "block";
+					hasError = true;
+				}
+
+				else if (pwd !== confirmPwd) {
+					confirmPasswordError.textContent = "Passwords do not match";
+					confirmPasswordError.style.display = "block";
+					hasError = true;
+				}
+
+				else {
+					confirmPasswordError.style.display = "none";
+				}
+				if (!hasError) {
+					form.submit(); // ✨ أرسل النموذج يدويًا لو كله تمام
+				}
+			});
+
+		});
+
+	</script>
+</body>
+</html>

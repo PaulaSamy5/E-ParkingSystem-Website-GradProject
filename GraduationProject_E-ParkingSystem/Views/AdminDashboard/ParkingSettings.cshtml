@@ -1,0 +1,225 @@
+﻿@{
+    ViewData["Title"] = "ParkingSettings";
+    Layout = "_AdminLayout";
+}
+@model List<ParkingSetting>
+@{
+    var price = Model.Where(i => i.id == 1).FirstOrDefault().PricePerHour;
+    var fine = Model.Where(i => i.id == 2).FirstOrDefault().PricePerHour;
+}
+@* <h4 class="page-title" style="font-weight: 900; font-size: 27px;">Parking Settings</h4> *@
+
+<div class="settings-container">
+    <div class="setting-box">
+        <h2>Update Price</h2>
+        <form method="post" asp-action="UpdatePrice" asp-controller="AdminDashboard">
+            <label for="price">Price per Hour</label>
+            <input id="price" type="number" id="price" name="price" min="0" step="0.5" asp-for="@price" value="@price" placeholder="Enter price..." required />
+            <button id="savePriceBtn" class="btnfineprice" type="submit" disabled>Save Price</button>
+        </form>
+@*         <div style="height: 15px;">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="pricesuccess" style="color: #00d21d; margin-top: 10px;font-weight: bold">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+        </div> *@
+    </div>
+
+    <div class="setting-box">
+        <h2>Update Fine</h2>
+        <form method="post" asp-action="UpdateFine" asp-controller="AdminDashboard">
+            <label for="fine">Fine Amount</label>
+            <input id="fine" type="number" name="fine" min="0" step="0.5" asp-for="@fine" value="@fine" placeholder="Enter fine..." required />
+            <button id="saveFineBtn" class="btnfineprice" type="submit" disabled>Save Fine</button>
+        </form>
+@*         <div style="height: 15px;">
+            @if (TempData["FineSuccessMessage"] != null)
+            {
+                <div class="pricesuccess" style="color: #00d21d; margin-top: 10px;font-weight: bold">
+                    @TempData["FineSuccessMessage"]
+                </div>
+            }
+        </div> *@
+    </div>
+</div>
+<!-- Modern Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 20px; background: #f9fff9; box-shadow: 0 0 20px rgba(0, 210, 33, 0.3); border: 2px solid #00d21d;">
+            <div class="modal-header justify-content-center" style="border-bottom: none;">
+                <h5 class="modal-title" id="successModalLabel" style="color: #00d21d; font-weight: bold; font-size: 24px;">
+                    <i class="fa-solid fa-circle-check" style="margin-right: 10px;"></i> Success
+                </h5>
+            </div>
+            <div class="modal-body text-center" style="font-size: 18px; color: #333; font-weight:700">
+                <span id="successMessageContent"></span>
+            </div>
+            <div class="modal-footer justify-content-center" style="border-top: none;">
+                <button type="button" id="CloseTheSuccessModel" class="btn btn-success px-4 py-2" data-dismiss="modal" style="border-radius: 30px;">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .settings-container {
+        width: 80%;
+        margin: 60px auto;
+        display: flex;
+        gap: 30px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .setting-box {
+        /* background-color: #1e1e2f; */
+        color: white;
+        padding: 30px;
+        border-radius: 16px;
+        flex: 1 1 45%;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .setting-box h2 {
+        margin-bottom: 20px;
+        font-size: 22px;
+        text-align: center;
+        border-bottom: 1px solid #555;
+        padding-bottom: 10px;
+        color: black;
+        font-weight: 700
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    label {
+        font-size: 16px;
+        color: #ccc;
+        font-weight: 550
+    }
+
+    input {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9; /* خلفية فاتحة */
+        color: #333; /* خط غامق */
+        font-size: 16px;
+        transition: border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        input::placeholder {
+            color: #888;
+        }
+
+    .btnfineprice {
+        padding: 12px;
+        background: linear-gradient(135deg, #4d88cc, #3e75a8);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        transition: all 1s ease; /* نركز على تغيير الخلفية فقط */
+        cursor: pointer;
+    }
+
+        .btnfineprice:disabled {
+            background: #7797a4 !important;
+            color: #fff !important;
+            cursor: not-allowed;
+            opacity: 0.8;
+            box-shadow: none;
+        }
+
+        .btnfineprice:hover {
+            background: linear-gradient(135deg, #0056b3, #003f7f);
+        }
+
+
+    .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+        padding: 15px 20px;
+        border-radius: 8px;
+        border: 1px solid #c3e6cb;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    @@media (max-width: 768px) {
+        .settings-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .setting-box {
+            width: 90%;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // 1. Price logic
+        const priceInput = document.getElementById('price');
+        const priceBtn = document.getElementById('savePriceBtn');
+        const originalPrice = parseFloat(priceInput.value);
+
+        priceInput.addEventListener('input', function () {
+            const current = parseFloat(priceInput.value);
+            priceBtn.disabled = isNaN(current) || current === originalPrice || current <= 0;
+            
+        });
+
+        // 2. Fine logic
+        const fineInput = document.getElementById('fine');
+        const fineBtn = document.getElementById('saveFineBtn');
+        const originalFine = parseFloat(fineInput.value);
+
+        fineInput.addEventListener('input', function () {
+            const current = parseFloat(fineInput.value);
+            fineBtn.disabled = isNaN(current) || current === originalFine || current <= 0;
+        });
+
+        // 3. Success Modal Logic
+        const closeBtn = document.getElementById("CloseTheSuccessModel");
+        const modalElement = document.getElementById("successModal");
+
+        closeBtn.addEventListener("click", function () {
+            const modalInstance = document.getElementById("successModal") || new bootstrap.Modal(modalElement);
+            modalInstance.hide();
+        });
+
+        // 4. Show modal if success message exists
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <text>
+                    document.getElementById("successMessageContent").textContent = "@TempData["SuccessMessage"]";
+                    new bootstrap.Modal(document.getElementById('successModal')).show();
+        </text>
+    }
+    @if (TempData["FineSuccessMessage"] != null)
+    {
+        <text>
+                    document.getElementById("successMessageContent").textContent = "@TempData["FineSuccessMessage"]";
+                    new bootstrap.Modal(document.getElementById('successModal')).show();
+        </text>
+    }
+        });
+</script>

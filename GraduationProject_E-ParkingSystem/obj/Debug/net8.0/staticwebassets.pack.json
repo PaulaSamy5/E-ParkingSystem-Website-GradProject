@@ -1,0 +1,717 @@
+{
+  "Files": [
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GraduationProject_E-ParkingSystem.bundle.scp.css",
+      "PackagePath": "staticwebassets\\GraduationProject_E-ParkingSystem.bundle.scp.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\2.jpg",
+      "PackagePath": "staticwebassets\\Images\\2.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\3.webp",
+      "PackagePath": "staticwebassets\\Images\\3.webp"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\Asus-Logo.png",
+      "PackagePath": "staticwebassets\\Images\\Asus-Logo.png"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\Asus.jpg",
+      "PackagePath": "staticwebassets\\Images\\Asus.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\BCGImage.png",
+      "PackagePath": "staticwebassets\\Images\\BCGImage.png"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\Background.jpg",
+      "PackagePath": "staticwebassets\\Images\\Background.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\Backgroundmorning.png",
+      "PackagePath": "staticwebassets\\Images\\Backgroundmorning.png"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\Blue logo.png",
+      "PackagePath": "staticwebassets\\Images\\Blue logo.png"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\CarPhoto.jpeg",
+      "PackagePath": "staticwebassets\\Images\\CarPhoto.jpeg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\CashLess.jpeg",
+      "PackagePath": "staticwebassets\\Images\\CashLess.jpeg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\DELL.png",
+      "PackagePath": "staticwebassets\\Images\\DELL.png"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\Deel;.jpg",
+      "PackagePath": "staticwebassets\\Images\\Deel;.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\Dell_.jpg",
+      "PackagePath": "staticwebassets\\Images\\Dell_.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\EasyParkingImage.png",
+      "PackagePath": "staticwebassets\\Images\\EasyParkingImage.png"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\Feedback.jpg",
+      "PackagePath": "staticwebassets\\Images\\Feedback.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\FeedbackSystem.jpeg",
+      "PackagePath": "staticwebassets\\Images\\FeedbackSystem.jpeg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\Pcar.jpg",
+      "PackagePath": "staticwebassets\\Images\\Pcar.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\RealTimeAvailabity.jpg",
+      "PackagePath": "staticwebassets\\Images\\RealTimeAvailabity.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\Remini20210709194201452.jpg",
+      "PackagePath": "staticwebassets\\Images\\Remini20210709194201452.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\SooEasyParking.jpeg",
+      "PackagePath": "staticwebassets\\Images\\SooEasyParking.jpeg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\WhiteLogo-removebg-preview.png",
+      "PackagePath": "staticwebassets\\Images\\WhiteLogo-removebg-preview.png"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\WhiteLogo.jpg",
+      "PackagePath": "staticwebassets\\Images\\WhiteLogo.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\asus blue logo.png",
+      "PackagePath": "staticwebassets\\Images\\asus blue logo.png"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\bcg.jpeg",
+      "PackagePath": "staticwebassets\\Images\\bcg.jpeg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\center.jpg",
+      "PackagePath": "staticwebassets\\Images\\center.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\images.jpeg",
+      "PackagePath": "staticwebassets\\Images\\images.jpeg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\info.webp",
+      "PackagePath": "staticwebassets\\Images\\info.webp"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\istockphoto-1471521270-170667a.webp",
+      "PackagePath": "staticwebassets\\Images\\istockphoto-1471521270-170667a.webp"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\logo.png",
+      "PackagePath": "staticwebassets\\Images\\logo.png"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\maincenter.jpeg",
+      "PackagePath": "staticwebassets\\Images\\maincenter.jpeg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\Images\\maincenter2.jpeg",
+      "PackagePath": "staticwebassets\\Images\\maincenter2.jpeg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\MyJs\\Canvas.js",
+      "PackagePath": "staticwebassets\\MyJs\\Canvas.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\MyJs\\newjs.js",
+      "PackagePath": "staticwebassets\\MyJs\\newjs.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\css\\demo.css",
+      "PackagePath": "staticwebassets\\assets\\css\\demo.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\css\\ready.css",
+      "PackagePath": "staticwebassets\\assets\\css\\ready.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\css\\ready.css.map",
+      "PackagePath": "staticwebassets\\assets\\css\\ready.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\css\\ready.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\ready.min.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\fonts\\line-awesome.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\line-awesome.eot"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\fonts\\line-awesome.svg",
+      "PackagePath": "staticwebassets\\assets\\fonts\\line-awesome.svg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\fonts\\line-awesome.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\line-awesome.ttf"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\fonts\\line-awesome.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\line-awesome.woff"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\fonts\\line-awesome.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\line-awesome.woff2"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\img\\menu.png",
+      "PackagePath": "staticwebassets\\assets\\img\\menu.png"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\img\\menu2.png",
+      "PackagePath": "staticwebassets\\assets\\img\\menu2.png"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\img\\profile.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\profile.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\img\\profile2.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\profile2.jpg"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\core\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\core\\bootstrap.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\core\\jquery.3.2.1.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\core\\jquery.3.2.1.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\core\\popper.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\core\\popper.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\demo.js",
+      "PackagePath": "staticwebassets\\assets\\js\\demo.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\bootstrap-notify\\bootstrap-notify.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\bootstrap-notify\\bootstrap-notify.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\bootstrap-toggle\\bootstrap-toggle.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\bootstrap-toggle\\bootstrap-toggle.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\chart-circle\\circles.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\chart-circle\\circles.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\chartist\\chartist.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\chartist\\chartist.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\chartist\\plugin\\chartist-plugin-tooltip.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\chartist\\plugin\\chartist-plugin-tooltip.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-mapael\\jquery.mapael.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-mapael\\jquery.mapael.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-mapael\\maps\\README.txt",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-mapael\\maps\\README.txt"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-mapael\\maps\\france_departments.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-mapael\\maps\\france_departments.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-mapael\\maps\\france_departments.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-mapael\\maps\\france_departments.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-mapael\\maps\\usa_states.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-mapael\\maps\\usa_states.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-mapael\\maps\\usa_states.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-mapael\\maps\\usa_states.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-mapael\\maps\\world_countries.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-mapael\\maps\\world_countries.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-mapael\\maps\\world_countries.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-mapael\\maps\\world_countries.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-mapael\\maps\\world_countries_mercator.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-mapael\\maps\\world_countries_mercator.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-mapael\\maps\\world_countries_mercator.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-mapael\\maps\\world_countries_mercator.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-mapael\\maps\\world_countries_miller.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-mapael\\maps\\world_countries_miller.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-mapael\\maps\\world_countries_miller.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-mapael\\maps\\world_countries_miller.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-scrollbar\\jquery.scrollbar.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-scrollbar\\jquery.scrollbar.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\plugin\\jquery-ui-1.12.1.custom\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugin\\jquery-ui-1.12.1.custom\\jquery-ui.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\ready.js",
+      "PackagePath": "staticwebassets\\assets\\js\\ready.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\js\\ready.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\ready.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\_background.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\_background.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\_components.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\_components.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\_layouts.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\_layouts.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\_line-awesome.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\_line-awesome.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\_outlinefocus.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\_outlinefocus.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\_plugins.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\_plugins.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\_responsive.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\_responsive.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\_typography.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\_typography.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\_variables.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\_variables.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_alerts.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_alerts.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_badges.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_badges.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_buttons.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_buttons.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_cards.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_cards.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_charts.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_charts.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_dropdowns.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_dropdowns.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_inputs.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_inputs.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_maps.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_maps.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_modals.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_modals.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_navbars.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_navbars.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_navpills.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_navpills.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_navsearch.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_navsearch.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_paginations.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_paginations.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_sliders.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_sliders.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\components\\_tables.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\components\\_tables.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\plugins\\_chartist.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\plugins\\_chartist.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\plugins\\_jqueryscrollbar.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\plugins\\_jqueryscrollbar.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\plugins\\_jqueryui.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\plugins\\_jqueryui.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\assets\\sass\\ready\\plugins\\_toggle.scss",
+      "PackagePath": "staticwebassets\\assets\\sass\\ready\\plugins\\_toggle.scss"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\css\\IndexPageStyle.css",
+      "PackagePath": "staticwebassets\\css\\IndexPageStyle.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\css\\SignInUpStyle.css",
+      "PackagePath": "staticwebassets\\css\\SignInUpStyle.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\css\\all.min.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\js\\jquery-3.6.0.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.6.0.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\webfonts\\fa-v4compatibility.ttf",
+      "PackagePath": "staticwebassets\\webfonts\\fa-v4compatibility.ttf"
+    },
+    {
+      "Id": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\wwwroot\\webfonts\\fa-v4compatibility.woff2",
+      "PackagePath": "staticwebassets\\webfonts\\fa-v4compatibility.woff2"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GraduationProject_E-ParkingSystem.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.GraduationProject_E-ParkingSystem.props",
+      "PackagePath": "build\\GraduationProject_E-ParkingSystem.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.GraduationProject_E-ParkingSystem.props",
+      "PackagePath": "buildMultiTargeting\\GraduationProject_E-ParkingSystem.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.GraduationProject_E-ParkingSystem.props",
+      "PackagePath": "buildTransitive\\GraduationProject_E-ParkingSystem.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

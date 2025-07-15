@@ -1,0 +1,381 @@
+﻿@{
+	ViewData["Title"] = "Adminstrator";
+	Layout = "_AdminLayout";
+}
+@model dynamic
+
+<script src="~/MyJs/Canvas.js"></script>
+
+<h4 class="page-title" style="font-weight: 900; font-size: 27px;">Dashboard</h4>
+<div class="row">
+	<div class="col-md-3">
+		<div class="card card-stats card-warning">
+			<div class="card-body ">
+				<div class="row">
+					<div class="col-5">
+						<div class="icon-big text-center">
+							<i class="la la-users"></i>
+						</div>
+					</div>
+					<div class="col-7 d-flex align-items-center">
+						<div class="numbers">
+							<p class="card-category">Users</p>
+							<h4 class="card-title">
+								@Model.Users.Count
+							</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="card card-stats card-success">
+			<div class="card-body ">
+				<div class="row">
+					<div class="col-5">
+						<div class="icon-big text-center">
+							<i class="la la-bar-chart"></i>
+						</div>
+					</div>
+					<div class="col-7 d-flex align-items-center">
+						<div class="numbers">
+							<p class="card-category">Sales</p>
+							<h4 class="card-title">
+
+								$ @(Convert.ToInt32(Model.Payments))
+							</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="card card-stats card-danger">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-5">
+						<div class="icon-big text-center">
+							<i class="fa fa-border-all"></i>
+						</div>
+					</div>
+					<div class="col-7 d-flex align-items-center">
+						<div class="numbers">
+							<p class="card-category">Slots</p>
+							<h4 class="card-title">
+								@Model.Spots.Count
+							</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="card card-stats card-primary">
+			<div class="card-body ">
+				<div class="row">
+					<div class="col-5">
+						<div class="icon-big text-center">
+							<i class="la la-check-circle"></i>
+						</div>
+					</div>
+					<div class="col-7 d-flex align-items-center">
+						<div class="numbers">
+							<p class="card-category">Bookings</p>
+							<h4 class="card-title">@Model.records.Count</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="chart-wrapper">
+	<!-- Pie Chart -->
+	<div class="chart-container">
+		<canvas id="genderPieChart"></canvas>
+	</div>
+
+	<!-- Line Chart -->
+	<div class="chart-container">
+		<canvas id="profitsLineChart" style="align-content: center; margin-top: 100px"></canvas>
+		<div class="chart-buttons">
+			<button onclick="loadProfitChart('Day')">Daily</button>
+			<button onclick="loadProfitChart('Month')">Monthly</button>
+			<button onclick="loadProfitChart('Year')">Yearly</button>
+		</div>
+	</div>
+</div>
+
+
+
+@* <style>
+	.numbers p{
+		/* font-weight: bold !important */
+	}
+</style>
+ *@
+<style>
+	.numbers p {
+		font-size: 18px !important;
+		font-weight: bold !important;
+	}
+
+	.chart-container {
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+		padding: 15px;
+		border-radius: 15px;
+		background: white;
+	}
+
+	.chart-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 20px;
+		padding: 20px;
+	}
+
+	.chart-container {
+		flex: 1 1 400px;
+		max-width: 700px;
+		min-width: 300px;
+		background-color: white;
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+		padding: 20px;
+		border-radius: 15px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center; /* عمودي */
+		align-items: center; /* أفقي */
+		height: 500px;
+		overflow: hidden;
+	}
+
+	canvas {
+		width: 100% !important;
+		max-height: auto !important;
+	}
+
+	#profitsLineChart {
+		display: block;
+		margin: auto;
+	}
+
+	.chart-buttons {
+		text-align: center;
+		margin-top: 15px;
+	}
+
+		.chart-buttons button {
+			margin: 0 5px;
+			padding: 8px 15px;
+			background-color: #3498db;
+			color: white;
+			border: none;
+			border-radius: 6px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+			.chart-buttons button:hover {
+				background-color: #2980b9;
+			}
+	@@media(max-width: 1220px) {
+		.numbers p {
+			font-size: 14px !important;
+			font-weight: bold !important;
+		}
+
+		.numbers h4 {
+			font-size: 17px !important;
+		}
+	}
+
+	@@media(max-width: 765px) {
+		.numbers p {
+			font-size: 18px !important;
+			font-weight: bold !important;
+		}
+
+		.numbers h4 {
+			font-size: 19px !important;
+		}
+	}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+	window.onload = function () {
+		console.log(44)
+		fetch('/AdminDashboard/GetUsersByGender')
+			.then(res => res.json())
+			.then(data => {
+				const ctx = document.getElementById('genderPieChart').getContext('2d');
+
+				new Chart(ctx, {
+					type: 'pie',
+					data: {
+						labels: ['Male', 'Female'],
+						datasets: [{
+							label: 'Users by Gender',
+							data: [data.male, data.female],
+							backgroundColor: ['#36A2EB', '#FF6384'],
+							borderColor: ['#ffffff', '#ffffff'],
+							borderWidth: 2
+						}]
+					},
+					options: {
+						responsive: true,
+						plugins: {
+							legend: {
+								position: 'bottom',
+							},
+							title: {
+								display: true,
+								text: 'Users by Gender'
+							}
+						}
+					}
+				});
+			})
+			.catch(err => console.error("Fetch error:", err));
+	}
+	async function loadProfitChart(timePeriod = "Day") {
+		const response = await fetch(`/AdminDashboard/Profits?timePeriod=${timePeriod}`);
+		const data = await response.json();
+		const dataLength = data.length;
+
+		let labels;
+
+		if (timePeriod === "Day") {
+			labels = data.map(d => {
+				const date = new Date(d.date);
+				return `${date.getDate()}/${date.getMonth() + 1}`; // يوم/شهر
+			});
+		} else if (timePeriod === "Month") {
+			labels = data.map(d => {
+				const date = new Date(d.date);
+				return `${date.getMonth() + 1}/${date.getFullYear()}`; // شهر/سنة
+			});
+		} else {
+			labels = data.map(d => {
+				const date = new Date(d.date);
+				return `${date.getFullYear()}`; // سنة فقط
+			});
+		}
+
+		const profits = data.map(d => d.profit); // الأرباح
+
+		const ctx = document.getElementById('profitsLineChart').getContext('2d');
+
+		if (window.profitChart) {
+			window.profitChart.destroy(); // لو في شارت موجود قبل كده، امسحه
+		}
+
+		window.profitChart = new Chart(ctx, {
+			type: 'line',
+			data: {
+				labels: labels,
+				datasets: [{
+					label: '',
+					data: profits,
+					fill: true,
+					borderColor: 'rgba(54, 162, 235, 1)',
+					backgroundColor: 'rgba(54, 162, 235, 0.2)',
+					tension: 0.4,
+					pointRadius: (context) => {
+						const index = context.dataIndex;
+						const chart = context.chart;
+						const visibleTicks = chart.scales.x.ticks.map(t => t.value);
+						return visibleTicks.includes(index) ? 3 : 0;
+					},
+					pointHoverRadius: (context) => {
+						const index = context.dataIndex;
+						const chart = context.chart;
+						const visibleTicks = chart.scales.x.ticks.map(t => t.value);
+						return visibleTicks.includes(index) ? 5 : 0;
+					},
+					pointHoverBackgroundColor: 'rgba(54, 162, 235, 1)',
+					pointHoverBorderColor: 'rgba(255, 255, 255, 1)',
+					pointHoverBorderWidth: 2
+				}]
+
+			},
+			options: {
+				responsive: true,
+				plugins: {
+					legend: {
+						display: false
+					},
+					tooltip: {
+						mode: 'index', // يعرض الـ tooltip عند أقرب نقطة على الـ x-axis
+						intersect: false, // يخليه يشتغل حتى لو مش على النقطة نفسها
+						callbacks: {
+							label: function (context) {
+								return `Profit: ${context.raw} EGP`;
+							},
+							title: function (context) {
+								return `Date: ${context[0].label}`; // يعرض التاريخ (label) فوق
+							}
+						}
+					}
+
+				},
+				scales: {
+					y: {
+						beginAtZero: true,
+						title: {
+							display: true,
+							text: 'Profits (EGP)',
+						},
+						ticks: {
+							callback: function (value) {
+								if (value >= 1000000) {
+									return (value / 1000000).toFixed(1) + 'M';
+								} else if (value >= 1000) {
+									return (value / 1000).toFixed(1) + 'K';
+								}
+								return value;
+							}
+						}
+					},
+					x: {
+						title: {
+							display: true,
+							text: 'Time'
+						},
+						ticks: {
+							autoSkip: true,
+							maxTicksLimit: 12,
+							callback: function (value, index, values) {
+								const total = values.length;
+								const step = Math.ceil(total / 12); // نعرض كل Step label
+								if (index % step === 0 || index === total - 1) {
+									return this.getLabelForValue(value); // اعرضه
+								}
+								return ''; // خفيه
+							}
+						}
+					}
+
+				}
+			}
+		});
+	}
+
+	// تحميل الشارت عند فتح الصفحة
+	document.addEventListener('DOMContentLoaded', () => {
+		loadProfitChart(); // بالافتراضي Day
+	});
+
+	// تحميل الشارت عند فتح الصفحة
+	document.addEventListener('DOMContentLoaded', () => {
+		loadProfitChart(); // بالافتراضي Day
+	});
+
+
+</script>

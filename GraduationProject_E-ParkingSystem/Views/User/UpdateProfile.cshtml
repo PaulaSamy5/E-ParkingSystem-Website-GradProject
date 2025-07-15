@@ -1,0 +1,592 @@
+﻿@{
+	ViewData["Title"] = "UpdateProfile";
+}
+@model User
+
+<div class="profile">
+	<h1>Update Profile <i class="fa-solid fa-pen-to-square"></i></h1>
+	@* <form action="/" method="post">
+	<div class="info">
+	<label>UserName</label>
+	<input value="@Model.FName @Model.LName" />
+	</div>
+	</form> *@
+
+	@* asp-route-Id="@Model.Id" *@
+	<form method="post" asp-action="SaveUpdateProfile" asp-controller="User" id="UpdateForm">
+		<input type="hidden" hidden asp-for="Id" />
+		<div>
+			<div class="input-group input-group-sm mb-3 info" style="margin-top: 5px">
+				<span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa-solid fa-id-badge"></i>&nbsp; FirstName</span>
+				<input type="text" class="form-control" asp-for="FName" value="@Model.FName" style="padding-left: 20px;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="FName" oninput="validateInput(this)" autocomplete="off">
+
+			</div>
+			<span asp-validation-for="FName" id="fnamevalidation" class="text-danger d-block mt-1" style="margin-right: 18px"></span>
+			<div class="input-group input-group-sm mb-3 info" style="margin-top: 5px">
+				<span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa-solid fa-id-badge"></i>&nbsp; LastName</span>
+				<input type="text" class="form-control" asp-for="LName" value="@Model.LName" style="padding-left: 20px;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="LName" oninput="validateInput(this)" autocomplete="off">
+			</div>
+			<span asp-validation-for="LName" id="lnamevalidation" class="text-danger d-block mt-1" style="margin-right: 18px"></span>
+
+		</div>
+
+		<div class="input-group input-group-sm mb-3 info" style="margin-top: 5px">
+
+			<span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa-solid fa-venus-mars"></i>&nbsp; Gender</span>
+			<div class="gender-options">
+				<input type="radio" id="male" name="gender" value="Male"
+					   asp-for="Gender">
+				<label for="male">Male</label>
+
+				<input type="radio" asp-for="Gender" id="female" name="gender" value="Female">
+				<label for="female">Female </label>
+			</div>
+
+		</div>
+
+
+
+		@* 		<div class="input-group input-group-sm mb-3 info">
+		<span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa-solid fa-venus-mars"></i>&nbsp; Gender</span>
+		<input type="text" class="form-control" asp-for="Gender" value="@Model.Gender" style="padding-left: 20px;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+
+		</div> *@
+		<span id="GenderValidation" asp-validation-for="Gender" class="text-danger d-block mt-1" style="margin-right: 18px"></span>
+
+		<div class="input-group input-group-sm mb-3 info" style="margin-top: 5px">
+			<span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa-solid fa-envelope"></i>&nbsp; Email</span>
+			<input id="email" type="text" class="form-control" asp-for="Email" value="@Model.Email" style="padding-left: 20px;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off" readonly>
+		</div>
+		<span id="EmailValidation" asp-validation-for="Email" style="margin-left: 18px" class="text-danger d-block mt-1"></span>
+
+		<div class="input-group input-group-sm mb-3 info" style="position: relative; margin-top: 5px">
+			<span class="input-group-text" id="inputGroup-sizing-sm">
+				<i class="fa-solid fa-lock"></i>&nbsp; Password
+			</span>
+			<input id="password" type="password" class="form-control" asp-for="Password" value="@Model.Password"
+				   style="padding-left: 20px;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+
+			<!-- أيقونة العين -->
+			<span id="toggleIcon"
+				  onclick="togglePassword()"
+				  style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%);
+             cursor: pointer; font-size: 22px; z-index: 100; width: 30px; height: 30px;
+             display: flex; align-items: center; justify-content: center;">
+				<i id="eyeIcon" class="fa-regular fa-eye fa-fw" style="color:#333;"></i>
+			</span>
+		</div>
+
+		@* 		<span asp-validation-for="Password" style="margin-left: 18px" class="text-danger d-block mt-1"></span>
+		*@
+		@*Confirm Password Part*@
+		<div class="input-group input-group-sm mb-3 info" style="position: relative; display: none;" id="confirmPasswordGroup">
+			<span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa-solid fa-lock" style=""></i>&nbsp; Confirm It</span>
+			<input id="confirmPassword" type="password" class="form-control" name="ConfirmPassword" style="padding-left: 20px;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+		</div>
+		<span id="passwordValidation" asp-validation-for="Password" style="margin-left: 18px" class="text-danger d-block mt-1"></span>
+
+
+
+
+		<button class="update-btn">Update <i class="fa-solid fa-pen"></i></button>
+	</form>
+</div>
+<style>
+	body {
+		overflow: hidden
+	}
+
+	.profile {
+		margin: auto;
+		width: 55%;
+		min-height: 500px;
+		/* background: linear-gradient(135deg, #2C3E50, #34495E); */
+		margin-top: 60px;
+		border-radius: 20px;
+		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Smooth shadow */
+		padding: 10px;
+	}
+
+	.text-danger {
+		margin-left: 20px; /* Reduce space above */
+		padding: 0px;
+	}
+
+	.profile h1 {
+		/* margin-top: 80px; */
+		text-align: center;
+		color: #c70300;
+		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		font-weight: bold;
+		/* color: black; */
+	}
+
+		.profile h1 i {
+			font-size: 40px;
+		}
+
+	.info {
+		width: 90%;
+		margin: 20px;
+		font-size: 35px;
+		margin-bottom: 5px !important;
+	}
+
+	.profile a {
+		text-decoration: none;
+	}
+
+	.info .input-group-text {
+		font-size: 17px;
+	}
+
+	.info .form-control {
+		font-size: 17px;
+	}
+
+	.info span {
+		font-weight: bold;
+		width: 19%;
+	}
+
+	.info input {
+		padding-right: 100px;
+		font-weight: 500;
+	}
+
+	.update-btn {
+		background-color: black;
+		text-align: center;
+		width: 80%;
+		margin: auto;
+		display: block;
+		border: black 3px solid;
+		height: 12%;
+		border-radius: 15px;
+		font-size: 26px;
+		font-weight: 600;
+		color: white;
+		margin-top: 25px;
+		transition: all 0.5s;
+	}
+
+		.update-btn:hover {
+			background-color: white;
+			color: black;
+			transform: scale(1.01);
+		}
+
+		.update-btn button {
+			margin: auto
+		}
+
+	.gender-options {
+		display: flex;
+		gap: 10px;
+		width: 81%;
+		justify-content: space-between;
+		margin: auto;
+		padding-left: 55px;
+		/* background-color: red; */
+		align-items: center;
+	}
+
+		.gender-options input[type="radio"] {
+			display: none; /* Hide default radio buttons */
+		}
+
+		.gender-options label {
+			padding: 10px 20px;
+			border: 2px solid #333;
+			border-radius: 10px;
+			cursor: pointer;
+			font-size: 16px;
+			text-align: center;
+			width: 90%;
+			display: inline-block;
+			transition: all 0.3s;
+			font-weight: 500;
+			background-color: white;
+		}
+
+		/* Change background when selected */
+		.gender-options input[type="radio"]:checked + label {
+			background-color: #333;
+			color: white;
+			border-color: #333;
+		}
+
+	.text-danger {
+		font-size: 15px;
+		margin-bottom: 0;
+		padding-bottom: 0;
+		display: inline-block;
+		height: 15px
+	}
+
+
+	@@media(max-width: 1407px) {
+		body {
+			overflow-y: hidden;
+		}
+
+		.profile {
+			margin-top: 30px;
+		}
+
+		.info span {
+			width: 23%;
+		}
+
+		.gender-options {
+			width: 77%;
+		}
+	}
+
+	@@media(max-width: 1200px) {
+		body {
+			overflow-y: hidden;
+		}
+
+		.profile {
+			width: 70%;
+			margin-top: 30px;
+		}
+	}
+
+	@@media(max-width: 1000px) {
+		body {
+			overflow-y: hidden;
+		}
+
+		.profile {
+			margin-top: 30px;
+		}
+
+		.profile {
+			width: 100%;
+		}
+
+		.input-group-text {
+			font-size: 20px;
+		}
+	}
+
+	@@media(max-width: 765px) {
+		body {
+			overflow-y: hidden;
+		}
+
+		.profile {
+			margin-top: 30px;
+		}
+
+		.info .input-group-text {
+			font-size: 17px;
+		}
+
+		.info .form-control {
+			font-size: 17px;
+		}
+
+		.info span {
+			width: 27%;
+		}
+
+		.gender-options {
+			width: 73%;
+		}
+	}
+
+	@@media(max-width: 517px) {
+		body {
+			overflow-y: hidden;
+		}
+
+		.profile {
+			margin-top: 30px;
+		}
+
+		.info .input-group-text {
+			font-size: 16px;
+			/* background-color: red */
+		}
+
+		.info .form-control {
+			font-size: 16px;
+		}
+
+		.info span {
+			width: 30%;
+		}
+
+		.gender-options {
+			width: 70%;
+		}
+	}
+
+	@@media(max-width: 455px) {
+		.profile {
+			margin-top: 30px;
+		}
+
+		.info .input-group-text {
+			font-size: 16px;
+			/* background-color: red */
+		}
+
+		.info .form-control {
+			font-size: 16px;
+		}
+
+		.info span {
+			width: 36%;
+		}
+
+		.gender-options {
+			width: 60%;
+		}
+	}
+
+	@@media(max-width: 450px) {
+		.info .form-control {
+			font-size: 14px;
+		}
+
+		.gender-options {
+			margin-top: 20px;
+			width: 80%;
+		}
+	}
+</style>
+
+<script>
+
+	const firsname = document.getElementById('FName');
+	const lastname = document.getElementById('LName');
+	const form = document.getElementById('UpdateForm');
+
+	const passwordInput = document.getElementById("password");
+	const eyeIcon = document.getElementById("eyeIcon");
+	const confirmPasswordGroup = document.getElementById("confirmPasswordGroup");
+	const confirmPasswordValidation = document.getElementById("passwordValidation");
+	const confirmPasswordInput = document.getElementById("confirmPassword"); // <=== هنا
+	const realemail = document.getElementById("email")
+	const emailvalidation = document.getElementById("EmailValidation");
+	let originalPassword = passwordInput.value;
+
+	let email = realemail.value;
+	function togglePassword() {
+		// احفظ موقع الكارسر الحالي
+		const cursorPosition = passwordInput.selectionStart;
+
+		// غيّر نوع الحقل
+		if (passwordInput.type === "password") {
+			passwordInput.type = "text";
+			eyeIcon.classList.remove("fa-eye");
+			eyeIcon.classList.add("fa-eye-slash");
+		} else {
+			passwordInput.type = "password";
+			eyeIcon.classList.remove("fa-eye-slash");
+			eyeIcon.classList.add("fa-eye");
+		}
+
+		// رجّع الكارسر لمكانه
+		passwordInput.setSelectionRange(cursorPosition, cursorPosition);
+	}
+
+	function validateInput(input) {
+		// حفظ موقع المؤشر قبل التعديل
+		const start = input.selectionStart;
+		const end = input.selectionEnd;
+
+		// إزالة الأرقام فقط
+		let cleaned = input.value.replace(/[0-9]/g, '');
+
+		// تحويل أول حرف من كل كلمة إلى Capital
+		cleaned = cleaned
+			.split(' ')
+			.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+			.join(' ');
+
+		// حساب الفرق في الطول
+		const diff = input.value.length - cleaned.length;
+
+		// تعيين القيمة الجديدة
+		input.value = cleaned;
+
+		// إرجاع المؤشر لمكانه المناسب بعد التعديل
+		input.setSelectionRange(start - diff, end - diff);
+	}
+	// لتظهر رسائل التحقق للباسورد في نفس العنصر (confirmPasswordValidation)
+	function validatePasswordLive(pwd) {
+		let messages = [];
+
+		if (pwd.length === 0) {
+			return { valid: false, message: "Password is required" };
+		}
+		if (pwd.length < 8) {
+			messages.push("Minimum 8 characters");
+		}
+		if (!/[A-Z]/.test(pwd)) {
+			messages.push("missing uppercase");
+		}
+		if (!/[a-z]/.test(pwd)) {
+			messages.push("missing lowercase");
+		}
+		if (!/[0-9]/.test(pwd)) {
+			messages.push("missing digit");
+		}
+		if (!/[!@@#$%^&*(),.?\":{}|<>]/.test(pwd)) {
+			messages.push("missing symbol");
+		}
+
+		if (messages.length > 0) {
+			return { valid: false, message: "Password issue: " + messages.join(", ") };
+		}
+
+		return { valid: true };
+	}
+	const currentUserId = @Model.Id; // أو حسب اسمك في الـ Model
+
+	async function checkEmailExists(email) {
+		try {
+			const response = await fetch(`/User/CheckEmailExistsForUpdate?email=${encodeURIComponent(email)}&currentUserId=${currentUserId}`);
+			if (!response.ok) return false;
+
+			const result = await response.json();
+			return !result.exists; // false لو الإيميل مستخدم
+		} catch (error) {
+			// console.error("Error checking email:", error);
+			return false;
+		}
+	}
+	const emailRegex = /^[a-z0-9._%+-]+\x40[a-z0-9.-]+\.[a-z]{2,}$/i;
+	async function validateEmailField(email) {
+		let hasEmailError = false;
+
+		email = email.trim();
+
+		if (email === "") {
+			emailvalidation.textContent = "Email is required.";
+			emailvalidation.style.display = "block";
+			hasEmailError = true;
+		} else if (!emailRegex.test(email)) {
+			emailvalidation.textContent = "Please enter a valid email address js.";
+			emailvalidation.style.display = "block";
+			hasEmailError = true;
+		} else {
+			const available = await checkEmailExists(email);
+			if (!available) {
+				emailvalidation.textContent = "This email is already registered.";
+				emailvalidation.style.display = "block";
+				hasEmailError = true;
+			} else {
+				emailvalidation.style.display = "none";
+			}
+		}
+
+		return hasEmailError;
+	}
+
+
+	// إزالة المسافات من البداية عند الكتابة
+	firsname.addEventListener('input', function () {
+		if (this.value.startsWith(' ')) {
+			this.value = this.value.trimStart();
+		}
+	});
+	lastname.addEventListener('input', function () {
+		if (this.value.startsWith(' ')) {
+			this.value = this.value.trimStart();
+		}
+	});
+
+	// إظهار إخفاء confirm password حسب تغير الباسورد
+	passwordInput.addEventListener("input", function () {
+		// تحقق من قوة الباسورد أولًا
+		const result = validatePasswordLive(passwordInput.value);
+
+		if (!result.valid) {
+			confirmPasswordValidation.innerText = result.message;
+			confirmPasswordValidation.style.display = "block";
+			confirmPasswordGroup.style.display = "flex"; // ما نعرضش تأكيد كلمة المرور لو الباسورد ضعيف
+			confirmPasswordInput.value = "";
+		} else {
+			confirmPasswordValidation.innerText = "";
+			if (passwordInput.value !== originalPassword) {
+				confirmPasswordGroup.style.display = "flex";
+			} else {
+				confirmPasswordGroup.style.display = "none";
+				confirmPasswordInput.value = "";
+			}
+		}
+	});
+	// عند الإرسال، تحقق من تطابق الباسورد مع الكونفرم
+
+	form.addEventListener('submit', async function (e) {
+		e.preventDefault();
+		firsname.value = firsname.value.trim();
+		lastname.value = lastname.value.trim();
+
+		let hasError = false;
+
+		// تحقق من قوة الباسورد أولًا
+		const result = validatePasswordLive(passwordInput.value);
+		if (!result.valid) {
+			confirmPasswordValidation.innerText = result.message;
+			confirmPasswordValidation.style.display = "block";
+			hasError = true;
+		} else {
+			if (passwordInput.value !== originalPassword) {
+				if (passwordInput.value !== confirmPasswordInput.value) {
+					if (confirmPasswordInput.value.length === 0)
+						confirmPasswordValidation.innerText = "Confirm your new password.";
+					else
+						confirmPasswordValidation.innerText = "Passwords do not match.";
+					confirmPasswordValidation.style.display = "block";
+					hasError = true;
+				} else {
+					confirmPasswordValidation.innerText = "";
+					confirmPasswordValidation.style.display = "none";
+				}
+			} else {
+				confirmPasswordValidation.innerText = "";
+				confirmPasswordValidation.style.display = "none";
+			}
+		}
+
+		// التحقق من الاسم الأول
+		if (firsname.value === "") {
+			fnamevalidation.textContent = "First name is required.";
+			fnamevalidation.style.display = "block";
+			hasError = true;
+		} else if (firsname.value.length < 3) {
+			fnamevalidation.textContent = "First Name should be correct.";
+			fnamevalidation.style.display = "block";
+			hasError = true;
+		} else {
+			fnamevalidation.style.display = "none";
+		}
+
+		// التحقق من الاسم الأخير
+		if (lastname.value === "") {
+			lnamevalidation.textContent = "Last name is required.";
+			lnamevalidation.style.display = "block";
+			hasError = true;
+		} else if (lastname.value.length < 3) {
+			lnamevalidation.textContent = "Last Name should be correct.";
+			lnamevalidation.style.display = "block";
+			hasError = true;
+		} else {
+			lnamevalidation.style.display = "none";
+		}
+
+		// التحقق من الإيميل
+		const emailError = await validateEmailField(realemail.value);
+		if (emailError) hasError = true;
+
+		// إرسال الفورم لو كل حاجة تمام
+		if (!hasError) form.submit();
+	});
+</script>

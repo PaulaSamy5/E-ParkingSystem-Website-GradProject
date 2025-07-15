@@ -1,0 +1,245 @@
+﻿@{
+	ViewData["Title"] = "Feedback";
+}
+
+@model Feedback
+
+
+@* <h3 style="margin-top: 500px;">@Model.UserId</h3>
+
+<form asp-action="Savefeedback" asp-controller="User" method="post">
+    <input asp-for="UserId" value="@Model.UserId" type="hidden"/>
+    <input asp-for="Message" type="text"  value="@Model?.Message" />
+    <span asp-validation-for="Message"></span>
+    <button type="submit">Add</button>
+</form> *@
+
+
+
+<style>
+	/* Layout */
+	.feedback-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		min-height: 78vh;
+		margin-top: 7px;
+		/* background-color: #f4f4f4; */
+		padding: 0px;
+	}
+
+	.feedbackimg {
+		max-width: 90%;
+		height: 450px;
+		display: block;
+	}
+
+	/* Feedback Form */
+	.feedback-form {
+		background: white;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		width: 480px;
+		min-height: 380px;
+		text-align: left;
+		margin-left: 70px;
+	}
+
+		.feedback-form h2 {
+			font-size: 22px;
+			margin-bottom: 10px;
+		}
+
+		.feedback-form p {
+			font-size: 18px;
+			color: #000000;
+			margin-bottom: 10px;
+		}
+
+	textarea {
+		width: 100%;
+		height: 130px;
+		background-color: rgb(243, 243, 243);
+		padding: 10px;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+		resize: none;
+		font-size: 16px;
+	}
+
+	.feedbackbtn {
+		width: 100%;
+		padding: 10px;
+		margin-top: 10px;
+		background: black;
+		color: white;
+		border: none;
+		cursor: pointer;
+		font-size: 16px;
+		border-radius: 5px;
+	}
+
+	button:hover {
+		background: #333;
+	}
+
+	.thanks-message {
+		font-size: 12px;
+		color: rgb(172, 172, 172);
+		margin-top: 10px;
+	}
+
+	.navbar-toggler {
+		color: black;
+	}
+
+		.navbar-toggler:hover {
+			background-color: white;
+		}
+
+		.navbar-toggler:focus {
+			background-color: white;
+			border: none
+		}
+
+	@@media (max-width: 1400px) {
+		.feedback-container {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			gap: 20px;
+			padding: 0;
+			width: 100%;
+			height: 400px;
+		}
+
+		.feedbackimg {
+			width: 100%; /* Make sure it takes only 45% of the container */
+			height: 380px;
+
+		}
+
+		.feedback-banner {
+			/* background-color: red; */
+			width: 45%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+
+		.feedback-form {
+			width: 50%;
+			text-align: center;
+			margin: auto;
+		}
+	}
+
+	/* Responsive Design */
+	@@media (max-width: 768px) {
+		.feedback-container {
+			flex-direction: row-reverse;
+			gap: 20px;
+			padding: 0;
+			margin-top: 40px;
+			/* margin-bottom: 20px; */
+			/* background-color: red; */
+		}
+
+		.feedbackimg {
+			width: 100%;
+			height: 270px;
+			margin-bottom: 80px
+		}
+
+		.feedback-banner {
+			/* background-color: red; */
+			width: 100%;
+			margin: auto;
+			display: flex;
+			justify-content: center;
+			text-align: center;
+		}
+
+		.feedback-form {
+			margin: auto;
+			width: 95%;
+			justify-content: center;
+			text-align: center;
+			margin-bottom: 0;
+		}
+
+		.feedback-form,
+		.feedback-banner {
+			margin-top: 0;
+		}
+	}
+</style>
+
+
+<div class="feedback-container">
+	<!-- Left side (Feedback Form) -->
+	<div class="feedback-form">
+		<h2>Feedback</h2>
+		<p>How would you rate your experience?<br>Leave your Feedback here</p>
+		<form id="feedback-form" asp-action="Savefeedback" asp-controller="User" method="post">
+			<input hidden asp-for="UserId" value="@Model.UserId">
+			<textarea id="feedback-input" placeholder="Enter your feedback" asp-for="Message"></textarea>
+			<button class="feedbackbtn" type="submit" onclick="submitFeedback()">Send</button>
+			<span asp-validation-for="Message" class="text-danger"></span>
+			<p class="thanks-message">Thanks for any feedback you will provide</p>
+		</form>
+		@if (TempData["Success"] != null)
+		{
+			<div class="alert alert-success">
+				@TempData["Success"]
+			</div>
+		}
+
+	</div>
+
+	<!-- Right side (Feedback Banner) -->
+	<div class="feedback-banner">
+		<img class="feedbackimg" src="~/Images/Feedback.jpg" alt="Feedback Image">
+	</div>
+</div>
+
+
+
+@* <script>
+	function submitFeedback() {
+		let feedback = document.getElementById("feedback-input").value.trim();
+		if (feedback === "") {
+			alert("Please enter your feedback before submitting.");
+		} else {
+			alert("Thank you for your feedback!");
+			document.getElementById("feedback-input").value = "";
+		}
+	}
+</script>
+ *@
+
+
+<script>
+	const textarea = document.getElementById('feedback-input');
+	const form = document.getElementById('feedback-form');
+
+	// إزالة المسافات من البداية عند الكتابة
+	textarea.addEventListener('input', function (e) {
+		if (this.value.startsWith(' ')) {
+			this.value = this.value.trimStart(); // يمسح المسافات من البداية فقط
+		}
+	});
+
+
+
+	// عند الإرسال، امسح المسافات من البداية والنهاية
+	form.addEventListener('submit', function (e) {
+		textarea.value = textarea.value.trim();
+	});
+</script>
+

@@ -1,0 +1,453 @@
+﻿@{
+	ViewData["Title"] = "Profile";
+}
+
+@model User
+
+
+<div class="profile">
+	<h1>Your Profile <i class="fa-regular fa-user"></i></h1>
+	@* <form action="/" method="post">
+	<div class="info">
+	<label>UserName</label>
+	<input value="@Model.FName @Model.LName" />
+	</div>
+	</form> *@
+
+	<div class="input-group input-group-sm mb-3 info">
+		<span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa-solid fa-id-badge"></i>&nbsp; UserName</span>
+		<input type="text" class="form-control" value="@Model.FName @Model.LName" style="padding-left: 20px;" aria-label="Sizing example input" disabled aria-describedby="inputGroup-sizing-sm">
+	</div>
+
+	<div class="input-group input-group-sm mb-3 info">
+		<span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa-solid fa-venus-mars"></i>&nbsp; Gender</span>
+		<input type="text" class="form-control" value="@Model.Gender" style="padding-left: 20px;" aria-label="Sizing example input" disabled aria-describedby="inputGroup-sizing-sm">
+	</div>
+
+	<div class="input-group input-group-sm mb-3 info">
+		<span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa-solid fa-envelope"></i>&nbsp; Email</span>
+		<input type="text" class="form-control" value="@Model.Email" style="padding-left: 20px;" aria-label="Sizing example input" disabled aria-describedby="inputGroup-sizing-sm">
+	</div>
+	<div class="input-group input-group-sm mb-3 info" style="position: relative;">
+		<span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa-solid fa-lock"></i>&nbsp; Password</span>
+		<input id="password" type="password" class="form-control" value="@Model.Password" style="padding-left: 20px;" aria-label="Sizing example input" disabled aria-describedby="inputGroup-sizing-sm">
+		<!-- أيقونة العين -->
+		<span id="toggleIcon"
+			  onclick="togglePassword()"
+			  style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%);
+             cursor: pointer; font-size: 22px; z-index: 100; width: 30px; height: 30px;
+             display: flex; align-items: center; justify-content: center;">
+			<i id="eyeIcon" class="fa-regular fa-eye fa-fw" style="color:#333;"></i>
+		</span>
+
+
+	</div>
+
+	<a href="@Url.Action("UpdateProfile", "User")"><button class="update-btn">Update your info? <i class="fa-solid fa-pen"></i></button></a>
+</div>
+<div class="container user-history">
+	<div class="HeaderConatanier">
+		<h2 class="text-center mb-2">
+			Your Booking History <i class="fa-solid fa-clock-rotate-left"></i>
+		</h2>
+
+		<div class="d-flex justify-content-end mb-3">
+			<span class="total-bookings-box">Total Bookings: @(Model.ParkingRecords?.Count() ?? 0)</span>
+		</div>
+
+	</div>
+	<div class="table-wrapper">
+		<table class="bookings-table">
+			<thead>
+				<tr>
+					<th class="th-hhh" style="background-color: black; color: white">#</th>
+					<th class="th-hhh" style="background-color: black; color: white">Reserved Slot</th>
+					<th class="th-hhh" style="background-color: black; color: white">Staring Date</th>
+					<th class="th-hhh" style="background-color: black; color: white">From</th>
+					<th class="th-hhh" style="background-color: black; color: white">To</th>
+					<th class="th-hhh" style="background-color: black; color: white">All duration</th>
+					<th class="th-hhh" style="background-color: black; color: white">Amount</th>
+					<th class="th-hhh" style="background-color: black; color: white">Plate Number</th>
+					<th class="th-hhh" style="background-color: black; color: white">Vehicle Type</th>
+				</tr>
+			</thead>
+			<tbody>
+				@if (Model.ParkingRecords == null || !Model.ParkingRecords.Any())
+				{
+					<tr>
+						<td colspan="9" class="td-hhh text-center">No bookings</td>
+					</tr>
+				}
+				else
+				{
+					int count = 1;
+					@foreach (var i in Model.ParkingRecords)
+					{
+						
+						<tr>
+							<td class="td-hhh">@(count++)</td>
+							<td class="td-hhh">@(i.ParkingSpot != null ? i.ParkingSpot.SlotName : "Deleted !")</td>
+							<td class="td-hhh date-column">@i.StartTime.ToString("yyyy-MM-dd")</td>
+							<td class="td-hhh date-column">@i.StartTime.ToString("hh:mm tt")</td>
+							<td class="td-hhh date-column">@i.EndTime.ToString("hh:mm tt")</td>
+@* 							@{
+								var displayEndTime = i.StartTime.Date != i.EndTime.Date
+								? i.EndTime.ToString("yyyy-MM-dd hh:mm tt")
+								: i.EndTime.ToString("hh:mm tt");
+							}
+
+							<td class="date-column enddate">@displayEndTime</td> *@
+
+
+							<td class="td-hhh">
+								@{
+									var duration = i.EndTime - i.StartTime;
+									var hours = duration.Hours;
+									var minutes = duration.Minutes;
+								}
+
+								@(
+															(hours != 0 || minutes != 0)
+															? $"{(hours != 0 ? $"{hours}h " : "")}{(minutes != 0 ? $"{minutes}m" : "")}"
+															: ""
+															)
+							</td>
+
+							<td class="td-hhh date-column">@i.Cost</td>
+							<td class="td-hhh date-column">@i.PlateNumber</td>
+							@if (i.vehicleType == "Car")
+							{
+								<td class="td-hhh"><i style="color: darkblue" class="fa-solid fa-car"></i></td>
+							}
+							else
+							{
+								<td class="td-hhh"><i style="color: brown" class="fa-solid fa-bus"></i></td>
+
+							}
+
+						</tr>
+					}
+				}
+				<!-- Add more rows as needed -->
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+
+<style>
+	.profile {
+		margin: auto;
+		width: 55%;
+		height: 400px;
+		/* background: linear-gradient(135deg, #2C3E50, #34495E); */
+		margin-top: 50px;
+		border-radius: 20px;
+		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Smooth shadow */
+		padding: 10px;
+	}
+
+		.profile h1 {
+			/* margin-top: 80px; */
+			text-align: center;
+			color: #c70300;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			font-weight: bold;
+			/* color: black; */
+		}
+
+			.profile h1 i {
+				font-size: 40px;
+			}
+
+	.info {
+		width: 90%;
+		margin: 20px;
+		font-size: 35px;
+	}
+
+	.profile a {
+		text-decoration: none;
+	}
+
+	.info .input-group-text {
+		font-size: 17px;
+	}
+
+	.info .form-control {
+		font-size: 17px;
+	}
+
+	.info span {
+		font-weight: bold;
+		width: 19%;
+	}
+
+	.info input {
+		padding-right: 100px;
+		font-weight: 500;
+	}
+
+	.update-btn {
+		background-color: black;
+		text-align: center;
+		width: 80%;
+		margin: auto;
+		display: block;
+		border: black 3px solid;
+		height: 12%;
+		border-radius: 15px;
+		font-size: 26px;
+		font-weight: 600;
+		color: white;
+		margin-top: 25px;
+		transition: all 0.5s;
+	}
+
+		.update-btn:hover {
+			background-color: white;
+			color: black;
+			transform: scale(1.01);
+		}
+
+		.update-btn button {
+			margin: auto
+		}
+
+	.table-wrapper {
+		overflow-x: auto;
+		max-width: 100%;
+		max-height: 500px;
+		margin: 20px auto;
+		border-radius: 12px;
+		/* box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); */
+		/* margin: auto */
+		margin-left: 30px
+	}
+
+	.bookings-table {
+		width: 100%;
+		border-collapse: collapse;
+		text-align: center;
+		background-color: white;
+	}
+
+		.bookings-table thead th {
+			position: sticky;
+			top: 0;
+			background-color: #2c3e50;
+			color: white;
+			padding: 10px;
+			z-index: 1;
+			min-width: 50px
+		}
+
+		.bookings-table td {
+			padding: 10px;
+			font-weight: 500;
+			color: #333;
+		}
+
+		.bookings-table tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+		.bookings-table tr:hover {
+			background-color: #e0e0e0;
+		}
+
+	.date-column {
+		min-width: 100px; /* أو أي عرض تحبه */
+		max-width: 100px;
+		white-space: nowrap; /* علشان التاريخ ميكسرش سطر */
+	}
+
+	.user-history {
+		width: 90%;
+		margin: auto;
+		margin-top: 50px;
+		box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+		border-radius: 15px;
+		padding: 20px;
+		background-color: white;
+		max-width: 100%;
+	}
+
+		.user-history h2 {
+			color: #c70300;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			font-weight: bold;
+		}
+
+
+
+.total-bookings-wrapper {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.total-bookings-box {
+	background-color: #000;
+	color: #fff;
+	padding: 8px 16px;
+	border-radius: 8px;
+	font-weight: bold;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+	font-size: 16px;
+}
+
+	.HeaderConatanier {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		color: red;
+		flex-wrap: wrap;
+		margin-bottom: 15px;
+	}
+		.enddate{
+		min-width: 170px; /* أو أي عرض تحبه */
+		max-width: 170px;
+		white-space: nowrap; /* علشان التاريخ ميكسرش سطر */
+	}
+
+
+	@@media(max-width: 1406px) {
+		.profile {
+			height: 400px;
+			margin-top: 120px;
+		}
+
+		.info span {
+			width: 23%;
+		}
+	}
+
+	@@media(max-width: 1225px) {
+		.profile {
+			height: 400px;
+			margin-top: 80px;
+		}
+
+		.profile {
+			width: 70%;
+		}
+	}
+
+	@@media(max-width: 1000px) {
+		.profile {
+			width: 100%;
+		}
+	}
+	@@media (max-width: 768px) {
+		.HeaderConatanier {
+			display: flex;
+			flex-direction: column;
+			justify-content: center !important;
+			align-items: center;
+			flex-wrap: wrap;
+			/* margin-bottom: 15px; */
+			text-align: center;
+			/* background-color: red; */
+		}
+
+			.HeaderConatanier span{
+				margin-top: 10px;
+				margin-bottom: 0
+			}
+
+
+		.total-bookings-wrapper {
+			/* text-align: center; */
+			width: auto;
+			margin-top: 0;
+		}
+}
+
+	@@media(max-width: 765px) {
+		.profile {
+			height: 400px;
+			margin-top: 70px;
+		}
+
+		.info .input-group-text {
+			font-size: 17px;
+		}
+
+		.info .form-control {
+			font-size: 17px;
+		}
+
+		.info span {
+			width: 27%;
+		}
+	}
+	/* Optional: better spacing for small screens */
+
+	@@media(max-width: 517px) {
+		.profile {
+			height: 400px;
+			margin-top: 70px;
+		}
+
+		.info .input-group-text {
+			font-size: 16px;
+			/* background-color: red */
+		}
+
+		.info .form-control {
+			font-size: 16px;
+		}
+
+		.info span {
+			width: 30%;
+		}
+	}
+
+	@@media(max-width: 455px) {
+		.profile {
+			height: 400px;
+			margin-top: 70px;
+		}
+
+		.info .input-group-text {
+			font-size: 16px;
+			/* background-color: red */
+		}
+
+		.info .form-control {
+			font-size: 13px;
+		}
+
+		.info span {
+			width: 36%;
+		}
+	}
+
+</style>
+
+<script>
+	const passwordInput = document.getElementById("password");
+	function togglePassword() {
+		// احفظ موقع الكارسر الحالي
+		const cursorPosition = passwordInput.selectionStart;
+
+		// غيّر نوع الحقل
+		if (passwordInput.type === "password") {
+			passwordInput.type = "text";
+			eyeIcon.classList.remove("fa-eye");
+			eyeIcon.classList.add("fa-eye-slash");
+		} else {
+			passwordInput.type = "password";
+			eyeIcon.classList.remove("fa-eye-slash");
+			eyeIcon.classList.add("fa-eye");
+		}
+
+		// رجّع الكارسر لمكانه
+		passwordInput.setSelectionRange(cursorPosition, cursorPosition);
+	}
+</script>

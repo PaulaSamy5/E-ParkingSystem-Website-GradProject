@@ -1,0 +1,134 @@
+﻿@{
+	ViewData["Title"] = "OurUsers";
+	Layout = "_AdminLayout";
+}
+@model List<User>
+
+
+<h4 class="page-title" style="font-weight: 900; font-size: 27px;">Users</h4>
+
+<form method="get" class="d-flex align-items-end gap-3 mb-4">
+    <div class="form-group">
+        <label for="search">Search by Full Name or Email:</label>
+        <input type="text" name="search" id="search" class="form-control" placeholder="Enter Full Name or Email" value="@ViewBag.Search" autocomplete="off" />
+    </div>
+    <div class="form-group">
+        <label for="minBookings">Min Number of Bookings:</label>
+        <input type="number" name="minBookings" id="minBookings" class="form-control" placeholder="Enter minimum number of bookings" value="@ViewBag.MinBookings" />
+    </div>
+    <div class="form-group">
+		<button type="submit" onclick="scrollToTableOnReload()" class="btn btn-primary">Search</button>
+        <!-- Reset button to clear the search and minBookings -->
+		<a href="@Url.Action("Users", "AdminDashboard")" onclick="scrollToTableOnReload()" class="btn btn-secondary">Reset</a>
+    </div>
+</form>
+
+<!-- CSS لتحسين الاستجابة على الشاشات الصغيرة -->
+<style>
+	.NameForDetails {
+		color: #555555 !important
+	}
+
+		.NameForDetails:hover {
+			text-decoration: underline !important;
+			cursor: pointer;
+			/* border-bottom: 1px solid black; */
+		}
+    @@media (max-width: 767px) {
+        form.d-flex {
+            flex-direction: column; /* وضع الحقول في عمود */
+        }
+        .form-group {
+            width: 100%; /* جعل الحقول تأخذ العرض الكامل */
+            margin-bottom: 15px; /* إضافة مسافة بين الحقول */
+        }
+    }
+</style>
+
+
+
+
+
+<div id="Car-table" class="card" style="display: block; ">
+	<div class="card-header" style="display: flex; justify-content: space-between">
+		<div class="card-title">User Table</div>
+	</div>
+	<div class="card-body">
+		<div class="card-sub">
+			Here all the slots that <span style="color: red">cars</span> can use
+		</div>
+		<div class="table-responsive">
+			<table id="recordsTable" class="table table-bordered" style="text-align: center">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>User Name</th>
+						<th>Email</th>
+						<th>Gender</th>
+						<th>Bookings Count</th>
+					</tr>
+				</thead>
+				<tbody>
+					@{
+						int count = 1;
+					}
+					@foreach (var i in Model)
+					{
+						<tr>
+							<td>@(count++)</td>
+							<td>
+								<a class="NameForDetails" asp-action="UserDetails" asp-controller="AdminDashboard" asp-route-id="@i.Id" asp-route-fromPage="Users">@i.FName @i.LName</a>
+							</td>
+							<td>@i.Email</td>
+							<td>
+								@i.Gender
+						
+							</td>
+							<td>@(i.ParkingRecords?.Count() ?? 0)</td>
+						</tr>
+					}
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<style>
+	thead {
+		position: sticky;
+		top: -1px;
+		background-color: white;
+		z-index: 1;
+	}
+
+		thead th {
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+			background-color: #f8f9fa; /* لون خفيف */
+		}
+
+	.table-responsive {
+		max-height: 500px;
+		overflow-y: auto;
+		position: relative;
+	}
+</style>
+
+<script>
+	// حفظ الرغبة بالرجوع للجدول فقط
+	function scrollToTableOnReload() {
+		localStorage.setItem('scrollToTable', 'true');
+		location.reload();
+	}
+
+	// بعد تحميل الصفحة
+	window.addEventListener('load', () => {
+		if (localStorage.getItem('scrollToTable') === 'true') {
+			const table = document.getElementById('recordsTable');
+			if (table) {
+				table.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
+			localStorage.removeItem('scrollToTable');
+		}
+	});
+</script>

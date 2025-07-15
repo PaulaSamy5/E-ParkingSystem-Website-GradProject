@@ -1,0 +1,153 @@
+﻿@{
+	ViewData["Title"] = "UserDetailsForAdmin";
+	Layout = "_AdminLayout";
+}
+@model User
+<div class="user-details-container-hhh">
+	<h2 class="heading-hhh">User Details</h2>
+	<p class="user-info-hhh"><strong>Name:</strong> @Model.FName @Model.LName</p>
+	<p class="user-info-hhh"><strong>Email:</strong> @Model.Email</p>
+	<p class="user-info-hhh"><strong>Gender:</strong> @Model.Gender</p>
+	<p class="user-info-hhh"><strong>Bookings count:</strong> @Model.ParkingRecords?.Count()</p>
+
+
+
+
+	<h3 class="heading-hhh">Bookings</h3>
+	<div class="table-responsive-hhh">
+		<table class="table-hhh" style="text-align: center">
+			<thead class="thead-hhh">
+				<tr>
+					<th class="th-hhh">#</th>
+					<th class ="th-hhh">Reserved Slot</th>
+					@* <th class="th-hhh" style="width: 100px">Date</th> *@
+					<th class="th-hhh" style="width: 100px">Staring Date</th>
+
+					<th class="th-hhh">From</th>
+					<th class="th-hhh">To</th>
+					<th class="th-hhh">All duration</th>
+					<th class="th-hhh">Amount</th>
+					<th class="th-hhh">Plate Number</th>
+					<th class ="th-hhh">Vehicle Type</th>
+				</tr>
+			</thead>
+			<tbody class="tbody-hhh" style="text-align:center">
+				@if (Model.ParkingRecords == null || !Model.ParkingRecords.Any())
+				{
+					<tr>
+						<td colspan="9" class="td-hhh text-center">No bookings</td>
+					</tr>
+				}
+				else
+				{
+					int count = 1;
+					foreach (var i in Model.ParkingRecords)
+					{
+						<tr class="tr-hhh">
+							<td class="td-hhh">@count</td>
+							<td class="td-hhh">@(i.ParkingSpot != null ? i.ParkingSpot.SlotName : "Deleted !")</td>
+							<td class="td-hhh">@i.StartTime.ToString("yyyy-MM-dd")</td>
+							<td class="td-hhh">@i.StartTime.ToString("hh:mm tt")</td>
+							<td class="td-hhh">@i.EndTime.ToString("hh:mm tt")</td>
+							<td class="td-hhh">
+								@{
+									var duration = i.EndTime - i.StartTime;
+									var hours = duration.Hours;
+									var minutes = duration.Minutes;
+								}
+
+								@(
+									(hours != 0 || minutes != 0)
+									? $"{(hours != 0 ? $"{hours}h " : "")}{(minutes != 0 ? $"{minutes}m" : "")}"
+									: ""
+									)
+							</td>
+
+							<td class="td-hhh date-column">@i.Cost</td>
+							<td class="td-hhh date-column">@i.PlateNumber</td>
+							@if (i.vehicleType == "Car")
+							{
+								<td class="td-hhh"><i style="color: darkblue" class="fa-solid fa-car"></i></td>
+							}
+							else
+							{
+								<td class="td-hhh"><i style="color: brown" class="fa-solid fa-bus"></i></td>
+
+							}
+						</tr>
+						count++;
+					}
+				}
+			</tbody>
+
+		</table>
+	</div>
+</div>
+<style>
+	.user-details-container-hhh {
+		width: 60%; /* تحديد العرض المناسب للـ div */
+		max-width: 800px; /* الحد الأقصى للعرض */
+
+		margin: 50px auto; /* التوسيط الأفقي والعمودي */
+		margin-top: 30px;
+		padding: 20px;
+		background-color: #f9f9f9;
+		border-radius: 8px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	.table-hhh {
+		width: 100%;
+		border-collapse: collapse;
+		margin-top: 20px;
+		text-align: center !important;
+		align-items:center
+	}
+
+	.th-hhh, .td-hhh {
+		padding: 8px;
+		text-align: center; /* بدل left */
+		border: 1px solid #ddd;
+	}
+
+
+	.heading-hhh {
+		color: #333;
+	}
+
+	.user-info-hhh {
+		color: #555;
+	}
+
+	/* إضافة خاصية التمرير الأفقي */
+	.table-responsive-hhh {
+		max-height: 300px; /* أو أي ارتفاع يناسبك */
+		overflow-y: auto;
+		overflow-x: auto; /* عشان ما يظهرش سكرول أفقي */
+		-webkit-overflow-scrolling: touch; /* لجعل التمرير سلس على الأجهزة المحمولة */
+
+	}
+
+	.table-hhh {
+		min-width: 800px; /* لو عايزة تضمني إن فيه scroll يحصل */
+	}
+
+	.thead-hhh {
+		position: sticky;
+		top: 0;
+		background-color: #F9F9F9; /* أو اللون اللي تحبيه */
+		z-index: 1; /* عشان يفضل فوق بقية الصفوف */
+	}
+
+		.thead-hhh th {
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		}
+
+
+	@@media (max-width: 768px) {
+		.user-details-container-hhh {
+			width: 90%;
+		}
+	}
+
+</style>

@@ -1,0 +1,184 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+.alll {
+    background-color: #1a1a3e;
+    background-color: #2c2c5a;
+    width: 100%;
+    height: 100vh;
+}
+    /* Sign in page */
+
+    .alll .sign-in {
+        background-color: rgb(56, 56, 103);
+        width: 37%;
+        height: 60vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 50px;
+        box-shadow: 0 0 30px rgba(246, 246, 246, 0.1)
+    }
+
+
+        .alll .sign-in h2 {
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            font-size: 35px;
+            padding-bottom: 20px;
+        }
+
+        .alll .sign-in label {
+            color: aliceblue;
+            font-size: 18px;
+        }
+
+        .alll .sign-in input {
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            background-color: rgba(246, 246, 246, 0.1);
+            /*box-shadow:0 0 30px rgba(246, 246, 246, 0.1);*/
+            color: white;
+            padding: 3px 10px;
+            font-size: 20px;
+            margin-bottom: 2px
+        }
+
+        .alll .sign-in button {
+            margin-top: 20px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: 650;
+            color: white;
+            background-color: #393975;
+            padding: 3px 5px;
+            border: 3px solid #393975;
+            /*box-shadow:0 0 10px #2c2c5a;*/
+        }
+
+        .alll .sign-in p {
+            font-size: 16px;
+            padding-top: 17px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .alll .sign-in a {
+            text-decoration: none;
+            color: #6666d9;
+        }
+
+            .alll .sign-in a:hover {
+                color: #9494e2;
+            }
+
+        .alll .sign-in.up {
+            height: 90vh;
+        }
+
+.Inputs 
+{
+    margin: 20px;
+}
+.Inputs span
+{
+    color:red;
+    padding-top: 20px;
+}
+
+@media (max-width: 900px) {
+    .alll .sign-in {
+        width: 100%;
+        min-height: 100vh;
+        height: 100vh;
+        padding: 60px;
+        box-sizing: border-box;
+    }
+        .alll .sign-in.up {
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Increase font sizes */
+        .alll .sign-in h2 {
+            font-size: 50px; /* Larger font for the heading */
+        }
+
+        .alll .sign-in input {
+            font-size: 24px; /* Increase input font size */
+            padding: 10px;
+        }
+
+        .alll .sign-in button {
+            font-size: 26px; /* Bigger button text */
+        }
+
+        .alll .sign-in p {
+            font-size: 20px; /* Increase paragraph font size */
+        }
+
+        .alll .sign-in a {
+            font-size: 20px; /* Increase link font size */
+        }
+}
+
+@media (max-width: 450px) {
+    /* Full-page sign-in for mobile devices */
+    .alll .sign-in {
+        width: 100%;
+        height: 100vh;
+        padding: 40px;
+        box-sizing: border-box;
+    }
+
+        .alll .sign-in.up {
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Further increase font sizes for smaller screens */
+        .alll .sign-in h2 {
+            font-size: 40px; /* Larger font for the heading on mobile */
+        }
+
+        .alll .sign-in input {
+            font-size: 22px; /* Increase input font size */
+            padding: 8px;
+        }
+
+        .alll .sign-in button {
+            font-size: 24px; /* Bigger button text */
+        }
+
+        .alll .sign-in p {
+            font-size: 18px; /* Increase paragraph font size */
+        }
+
+        .alll .sign-in a {
+            font-size: 18px; /* Increase link font size */
+        }
+}
+
+.alll i {
+    float: right;
+    padding: 30px;
+    color: white;
+}
+
+.error-message {
+    font-size: 18px;
+    text-align: center;
+    color: red !important;
+    margin-top: 10px;
+}
+
+    .error-message p {
+        color:red !important;
+    }

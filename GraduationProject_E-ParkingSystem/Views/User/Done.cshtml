@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewData["Title"] = "Done";
+    // Layout = null;
+}
+@model UserSpotRecordDetailsViewModel
+
+@* 
+<h1>Done</h1>
+@if (!string.IsNullOrEmpty(Model.QRCode))
+{
+    <img src="data:image/png;base64,@Model.QRCode" alt="QR Code" />
+}
+else
+{
+    <p>QR code generation failed.</p>
+}
+@Model.SpotId
+@Model.UserId
+@Model.SpotNumber
+ *@
+
+<div class="container">
+    <div class="text-section">
+        <div class="text-section">
+            <p class="checkmark">✅</p>
+            <p class="message">
+                You booked the slot successfully 
+                Please don’t exit this page or take a
+                screenshot for the QR Code
+            </p>
+        </div>
+    </div>
+    <div class="qr-section">
+        @if (!string.IsNullOrEmpty(Model.QRCode))
+        {
+            <img src="data:image/png;base64,@Model.QRCode" alt="QR Code" class="qr-code">
+
+        }
+        else
+        {
+            <p>QR code generation failed.</p>
+        }
+    </div>
+</div>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fff;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    width: 90%;
+    /* background-color: red; */
+}
+
+.text-section {
+    flex: 1;
+}
+
+.checkmark {
+        width: 95%;
+        font-size: 40px;
+        display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    /* background-color:red */
+}
+
+.message {
+    font-size: 40px;
+    /* background-color:red; */
+    width: 95%;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    line-height: 1.5; 
+}
+
+.qr-section {
+    margin-left: 30px;
+}
+
+.qr-code {
+    width: 500px; 
+    height: 400px; 
+}
+@@media (max-width: 1000px) {
+    .message {
+        font-size: 30px;
+        font-weight: bold;
+        color: black;
+        line-height: 1.5; 
+    }
+    .qr-code {
+        width: 350px; 
+        height: 300px; 
+    }
+}
+@@media (max-width: 700px) {
+    .message {
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+        line-height: 1.5; 
+    }
+}
+
+@@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .checkmark{
+        width: 100%;
+    }
+    .qr-section {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+</style>

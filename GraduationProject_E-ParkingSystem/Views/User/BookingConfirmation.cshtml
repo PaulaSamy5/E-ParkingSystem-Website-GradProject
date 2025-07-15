@@ -1,0 +1,256 @@
+﻿@{
+	ViewData["Title"] = "BookingConfirmation";
+	ViewData["HideFooter"] = "true";
+
+}
+@model UserSpotRecordDetailsViewModel
+
+<style>
+	/* General Reset */
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+/* 		font-family: Arial, sans-serif;
+ */		overflow-y: hidden;
+	}
+
+	.parking-container {
+		width: 570.5px;
+		height: 50vh;
+		padding: 20px;
+		background-color: #ffffff;
+		border-radius: 10px;
+		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Shadow added */
+		text-align: center;
+		top: 50%;
+		left: 50%;
+		position: absolute;
+		transform: translate(-50%, -50%);
+		font-weight: 500
+	}
+
+		/* Header */
+		.parking-container h2 {
+			margin-bottom: 10px;
+			font-size: 1.8rem;
+			color: #333;
+		}
+
+	.date {
+		font-size: 1rem;
+		color: #666;
+		margin-bottom: 20px;
+	}
+
+	/* Details Section */
+	.details {
+		font-size: 1rem;
+		margin-bottom: 20px;
+	}
+	
+	.time-info,
+	.vehicle-info,
+	.amount {
+		margin-bottom: 20px;
+	}
+
+		.time-info span,
+		.vehicle-info span {
+			display: inline-block;
+			margin: 5px 0;
+		}
+
+	.duration {
+		background-color: #ddd;
+		color: #333;
+		font-weight: bold;
+		padding: 5px 10px;
+		border-radius: 20px;
+		margin: 0 10px;
+	}
+
+	/* Highlighted Tags */
+	.tag {
+		display: inline-block;
+		background-color: #e0e0e0;
+		color: #333;
+		font-weight: bold;
+		padding: 5px 5px;
+		border-radius: 5px;
+	}
+
+	/* Buttons */
+	.buttons {
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+	}
+
+	button {
+
+	}
+
+	.confirm-btn {
+		background-color: #000;
+		border: 1px solid black;
+		transition: all 0.5s;
+		flex: 1;
+		padding: 10px;
+		font-size: 1rem;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	.arr {
+		width: 120px; /* Adjust the width to your preference */
+		white-space: nowrap; /* Prevent text from wrapping */
+	}
+
+</style>
+<div class="parking-container">
+	<h2>Slot @Model.SpotNumber</h2>
+	<p class="date">Today: @DateTime.Today.ToShortDateString()</p>
+
+	<!-- Details Section (using a table for organization) -->
+	<table class="details-table">
+		<tr class="first">
+			<td class="arr">Arriving Time: @Model.StartTime.ToShortTimeString()</td>
+			<td><span class="duration">@Model.Duration<span>h</span></span></td>
+			<td><strong>Leaving Time: @Model.EndTime.ToShortTimeString()</strong></td>
+
+		</tr>
+		<tr style="background-color: white">
+			<td colspan="2">Vehicle Type: <strong><span class="tag">@Model.vehicleType</span></strong></td>
+			<td colspan="1"><span style="font-weight: bold;">Plate Number:</span> <span class="tag">@Model.PlateNumber</span></td>
+		</tr>
+
+		<tr>
+			<td colspan="3">Amount: <span class="tag">@Model.Cost EGP</span></td>
+		</tr>
+	</table>
+
+	<!-- Buttons Section -->
+	<form id="myForm" asp-action="ConfirmBooking" asp-controller="User" method="post">
+		<!-- Hidden Fields -->
+		<input type="hidden" asp-for="UserId" />
+		<input type="hidden" asp-for="SpotId" />
+		<input type="hidden" asp-for="SpotNumber" />
+		<input type="hidden" asp-for="StartTime" />
+		<input type="hidden" asp-for="Duration" />
+		<input type="hidden" asp-for="EndTime" />
+		<input type="hidden" asp-for="vehicleType" />
+		<input type="hidden" asp-for="PlateNumber" />
+		<input type="hidden" asp-for="Cost" />
+
+		<!-- Buttons -->
+		<div class="buttons">
+			<button type="submit" class="confirm-btn" style="border: 1px solid black">Confirm and pay</button>
+
+			<button type="button" class="confirm-btn" style="border: 1px solid black" onclick="submitToCancel()">Cancel</button>
+		</div>
+	</form>
+
+</div>
+
+<style>
+	/* Table Styling */
+	.details-table {
+		width: 100%;
+		margin-bottom: 20px;
+		border-collapse: collapse;
+	}
+
+		.details-table td {
+			padding: 10px;
+			text-align: left;
+		}
+
+		.details-table tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
+
+		.details-table td:first-child {
+			font-weight: bold;
+			width: 150px;
+		}
+
+	/* Style for Buttons */
+	.buttons {
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+	}
+
+	.confirm-btn {
+		padding: 10px;
+		background-color: #000;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		font-weight: 600;
+		transition: all 0.4s;
+	}
+
+		.confirm-btn:hover {
+			background-color: #dbdada;
+			color: #000;
+			border: 1px solid #000;
+		}
+
+	@@media(max-width: 1000px) {
+		.parking-container{
+			width: 70%;
+		}
+
+		
+	}
+
+	@@media(max-width: 800px) {
+		.parking-container {
+			width: 80%;
+		}
+	}
+	@@media(max-width: 594px) {
+		.parking-container {
+			width: 100%;
+			/*update was here in these two lines*/
+			height: 60vh;
+			padding: 30px
+			
+		}
+
+	}
+</style>
+
+<style>
+	.confirm-btn:hover {
+		background-color: #dbdada;
+		color: #000;
+		border: 1px solid #000;
+	}
+</style>
+@* <script>
+	// التحقق من أن البيانات فارغة في الـ Model
+	if (!@Model) {
+		window.history.back(2); // العودة إلى الصفحة السابقة
+	}
+</script> *@
+
+<script>
+	function submitToCancel() {
+		const form = document.getElementById('myForm');
+		form.action = '@Url.Action("EnterDetails", "User")';
+		form.submit();
+	}
+</script>

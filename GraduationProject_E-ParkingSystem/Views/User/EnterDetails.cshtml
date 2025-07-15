@@ -1,0 +1,265 @@
+﻿ @*{
+	ViewData["Title"] = "Enter Details";
+}
+ *@
+@model GraduationProject_E_ParkingSystem.Models.ViewModel.UserSpotRecordDetailsViewModel
+@* 
+<style>
+	body {
+		height: 100vh;
+		overflow-y: hidden
+	}
+
+	.form-container {
+		width: 588px;
+		height: 500px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		padding: 50px;
+		box-shadow: 0 0 30px rgba(246, 246, 246, 0.1) background-color: #ffffff;
+		padding: 20px;
+		border-radius: 8px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+
+		.form-container h1 {
+			font-size: 1.2rem;
+			margin-bottom: 10px;
+		}
+
+		.form-container p {
+			font-size: 0.9rem;
+			margin-bottom: 20px;
+		}
+
+	.form-group {
+		margin-bottom: 15px;
+	}
+
+		.form-group label {
+			display: block;
+			margin-bottom: 8px;
+			font-weight: bold;
+			font-size: 0.9rem;
+		}
+
+		.form-group input[type="radio"] {
+			margin-right: 5px;
+		}
+
+	.duration-options {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 20px;
+	}
+
+		.duration-options button {
+			width: 50px;
+			height: 50px;
+			border: 1px solid #000;
+			border-radius: 4px;
+			background-color: #f5f5f5;
+			font-size: 1rem;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+			.duration-options button.active {
+				background-color: #000;
+				color: #fff;
+			}
+
+	input[type="text"] {
+		width: 100%;
+		padding: 10px;
+		font-size: 1rem;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+
+	.button-group {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 20px;
+	}
+
+		.button-group button {
+			width: 45%;
+			padding: 10px;
+			font-size: 1rem;
+			font-weight: bold;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		.button-group .submit {
+			background-color: #000;
+			transition: all 0.4s;
+		}
+
+		.button-group .cancel {
+			background-color: #000;
+			transition: all 0.4s;
+		}
+
+	.form-group {
+		margin-bottom: 15px;
+	}
+
+		.form-group label {
+			font-weight: bold;
+			font-size: 0.9rem;
+		}
+
+	.vehicle-options {
+		display: block;
+		align-items: center;
+		gap: 10px; /* Adds spacing between each radio button and label */
+	}
+
+		.vehicle-options label {
+			display: block;
+			align-items: center;
+			gap: 5px; /* Adds spacing between the radio button and its label */
+		}
+
+	.duration-options {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 20px;
+	}
+
+		.duration-options input[type="radio"] {
+			display: none; /* Hide radio buttons */
+		}
+
+		.duration-options label {
+			width: 50px;
+			height: 50px;
+			border: 1px solid #000;
+			border-radius: 4px;
+			background-color: #f5f5f5;
+			font-size: 1rem;
+			font-weight: bold;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: background-color 0.3s, transform 0.2s;
+		}
+
+			/* Hover effect */
+			.duration-options label:hover {
+				background-color: #000;
+				color: #fff;
+				transform: scale(1.1); /* Slightly increase size on hover */
+			}
+
+		/* Active button effect */
+		.duration-options input[type="radio"]:checked + label {
+			background-color: #000;
+			color: #fff;
+		}
+
+	/* Input field for displaying selected value */
+	.duration-input {
+		width: 100%;
+		padding: 10px;
+		font-size: 1rem;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+</style>
+
+<div class="form-container">
+	@Model.UserDetails.UserName
+	<h1 style="text-align: center">Slot @Model.SpotDetails.SpotNumber</h1>
+	<p style="text-align:center">Today: @DateTime.Now.ToShortDateString()</p>
+	<p>Your booking will start after 30 minutes</p>
+	<form asp-action="BookTheSlot" asp-controller="User" method="post">
+		<div class="form-group">
+			<label>Duration (hour)</label>
+			<div class="duration-options">
+				<input type="radio" id="duration1" asp-for="Records.Duration" value="1">
+				<label asp-for="Records.Duration" for="duration1">1</label>
+
+				<input type="radio" id="duration2" name="duration" asp-for="Records.Duration" value="2">
+				<label asp-for="Records.Duration" for="duration2">2</label>
+
+				<input type="radio" id="duration3" name="duration" asp-for="Records.Duration" value="3">
+				<label asp-for="Records.Duration" for="duration3">3</label>
+
+				<input type="radio" id="duration4" name="duration" asp-for="Records.Duration" value="4">
+				<label asp-for="Records.Duration" for="duration4">4</label>
+			</div>
+			<span asp-validation-for="Records.Duration"></span>
+			@* <input type="text" id="selected-duration" asp-for="Records.Duration" class="duration-input" placeholder="Enter duration" readonly hidden> *@
+		@*</div>
+
+		<div class="form-group">
+			<label>Vehicle Type</label>
+			<div class="vehicle-options">
+				<label><input type="radio" asp-for="Records.vehicleType" value="car"> Car</label>
+				<label><input type="radio" asp-for="Records.vehicleType" value="bus"> Bus</label>
+				<label><input type="radio" asp-for="Records.vehicleType" value="bike"> Bike</label>
+			</div>
+			<span asp-validation-for="Records.vehicleType"></span>
+		</div>
+
+
+		<div class="form-group">
+			<label for="plate-number" asp-for="Records.PlateNumber">Plate Number</label>
+			<input type="text" asp-for="Records.PlateNumber" id="plate-number" placeholder="Enter your plate number" value="@Model?.Records.PlateNumber">
+			<span asp-validation-for="Records.ParkingSpot"></span>
+		</div>
+
+		<div class="button-group">
+			<button class="submit" type="submit" style="border: 1px solid black">Submit</button>
+			<button class="cancel">Cancel</button>
+		</div>
+	</form>
+
+</div>
+ *@
+<style>
+	.vehicle-options {
+		display: flex; /* Aligns the options in a single line */
+		align-items: center;
+		justify-content: space-around;
+		gap: 10px; /* Adds spacing between each radio button and label */
+	}
+
+		.vehicle-options label {
+			display: flex; /* Aligns the radio button and text horizontally */
+			align-items: center;
+			gap: 5px; /* Adds spacing between the radio button and its label */
+		}
+
+	.submit:hover {
+		background-color: white;
+		border: black 1px solid;
+		color: black;
+	}
+
+	.cancel:hover {
+		background-color: white;
+		border: black 1px solid;
+		color: black;
+	}
+
+</style>
+<script>
+	const durationRadios = document.querySelectorAll('.duration-options input[type="radio"]');
+	const durationInput = document.getElementById('selected-duration');
+
+	// Listen for change event to update the input field when a radio button is selected
+	durationRadios.forEach(radio => {
+		radio.addEventListener('change', (event) => {
+			durationInput.value = event.target.value;
+		});
+	});
+</script> 

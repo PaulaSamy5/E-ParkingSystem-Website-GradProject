@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Add Parking Spots";
+    if (TempData["PricePerHour"] != null)
+    {
+        ViewBag.PricePerHour = Convert.ToDouble(TempData["PricePerHour"]); // Convert TempData value to double
+    }
+    else
+    {
+        ViewBag.PricePerHour = 0.0; // Default value if TempData is null
+    }
+}
+
+<div class="centered-container">
+    <!-- Form for updating the price per hour -->
+    <div class="form-container">
+        <h2>Update Price Per Hour</h2>
+        <form asp-action="UpdateThePrice" asp-controller="ParkingSpots" method="post">
+            <div class="form-group">
+                <label for="PricePerHour">Price Per Hour</label>
+                <input type="text" class="form-control" id="PricePerHour" name="price"
+                       value="@ViewBag.PricePerHour" />
+            </div>
+            <button type="submit" class="btn btn-primary">Update Price</button>
+        </form>
+    </div>
+    @model ParkingSpots
+
+    <div class="centered-container">
+        <!-- Form for saving the parking spot -->
+        <div class="form-container">
+            <h2>Save Parking Spot</h2>
+            <form asp-action="SaveSpot" asp-controller="ParkingSpots" method="post">
+                <div class="form-group">
+                    <label asp-for="SlotName">The Name Of The Slot</label>
+                    <input type="text" class="form-control" id="SpotNumber" value="@Model?.SlotName" asp-for="SlotName" />
+                    <span asp-validation-for="SlotName" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Add The Spot</button>
+            </form>
+        </div>
+    </div>
+
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+         display: flex; 
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0; /* Light background color for better contrast */
+    }
+
+    .centered-container {
+        display: flex;
+        flex-direction: column; /* Arrange forms vertically */
+        align-items: center;
+        gap: 20px; /* Space between forms */
+        width: 100%;
+    }
+
+    .form-container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        text-align: center; /* Center text within forms */
+    }
+
+    h2 {
+        margin-bottom: 20px; /* Space below the heading */
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left; /* Align label and input text to the left */
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 5px; /* Space below the label */
+        display: block; /* Ensure label is on its own line */
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s; /* Smooth background color transition */
+    }
+
+        button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+</style>

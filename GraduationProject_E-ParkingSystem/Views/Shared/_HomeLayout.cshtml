@@ -1,0 +1,322 @@
+﻿@using GraduationProject_E_ParkingSystem.Models.Context
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - GraduationProject_E_ParkingSystem</title>
+	<!-- Add this link in the <head> section of your HTML -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	@* 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" /> *@
+
+
+
+	@*For inter font*@
+	@*--------------------------------------------------------------------------------*@
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&family=Spline+Sans:wght@300..700&display=swap" rel="stylesheet">
+	@*--------------------------------------------------------------------------------*@
+
+
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/GraduationProject_E_ParkingSystem.styles.css" asp-append-version="true" />
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: 'Inter', sans-serif;
+		}
+
+
+
+		nav, .navbar {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			/* height: 69px; */
+			margin-bottom: 50px;
+			/* z-index: 9999; /* تأكد من أن الـ nav في أعلى الصفحة */
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* الظل العصري */
+			background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة مع لون أبيض */
+		}
+
+		.user-name:hover {
+			text-decoration: underline
+		}
+
+		.nav-item.active,
+		.nav-link.active {
+			color: #ffa500;
+			transition: none;
+			border-bottom: solid #ffae1c 1px;
+		}
+		/*for hande blue color*/
+		.nav-item:focus,
+		.nav-link:focus {
+			color: #ffa500;
+			transition: none;
+			border-bottom: solid #ffae1c 1px;
+		}
+
+
+		@@media (max-width: 991.5px) {
+			nav, .navbar {
+				background-color: rgba(255, 255, 255, 0.9); /* زيادة الشفافية أو تغيير اللون في الشاشات الصغيرة */
+			}
+			/* عند ظهور زر الـ hamburger menu */
+			.navbar-toggler {
+				border: none; /* إزالة الحدود حول الـ hamburger */
+			}
+			/* عند ظهور زر الـ hamburger menu */
+			.navbar-toggler {
+				border: none; /* إزالة الحدود حول الـ hamburger */
+			}
+
+			.divfornav {
+				width: 100%;
+				/* 				background-color: red;
+		 */ display: flex;
+				justify-content: space-between;
+				align-items: center;
+				align-content: center;
+			}
+
+			.nav-item,
+			.nav-link {
+				transition: none; /* منع أي تأثيرات انتقالية */
+				transition: all 0.6s;
+			}
+				/* .nav-item.active,
+		.nav-link.active {
+			color: #ff7f50;
+			transition: none;
+		} */
+				.nav-item.active,
+				.nav-link.active {
+					color: #ffa500;
+					transition: none;
+					border-bottom: none;
+				}
+
+				.nav-item:hover,
+				.nav-link:hover {
+					margin: 0;
+					padding-left: 20px;
+					background-color: transparent; /* إلغاء أي تأثير لون خلفية عند الـ hover */
+					text-decoration: none !important;
+					border-bottom: none;
+					box-shadow: none; /* إلغاء أي تأثيرات أخرى مثل الظلال */
+				}
+
+			.navbar-toggler:focus {
+				border: none
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary " style="align-items:center; margin-bottom: 0px; padding-bottom:0; z-index: 999">
+
+		<div class="container-fluid justify-content-center">
+			<div class="divfornav">
+				<a class="navbar-brand" href="#">
+					<img src="~/Images/logo.png" style="height: 50px" alt="Alternate Text" />
+				</a>
+				<button class="navbar-toggler" type="button" style="font-size: 35px; text-align: center; align-items: center; padding: 10px; border:none"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon">
+						<i class="fa-solid fa-bars"></i>
+					</span>
+				</button>
+
+
+			</div>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link @(ViewData["ActivePage"]?.ToString() == "HomePage" ? "active" : "") navtext" aria-current="page" href="@Url.Action("HomePage", "User")">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link @(ViewData["ActivePage"]?.ToString() == "CarSlots" ? "active" : "") navtext" aria-current="page" href="@Url.Action("MainPage", "User")">@* Slots *@ Car <i class="fa-solid fa-car"></i></a>
+						@* <a class="nav-link active navtext" aria-current="page" href="@Url.Action("MainPage", "User")"> Car <i class="fa-solid fa-car"></i></a> *@
+					</li>
+					<li class="nav-item">
+						<a class="nav-link @(ViewData["ActivePage"]?.ToString() == "BusSlots" ? "active" : "") navtext" aria-current="page" href="@Url.Action("MainPageBus", "User")">@* Slots *@ Bus <i class="fa-solid fa-bus"></i></a>
+						@* <a class="nav-link active  navtext" aria-current="page" href="@Url.Action("MainPageBus", "User")"Bus <i class="fa-solid fa-bus"></i></a> *@
+					</li>
+					<li class="nav-item">
+						<a class="nav-link @(ViewData["ActivePage"]?.ToString() == "Feedback" ? "active" : "") navtext" aria-current="page" href="@Url.Action("Feedback", "User")">Feedback</a>
+						@* <a class="nav-link active navtext" aria-current="page" href="@Url.Action("Feedback", "User")">Feedback</a> *@
+					</li>
+					<li class="nav-item">
+						<a class="nav-link @(ViewData["ActivePage"]?.ToString() == "BestFeatures" ? "active" : "") navtext" aria-current="page" href="@Url.Action("BestFeatures", "User")">Best Features</a>
+						@* <a class="nav-link active navtext" aria-current="page" href="@Url.Action("BestFeatures", "User")">Best Features</a> *@
+					</li>
+					@* <li class="nav-item">
+					<a class="nav-link active navtext" aria-current="page" href="#">Home</a>
+					</li>
+					<li class="nav-item">
+					<a class="nav-link active navtext" aria-current="page" href="#">Home</a>
+					</li> *@
+					@{
+						DBContext context = new DBContext();
+						int? userId = Context.Session.GetInt32("Id");
+						string Password = Context.Session.GetString("Password");
+						var isAdminString = Context.Session.GetString("IsAdmin");
+						bool isAdmin = !string.IsNullOrEmpty(isAdminString) && bool.Parse(isAdminString);
+
+
+
+						User user = context.Users.FirstOrDefault(u => u.Id == userId);
+					}
+					@if (isAdmin
+										@* Password.Contains("@a$dm69Yi%N&") *@
+										@* userId == 24 *@)
+					{
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle navtext" id="adminDropdown" style="color: black; border: none" href="#" role="button">
+								Admin
+							</a>
+							<ul class="dropdown-menu" id="adminDropdownMenu">
+								<li><a asp-action="Add" asp-controller="ParkingSpots" class="dropdown-item">Add parking spots</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">See the data</a></li>
+							</ul>
+						</li>
+
+					}
+				</ul>
+				<div class="d-flex things" role="search">
+					@{
+						var userName = Context.Session.GetString("UserName"); // Accessing session data
+
+						@*Update the name to be of two words only in the welcome*@
+						var fullName = $"{user.FName} {user.LName}";
+						var nameParts = fullName.Split(' ');
+						string displayName;
+						if (nameParts.Length > 2)
+						{
+							displayName = string.Join(" ", nameParts.Take(2));
+						}
+						else
+						{
+							displayName = fullName;
+						}
+					}
+					@if (!string.IsNullOrEmpty(userName))
+					{
+						<span class="navbar-text" style="margin-right: 20px; font-size:25px">
+							<span class="welcome-text">Welcome,</span>
+							<span class="user-name">
+								<a href="@Url.Action("Profile", "User")" style="text-decoration: none; color: inherit;">
+									@* @user.FName @user.LName *@        @displayName
+								</a>
+							</span>
+							@* <span class="user-name">@ViewData["UserName"]</span> *@
+						</span>
+
+						<a asp-action="LogOut" asp-controller="User" class="btn btn-danger  LogOutButton ms-2">Logout</a>
+					}
+					else
+					{
+						<a href="@Url.Action("SignIn", "User")" class="btn btn-primary">Sign In</a>
+						<a href="@Url.Action("SignUp", "User")" class="btn btn-secondary ms-2">Sign Up</a>
+					}
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid" style="padding-top: 56px; margin-top: 100px; max-height: 610px; padding: 0">
+		<main role="main" class="pb-3" style="width: 100%; margin: 0;">
+			@RenderBody()
+		</main>
+	</div>
+
+
+
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@* 	<script>
+	// Modal control for parking spots
+	document.getElementById('openModal').onclick = function (e) {
+	e.preventDefault();
+	document.getElementById('modal').style.display = 'block';
+	}
+	document.getElementById('closeModal').onclick = function () {
+	document.getElementById('modal').style.display = 'none';
+	}
+	// Modal control for users (example for a second modal)
+	document.getElementById('openUserModal').onclick = function (e) {
+	e.preventDefault();
+	document.getElementById('userModal').style.display = 'block';
+	}
+	document.getElementById('closeUserModal').onclick = function () {
+	document.getElementById('userModal').style.display = 'none';
+	}
+	</script> *@
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			// Function to periodically check for expired bookings
+			function checkBookingStatus() {
+				console.log("Checking booking status...");
+
+				// Send AJAX request to check and update the spot's booking status
+				$.ajax({
+					url: '@Url.Action("CheckAndUpdateBookingStatus", "ParkingSpots")',
+					type: 'GET',
+					success: function (response) {
+						if (response.success) {
+							console.log("Spot status updated successfully.");
+							// location.reload(); // Optional: reload the page
+						} else {
+							console.log("Error updating spot status.");
+						}
+					},
+					error: function () {
+						console.log("Error while checking booking status.");
+					}
+				});
+			}
+
+			// Set an interval to check every minute (60000ms)
+			setInterval(checkBookingStatus, 60000);
+		});
+	</script>
+
+
+
+	@* 	<script>
+	document.querySelector(".navbar-toggler").addEventListener("click", function () {
+	let menu = document.getElementById("navbarSupportedContent");
+
+	if (menu.classList.contains("show")) {
+	menu.classList.add("hide"); // يقفله
+	} else {
+	menu.classList.add("show"); // يفتحه
+	}
+	});
+	</script> *@
+
+	@*
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> *@
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

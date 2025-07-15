@@ -1,0 +1,1173 @@
+﻿@* @{
+	ViewData["Title"] = "HomePage";
+	Layout = "_HomeLayout";
+
+}
+
+<div class="MyHomePage">
+	<div style="margin-top: 30px;">
+		<h1 class="title" style="font-size: 25px;">
+			Welcome to Egypt International Exhibition Center
+		</h1>
+		<div class="main-container-dash">
+
+			<div class="content-box-dash">
+
+				<!-- Left Side -->
+				<div class="left-dash">
+					<h2 style="font-weight: bold; font-size: 28px;">Details</h2>
+					<p class="p-wrap para" style="">
+						Egypt International exhibition center, New Cairo,<br /> 5th settlement, El Moshir Tantawy Axis, Cairo<br /> Governate
+					</p>
+					<h2 style="margin-top: 30px; font-weight: bold; font-size: 24px;">operation</h2>
+					<p style="margin-top: 10px; font-size: 16px;">Open Now for 24/ 7 days</p>
+
+					<div class="map-container-dash">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.7784550009437!2d31.384031399999998!3d30.014517200000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583c5d56f22421%3A0x492fa96d046d8955!2sEgypt&#39;s%20International%20Exhibition%20Center!5e0!3m2!1sen!2seg!4v1745342929747!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+				</div>
+
+				<div class="centerLine"></div>
+				<!-- Right Side -->
+				<div class="right-dash">
+					<!-- Main Button -->
+					<button class="btn-dash" onclick="openModal()">
+						<span class="btn-text">Book your Slot Now</span>
+						<span class="btn-arrow">
+							<i class="fa-solid fa-long-arrow-right"></i>
+						</span>
+					</button>
+
+					<!-- Modal -->
+					<div id="slotModal" class="modal-overlay">
+						<div class="modal-content">
+							<h2>Select Vehicle Type </h2>
+
+							<a class="btn-dash" href="@Url.Action("MainPage", "User")">
+								<span class="btn-text">Car <i class="fa-solid fa-car-rear" style="margin-left: 8px;"></i></span>
+								<span class="btn-arrow">
+									<i class="fa-solid fa-long-arrow-right"></i>
+								</span>
+							</a>
+							<a class="btn-dash" href="@Url.Action("MainPageBus", "User")">
+								<span class="btn-text">Bus <i class="fa-solid fa-bus" style="margin-left: 8px;"></i></span>
+								<span class="btn-arrow">
+									<i class="fa-solid fa-long-arrow-right"></i>
+								</span>
+							</a>
+							<span class="close-btn" onclick="closeModal()">&times;</span>
+						</div>
+					</div>
+
+
+
+					<a class="btn-dash" href="@Url.Action("Feedback", "User")">
+						<span class="btn-text">Add A Feedback</span>
+						<span class="btn-arrow"><i class="fa-solid fa-long-arrow-right"></i></span>
+					</a>
+
+					<button class="btn-dash">
+						<span class="btn-text">Our best Features</span>
+						<span class="btn-arrow"><i class="fa-solid fa-long-arrow-right"></i></span>
+					</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	body {
+		overflow: hidden;
+		/* height: 2000px  */
+	}
+
+	.p-wrap {
+		white-space: normal; /* للسماح لكسر السطور حسب الحاجة */
+		word-wrap: break-word; /* للسماح للكلمات بالكسر إذا كانت لا تتسع */
+	}
+
+	.title {
+		margin: auto;
+		text-align: center;
+		font-size: 24px;
+		font-weight: 750;
+		/* margin-bottom: 20px; */
+		margin-top: 30px;
+		width: 30%;
+		/* background-color: red; */
+	}
+
+	.para{
+		margin-top: 10px;
+		font-size: 16px;
+	}
+	p {
+		font-family: 'Inter', sans-serif;
+	}
+
+
+	body {
+		min-height: 100vh;
+		width: 100%;
+		background-image: url('/Images/bcg.jpeg');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+
+	.main-container-dash {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 40px;
+		/* background: linear-gradient(to bottom right, #e0f7fa, #fff3e0); */
+		/* background-color:red */
+	}
+
+	.centerLine {
+		position: absolute;
+		top: 25%;
+		height: 50%;
+		left: 50%;
+		width: 2px;
+		background-color: black; /* light red */
+		transform: translate(-50%, 0); /* center it horizontally */
+		z-index: 0;
+		border-radius: 10px;
+		height: 220px;
+	}
+
+
+	.content-box-dash {
+		display: flex;
+		flex-wrap: wrap;
+		max-width: 1100px;
+		width: 100%;
+	}
+
+	.left-dash {
+		flex: 1 1 50%;
+		padding: 20px;
+		box-sizing: border-box;
+		/* background-color: red */
+	}
+
+	.map-container-dash {
+		margin-top: 20px;
+		width: 500px;
+	}
+
+		.map-container-dash img {
+			width: 100%;
+			max-width: 400px;
+			/* border-radius: 5px; */
+		}
+
+	iframe {
+		width: 80%;
+		/* max-width: 350px; */
+		border-radius: 10px;
+		height: 250px;
+		border-radius: 5px;
+	}
+
+	.right-dash {
+		flex: 1 1 50%;
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		/* justify-content: center; */
+		align-items: center;
+		box-sizing: border-box;
+		margin-top: 20px;
+	}
+
+	.btn-dash {
+		width: 330px;
+		height: 30px;
+		padding: 10px;
+		background-color: black;
+		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: 500;
+		border: 3px solid black;
+		border-radius: 8px;
+		font-size: 16px;
+		margin-bottom: 15px;
+		text-decoration: none;
+		cursor: pointer;
+		font-size: 18px;
+		margin-bottom: 15px;
+		cursor: pointer;
+		overflow: hidden;
+		transition: all 0.6s ease;
+	}
+
+		.btn-dash:hover {
+			background-color: #3b3b3b; /* لون دخاني ناعم */
+			border: 3px solid #3b3b3b;
+			color: white;
+		}
+
+
+
+
+		.btn-dash .btn-text,
+		.btn-dash .btn-arrow {
+			transition: all 0.4s ease;
+			display: inline-block;
+		}
+
+		.btn-dash .btn-arrow {
+			opacity: 0;
+			transform: translateX(-10px);
+		}
+
+		.btn-dash:hover .btn-text {
+			transform: translateX(-10px);
+		}
+
+		.btn-dash:hover .btn-arrow {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	/* Modal Background */
+	.modal-overlay {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(0, 0, 0, 0.6);
+		display: none;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+	}
+
+	/* Modal Box */
+	.modal-content {
+		background: #fff;
+		padding: 30px;
+		border-radius: 12px;
+		text-align: center;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+		position: relative;
+		width: 400px;
+		animation: fadeInScale 0.5s ease forwards;
+	}
+
+		/* Title */
+		.modal-content h2 {
+			margin-bottom: 25px;
+			color: #333;
+		}
+
+	/* Close Button */
+	.close-btn {
+		position: absolute;
+		top: 10px;
+		right: 15px;
+		font-size: 28px;
+		color: #888;
+		cursor: pointer;
+		transition: color 0.3s ease;
+	}
+
+		.close-btn:hover {
+			color: #000;
+		}
+
+	/* Keyframe Animation for Modal Appear */
+	@@keyframes fadeInScale {
+		from {
+			opacity: 0;
+			transform: scale(0.8) translateY(-20px);
+		}
+
+		to {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
+	}
+
+	/* Keyframe Animation for Modal Disappear */
+	@@keyframes fadeOutScale {
+		from {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
+
+		to {
+			opacity: 0;
+			transform: scale(0.8) translateY(-20px);
+		}
+	}
+
+	@@media (max-width: 1249px) {
+		.title {
+			font-size: 30px; /* زيادة حجم الخط */
+			width: 40%; /* تقليل العرض */
+		}
+	}
+
+	@@media (max-width: 1160px) {
+		.MyHomePage {
+			/* ضبط الخلفية أو الحجم أو أي خصائص أخرى */
+			background-size: cover; /* ضبط حجم الخلفية */
+			background-position: center; /* ضبط الخلفية في المنتصف */
+		}
+
+		.main-container-dash {
+			padding: 40px; /* زيادة الحشو */
+			/* يمكنك تعديل العرض والارتفاع هنا */
+		}
+
+		.title {
+			font-size: 30px; /* زيادة حجم الخط */
+			width: 40%; /* تقليل العرض */
+		}
+
+		.content-box-dash {
+			max-width: 1200px; /* زيادة أقصى عرض للصندوق */
+		}
+
+		.left-dash, .right-dash {
+			flex: 1 1 45%; /* جعل الأعمدة أكثر ضيقًا بحيث تتناسب بشكل أفضل */
+			width: 45%;
+		}
+
+
+		.btn-dash {
+			width: 350px; /* زيادة عرض الأزرار */
+			font-size: 18px; /* زيادة حجم الخط */
+		}
+
+		iframe {
+			width: 75%; /* تعديل عرض الـ iframe */
+			height: 270px; /* تعديل ارتفاع الـ iframe */
+		}
+	}
+
+	@@media (max-width: 991.5px) {
+		body {
+			/* overflow-y: visible;
+			height: 500px */
+		}
+
+		.content-box-dash {
+			margin-bottom: 0
+		}
+		.centerLine {
+			display: none
+		}
+
+		.title {
+			width: 500px
+		}
+
+		iframe {
+			width: 75%; /* تعديل عرض الـ iframe */
+			height: 250px; /* تعديل ارتفاع الـ iframe */
+		}
+	}
+
+	@@media (max-width: 828px) {
+		.para {
+			margin-top: 10px;
+			font-size: 15.3px;
+		}
+	}
+
+	@@media (max-width: 797px) {
+		body {
+			overflow: visible;
+		}
+
+		.title {
+			font-size: 20px;
+			width: 80%; /* زيادة عرض العنوان ليأخذ مساحة أكبر */
+		}
+
+		.para {
+			margin-top: 10px;
+			font-size: 16px;
+		}
+		.MyHomePage {
+			height: auto; /* لجعل الخلفية تتكيف مع ارتفاع المحتوى */
+		}
+
+		.main-container-dash {
+			flex-direction: column; /* تنظيم العناصر عمودياً على الشاشات الصغيرة */
+			padding: 20px;
+		}
+
+		.content-box-dash {
+			flex-direction: column; /* لجعل المحتوى في شكل عمودي */
+			width: 100%;
+		}
+
+		.left-dash, .right-dash {
+			flex: 1 1 100%; /* عرض كل قسم بالكامل في الشاشات الصغيرة */
+			width: 100%;
+			padding: 10px;
+		}
+
+		.map-container-dash {
+			width: 100%; /* تعديل عرض الخريطة لتكون أكثر توافقًا */
+		}
+
+		.btn-dash {
+			width: 100%; /* جعل الأزرار تستغل العرض بالكامل */
+			font-size: 16px;
+			height: 45px; /* زيادة ارتفاع الأزرار */
+		}
+
+		iframe {
+			width: 100%; /* جعل الخريطة تأخذ العرض الكامل */
+			height: 200px;
+		}
+
+		.centerLine {
+			width: 100%;
+			height: 2px;
+			background-color: black;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%); /* جعل الخط في المنتصف عموديًا */
+		}
+
+		.title {
+			width: 400px
+		}
+	}
+
+
+	/* Media Query for devices with max width 480px (Phones and very small screens) */
+	@@media (max-width: 480px) {
+		body {
+			overflow: visible;
+		}
+
+		.title {
+			font-size: 18px;
+			width: 90%; /* زيادة عرض العنوان ليأخذ مساحة أكبر */
+		}
+
+		.btn-dash {
+			width: 100%; /* جعل الأزرار تستغل العرض بالكامل */
+			font-size: 14px;
+			height: 40px; /* تقليل ارتفاع الأزرار ليناسب الشاشات الصغيرة */
+		}
+
+		iframe {
+			height: 180px; /* تقليل حجم الخريطة في الشاشات الصغيرة */
+		}
+
+		.centerLine {
+			height: 2px;
+			width: 100%;
+		}
+	}
+
+</style>
+
+<script>
+	function openModal() {
+		document.getElementById('slotModal').style.display = 'flex';
+	}
+
+	function closeModal() {
+		document.getElementById('slotModal').style.display = 'none';
+	}
+</script>
+ *@
+
+@{
+	ViewData["Title"] = "HomePage";
+	Layout = "_HomeLayout";
+}
+
+<div class="background-blur"></div>
+
+
+<div class="MyHomePage">
+	<div style="">
+		<h1 class="title" style="font-size: 25px;">
+			Welcome to Egypt International Exhibition Center
+		</h1>
+		<div class="main-container-dash">
+
+			<div class="content-box-dash">
+
+				<!-- Left Side -->
+				<div class="left-dash">
+					<h2 style="font-weight: bold; font-size: 28px;">Location</h2>
+					<p class="p-wrap para" style="">
+						Egypt International exhibition center, New Cairo, 5th settlement, El Moshir Tantawy Axis, Cairo Governate
+					</p>
+					<h2 style="margin-top: 30px; font-weight: bold; font-size: 24px;">Operation</h2>
+					<p style="margin-top: 10px; font-size: 16px;">Open Now for 24/ 7 days</p>
+
+
+				</div>
+
+				<div class="centerLine"></div>
+				<!-- Right Side -->
+				@* <div class="right-dash">
+
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.7784550009437!2d31.384031399999998!3d30.014517200000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583c5d56f22421%3A0x492fa96d046d8955!2sEgypt&#39;s%20International%20Exhibition%20Center!5e0!3m2!1sen!2seg!4v1745342929747!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+				</div> *@
+				<div class="right-dash">
+					<div class="map-container">
+						<div class="map-loader" id="map-loader">Loading map...</div>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.7784550009437!2d31.384031399999998!3d30.014517200000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583c5d56f22421%3A0x492fa96d046d8955!2sEgypt&#39;s%20International%20Exhibition%20Center!5e0!3m2!1sen!2seg!4v1745342929747!5m2!1sen!2seg"
+								allowfullscreen=""
+								loading="lazy"
+								referrerpolicy="no-referrer-when-downgrade"
+								onload="document.getElementById('map-loader').style.display='none';"></iframe>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="map-container-dash">
+			<!-- Main Button -->
+			<a class="btn-dash" onclick="openModal()">
+				<span class="btn-text">Book Your Slot Now</span>
+				<span class="btn-arrow">
+					<i class="fa-solid fa-long-arrow-right"></i>
+				</span>
+			</a>
+
+			<!-- Modal -->
+			<div id="slotModal" class="modal-overlay">
+				<div class="modal-content">
+					<h2>Select Vehicle Type </h2>
+
+					<a class="btn-dash" href="@Url.Action("MainPage", "User")">
+						<span class="btn-text">Car <i class="fa-solid fa-car-rear" style="margin-left: 8px;"></i></span>
+						<span class="btn-arrow">
+							<i class="fa-solid fa-long-arrow-right"></i>
+						</span>
+					</a>
+					<a class="btn-dash" href="@Url.Action("MainPageBus", "User")">
+						<span class="btn-text">Bus <i class="fa-solid fa-bus" style="margin-left: 8px;"></i></span>
+						<span class="btn-arrow">
+							<i class="fa-solid fa-long-arrow-right"></i>
+						</span>
+					</a>
+					<span class="close-btn" onclick="closeModal()">&times;</span>
+				</div>
+			</div>
+
+
+
+			<a class="btn-dash" href="@Url.Action("Feedback", "User")">
+				<span class="btn-text">Feedback</span>
+				<span class="btn-arrow"><i class="fa-solid fa-long-arrow-right"></i></span>
+			</a>
+
+			<a class="btn-dash" href="@Url.Action("BestFeatures", "User")">
+				<span class="btn-text">Best Features</span>
+				<span class="btn-arrow"><i class="fa-solid fa-long-arrow-right"></i></span>
+			</a>
+			<a class="btn-dash" href="@Url.Action("BestFeatures", "User")#MyVedioTouseTheApp">
+				<span class="btn-text">How To Use Our Site</span>
+				<span class="btn-arrow"><i class="fa-solid fa-long-arrow-right"></i></span>
+			</a>
+		</div>
+	</div>
+</div>
+<footer class="simple-footer">
+	<div class="footer-left">
+		Contact us: @* info@example.com *@ 01289562111
+	</div>
+	<div class="footer-right">
+		© 2025 All rights reserved
+	</div>
+</footer>
+<style>
+	body {
+		overflow: hidden;
+		/* height: 2000px  */
+	}
+
+	.p-wrap {
+		white-space: normal; /* للسماح لكسر السطور حسب الحاجة */
+		word-wrap: break-word; /* للسماح للكلمات بالكسر إذا كانت لا تتسع */
+	}
+
+	.MyHomePage {
+		/* background-color: red; */
+		height: 150px;
+		margin-top: -10px !important;
+		z-index: 10000
+	}
+
+	.title {
+		margin: auto;
+		text-align: center;
+		font-size: 24px;
+		font-weight: 750;
+		/* margin-bottom: 20px; */
+		margin-top: 10px;
+		width: 30%;
+		/* background-color: red; */
+	}
+
+	.para {
+		margin-top: 10px;
+		font-size: 16px;
+	}
+
+	p {
+		font-family: 'Inter', sans-serif;
+	}
+
+
+	body {
+		min-height: 91vh;
+		width: 100%;
+		background-image: url('/Images/Backgroundmorning.png');
+		background-size: 100% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+
+	.background-blur {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url('/Images/Backgroundmorning.png');
+		background-size: 100% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		filter: blur(4px); /* البلور هنا */
+		z-index: -1;
+	}
+
+	.main-container-dash {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 40px;
+		padding-bottom: 3px;
+		margin-top: -20px
+		/* background: linear-gradient(to bottom right, #e0f7fa, #fff3e0); */
+		/* background-color:red */
+	}
+
+	.centerLine {
+		position: absolute;
+		top: 25%;
+		height: 50%;
+		left: 50%;
+		width: 2px;
+		background-color: black; /* light red */
+		transform: translate(-50%, 0); /* center it horizontally */
+		z-index: 0;
+		border-radius: 10px;
+		height: 220px;
+	}
+
+
+	.content-box-dash {
+		display: flex;
+		flex-wrap: wrap;
+		max-width: 1100px;
+		width: 100%;
+	}
+
+	.left-dash {
+		flex: 1 1 35%;
+		height: 250px;
+		padding: 20px;
+		padding-left: 40px;
+		padding-top: 30px;
+		box-sizing: border-box;
+		background-color: rgba(255, 255,255, 0.55); /* 0.5 = نص شفافية */
+		/* background-color: red */
+		border-radius: 20px;
+		margin-top: 20px;
+	}
+
+	.map-container-dash {
+		align-items: center;
+		align-content: center;
+		justify-content: center;
+		/* background-color: red; */
+		margin: auto;
+		margin-top: 0px !important;
+		width: 22%;
+		width: auto;
+		margin-bottom: 1000px;
+	}
+
+		.map-container-dash .btn-dash {
+			margin: auto;
+			margin-top: 8px;
+		}
+
+		.map-container-dash a {
+			height: 35px;
+		}
+
+		.map-container-dash img {
+			width: 100%;
+			max-width: 400px;
+			/* border-radius: 5px; */
+		}
+
+	iframe {
+		width: 80%;
+		height: 250px;
+		border-radius: 5px;
+	}
+
+	.right-dash {
+		flex: 1 1 50%;
+		padding: 20px;
+		padding-top: 1px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		box-sizing: border-box;
+		margin-top: 20px;
+		padding-left: 160px;
+	}
+
+		.right-dash iframe {
+			width: 450px;
+			border-radius: 20px;
+		}
+
+	.map-container {
+		position: relative;
+		width: 450px;
+		height: 250px;
+		border-radius: 20px;
+	}
+
+	.map-loader {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #ffffffcc; /* شبه شفاف */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: bold;
+		color: #333;
+		z-index: 1;
+		border-radius: 5px;
+	}
+
+	.btn-dash {
+		width: 330px;
+		height: 30px;
+		padding: 10px;
+		background-color: black;
+		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: 500;
+		border: 3px solid black;
+		border-radius: 8px;
+		font-size: 16px;
+		margin-bottom: 15px;
+		text-decoration: none;
+		cursor: pointer;
+		font-size: 18px;
+		margin-bottom: 15px;
+		cursor: pointer;
+		overflow: hidden;
+		transition: all 0.6s ease;
+	}
+
+		.btn-dash:hover {
+			background-color: #3b3b3b; /* لون دخاني ناعم */
+			border: 3px solid #3b3b3b;
+			color: white;
+		}
+
+
+
+
+		.btn-dash .btn-text,
+		.btn-dash .btn-arrow {
+			transition: all 0.4s ease;
+			display: inline-block;
+		}
+
+		.btn-dash .btn-arrow {
+			opacity: 0;
+			transform: translateX(-10px);
+		}
+
+		.btn-dash:hover .btn-text {
+			transform: translateX(-10px);
+		}
+
+		.btn-dash:hover .btn-arrow {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	/* Modal Background */
+	.modal-overlay {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(0, 0, 0, 0.6);
+		display: none;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+	}
+
+	/* Modal Box */
+	.modal-content {
+		background: #fff;
+		padding: 30px;
+		border-radius: 12px;
+		text-align: center;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+		position: relative;
+		width: 400px;
+		animation: fadeInScale 0.5s ease forwards;
+	}
+
+		/* Title */
+		.modal-content h2 {
+			margin-bottom: 25px;
+			color: #333;
+		}
+
+	/* Close Button */
+	.close-btn {
+		position: absolute;
+		top: 10px;
+		right: 15px;
+		font-size: 28px;
+		color: #888;
+		cursor: pointer;
+		transition: color 0.3s ease;
+	}
+
+		.close-btn:hover {
+			color: #000;
+		}
+
+
+	footer {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background-color: rgba(248, 248, 248, 0.85); /* light background with transparency */
+		border-top: 1px solid #ddd;
+		padding: 15px 30px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		z-index: 999;
+		box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1); /* shadow going upward */
+		backdrop-filter: blur(4px); /* optional: adds frosted-glass effect if you like */
+		font-weight: 700
+	}
+
+	/* Keyframe Animation for Modal Appear */
+	@@keyframes fadeInScale {
+		from {
+			opacity: 0;
+			transform: scale(0.8) translateY(-20px);
+		}
+
+		to {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
+	}
+
+	/* Keyframe Animation for Modal Disappear */
+	@@keyframes fadeOutScale {
+		from {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
+
+		to {
+			opacity: 0;
+			transform: scale(0.8) translateY(-20px);
+		}
+	}
+
+	@@media (max-width: 1249px) {
+		.title {
+			font-size: 30px; /* زيادة حجم الخط */
+			width: 40%; /* تقليل العرض */
+		}
+	}
+
+	@@media (max-width: 1181px) {
+		.MyHomePage {
+			/* ضبط الخلفية أو الحجم أو أي خصائص أخرى */
+			background-size: cover; /* ضبط حجم الخلفية */
+			background-position: center; /* ضبط الخلفية في المنتصف */
+		}
+
+		.main-container-dash {
+			padding: 40px; /* زيادة الحشو */
+			/* يمكنك تعديل العرض والارتفاع هنا */
+		}
+
+		.title {
+			font-size: 30px; /* زيادة حجم الخط */
+			width: 40%; /* تقليل العرض */
+		}
+
+		.content-box-dash {
+			max-width: 1200px; /* زيادة أقصى عرض للصندوق */
+		}
+
+		.left-dash, .right-dash {
+			width: 40%;
+		}
+
+
+		.btn-dash {
+			width: 350px; /* زيادة عرض الأزرار */
+			font-size: 18px; /* زيادة حجم الخط */
+		}
+
+		iframe {
+			width: 20%; /* تعديل عرض الـ iframe */
+		}
+	}
+
+	@@media (max-width: 991.5px) {
+		body {
+			/* overflow-y: visible;
+							height: 500px */
+		}
+
+		.content-box-dash {
+			margin-bottom: 0
+		}
+
+		.centerLine {
+			display: none
+		}
+
+		.title {
+			width: 500px
+		}
+
+		.left-dash, .right-dash {
+			width: 40%;
+			/* background-color: red */
+		}
+
+		.right-dash {
+			padding-left: 80px
+		}
+
+		.map-container-dash {
+			width: auto;
+			margin: auto;
+			margin-top: 0 !important;
+			/* background-color: red */
+			/* margin-right: 0px; */
+			/* background-color:red */
+			/* margin-left: 6px; */
+		}
+
+			.map-container-dash .btn-dash {
+				width: 50%;
+				margin: auto;
+				margin-top: 8px
+				/* margin-right: 0px; */
+				/* margin-left: 6px; */
+			}
+	}
+
+	@@media (max-width: 880px) {
+		.para {
+			margin-top: 10px;
+			font-size: 15.3px;
+		}
+
+		.left-dash {
+			/* background-color:forestgreen; */
+			height: 260px
+		}
+
+		.right-dash {
+			/* background-color:forestgreen; */
+			padding-left: 65px;
+		}
+	}
+
+	@@media (max-width: 797px) {
+		body {
+			overflow: visible;
+			min-height: 110vh;
+		}
+
+		.title {
+			font-size: 20px;
+			width: 80%; /* زيادة عرض العنوان ليأخذ مساحة أكبر */
+		}
+
+		.para {
+			margin-top: 10px;
+			font-size: 16px;
+		}
+
+		.MyHomePage {
+			height: auto; /* لجعل الخلفية تتكيف مع ارتفاع المحتوى */
+		}
+
+		.map-container-dash {
+			flex-direction: column; /* تنظيم العناصر عمودياً على الشاشات الصغيرة */
+			padding: 20px;
+		}
+
+		.content-box-dash {
+			flex-direction: column; /* لجعل المحتوى في شكل عمودي */
+			width: 100%;
+		}
+
+		.left-dash, .map-container-dash, .right-dash {
+			flex: 1 1 100%; /* عرض كل قسم بالكامل في الشاشات الصغيرة */
+			width: 100%;
+			padding: 10px;
+			/* background-color: red */
+		}
+
+		.left-dash {
+			margin-bottom: 15px
+		}
+
+		.map-container-dash,
+		.right-dash {
+			margin: 0; /* إزالة الهوامش */
+			padding: 0; /* إزالة الحشوات */
+		}
+
+		.map-container-dash {
+			width: 100%;
+			/* margin-bottom: 30px; */
+			margin: auto;
+			align-items: center;
+			/* display: flex;
+								justify-content: center;
+								margin-top: 0; */
+			margin-bottom: 50px;
+		}
+
+
+		.btn-dash {
+			width: 90% !important; /* جعل الأزرار تستغل العرض بالكامل */
+			font-size: 16px;
+			height: 45px; /* زيادة ارتفاع الأزرار */
+			margin: auto;
+			padding-top: 15px !important;
+			margin-top: 7px;
+		}
+
+		.right-dash {
+			margin: auto;
+			width: 100%;
+			height: 500px !important;
+			/* background-color: red; */
+			/* position: relative; */
+			margin-bottom: 0;
+		}
+		/* خلي الحاوية نفسها تتمدد بالكامل */
+		.map-container {
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+			/* غطي المساحة كلها */
+			.map-container iframe {
+				width: 100%;
+				height: 100%;
+				display: block;
+				border: none;
+			}
+
+
+		.centerLine {
+			width: 100%;
+			height: 2px;
+			background-color: black;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%); /* جعل الخط في المنتصف عموديًا */
+		}
+
+		.title {
+			width: 400px
+		}
+	}
+
+
+	/* Media Query for devices with max width 480px (Phones and very small screens) */
+	@@media (max-width: 480px) {
+		body {
+			overflow: visible;
+		}
+
+		.title {
+			font-size: 18px;
+			width: 90%; /* زيادة عرض العنوان ليأخذ مساحة أكبر */
+		}
+
+		.btn-dash {
+			width: 100%; /* جعل الأزرار تستغل العرض بالكامل */
+			font-size: 14px;
+			height: 40px; /* تقليل ارتفاع الأزرار ليناسب الشاشات الصغيرة */
+		}
+
+		iframe {
+			height: 180px; /* تقليل حجم الخريطة في الشاشات الصغيرة */
+		}
+
+		.centerLine {
+			height: 2px;
+			width: 100%;
+		}
+	}
+
+</style>
+
+<script>
+	function openModal() {
+		document.getElementById('slotModal').style.display = 'flex';
+	}
+
+	function closeModal() {
+		document.getElementById('slotModal').style.display = 'none';
+	}
+</script>

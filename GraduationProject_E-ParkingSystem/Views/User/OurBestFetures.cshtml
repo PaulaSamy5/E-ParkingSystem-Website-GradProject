@@ -1,0 +1,366 @@
+﻿@{
+	ViewData["Title"] = "OurBestFetures";
+	// Layout = "_HomeLayout";
+}
+<div class="MyFeaturesDivs">
+	@* 	<div class="Feature">
+	<div class="FeatureImage">
+	<img alt="NoImageFound" src="~/Images/SooEasyParking.jpeg" />
+	</div>
+	<h3>Payment Less <i class="fa-solid fa-square-parking"></i></h3>
+	<p>hello my bro its to expensive safas asfgaa saggaas g sasggsasga sa gsas as asggsag </p>
+	</div> *@
+	<div class="feature-card">
+		<div class="feature-text">
+			<h4>Easy Parking</h4>
+
+			@* <h4>Easy Parking <i class="fa-solid fa-car" style="color: #4CAF50;"></i></h4> *@
+			<p>Easy Parking lets users quickly find and book parking spots, saving time and effort.</p>
+		</div>
+		<div class="feature-icon">
+			<img alt="NoImageFound" src="~/Images/SooEasyParking.jpeg" />
+		</div>
+	</div>
+	<div class="feature-card">
+		<div class="feature-text">
+			<h4>Real Parking Availability</h4>
+			@* <h4>Real Parking Availability <i class="fa-solid fa-map-marker-alt" style="color: #2196F3;"></i></h4> *@
+
+			<p>Real Parking Availability shows users up-to-date information on free spots in the garage.</p>
+		</div>
+		<div class="feature-icon">
+			<img alt="NoImageFound" src="~/Images/RealTimeAvailabity.jpg" />
+		</div>
+	</div>
+</div>
+
+
+<div class="MyFeaturesDivs">
+	<div class="feature-card">
+		<div class="feature-text">
+			<h4>Cashless Payment </h4>
+			@* <h4>Cashless Payment <i class="fa-solid fa-credit-card" style="color: #FF9800;"></i></h4> *@
+
+			<p>Cashless payment enables users to pay securely online, avoiding the need for physical cash.</p>
+		</div>
+		<div class="feature-icon">
+			<img alt="NoImageFound" src="~/Images/CashLess.jpeg" />
+		</div>
+	</div>
+	<div class="feature-card">
+		<div class="feature-text">
+			<h4>Feedback System</h4>
+			@* <h4>Feedback System <i class="fa-solid fa-comment-dots" style="color: #9C27B0;"></i></h4> *@
+
+			<p>Enables users to rate their parking experience and suggest improvements.</p>
+		</div>
+		<div class="feature-icon">
+			<img alt="NoImageFound" src="~/Images/FeedbackSystem.jpeg" />
+		</div>
+	</div>
+</div>
+
+
+<div class="VeryBigfoooooter">
+	<p>"With Rakntak, enjoy safe parking and effortless payments, always by your side ✅"</p>
+</div>
+<div class="modern-video-section" id="MyVedioTouseTheApp">
+	<h3><i class="fa-solid fa-circle-play"></i> Discover Rakntak in Action</h3>
+	<div class="modern-video-wrapper">
+	
+		<iframe src="https://www.youtube.com/embed/lTX5kvEAkj8?si=Ngku9YmtShAmSIG7"
+				title="YouTube video player"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+			gyroscope; picture-in-picture; web-share"
+			referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	</div>
+</div>
+
+
+
+@* <style>
+	.MyFeaturesDivs {
+		margin-top: 80px;
+		padding: 10px;
+		display: flex;
+		justify-content: space-between
+	}
+
+	.Feature {
+		width: 28%;
+		height: 300px;
+		border-radius: 20px;
+		padding: 10px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+		transition: all 0.5s;
+	}
+
+		.Feature:hover {
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+		}
+
+	.FeatureImage {
+		width: 95%;
+		height: 46%;
+		margin: auto;
+		background-color: blue;
+		border-radius: 30px;
+		background-color: red
+	}
+
+	.Feature .FeatureImage img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.Feature h3 {
+		padding: 10px 15px;
+		margin-bottom: 0;
+		font-weight: 600;
+		font-size: 25px;
+		color: #333;
+	}
+
+	.Feature p {
+		padding: 0 15px;
+		font-weight: 400
+	}
+</style>
+ *@
+<style>
+	/* body{
+		padding: 40px 120px
+	} */
+	.MyFeaturesDivs {
+		margin-top: 60px;
+		padding: 10px;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.feature-card {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+		width: 447px;
+		height: 160px;
+		transition: all 0.5s;
+	}
+
+		.feature-card:hover {
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+		}
+
+	.feature-text {
+		flex: 1;
+		width: 100%;
+		padding: 15px;
+	}
+
+		.feature-text h4 {
+			margin: 0;
+			font-size: 25px;
+			font-weight: 600;
+		}
+
+		.feature-text p {
+			margin-top: 6px;
+			font-size: 18px;
+			font-weight: 400;
+			color: #333;
+		}
+
+	.feature-icon img {
+		width: 80px;
+		height: 50px;
+		background-color: red;
+	}
+
+	.VeryBigfoooooter {
+		width: 88%;
+		height: 70px;
+		margin: auto;
+		border-radius: 15px;
+		margin-top: 55px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+		transition: all 0.5s;
+	}
+
+		.VeryBigfoooooter:hover {
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+		}
+
+		.VeryBigfoooooter p {
+			margin: auto;
+			font-weight: 600;
+			font-size: 25px;
+		}
+
+	.modern-video-section {
+		position: relative;
+		width: 92%;
+		margin: 60px auto 0;
+		padding: 30px;
+		/* background: linear-gradient(135deg, #f3f3f3, #ffffff); */
+		background-color: white;
+		border-radius: 20px;
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+		text-align: center;
+		opacity: 0;
+		transform: translateY(30px);
+		transition: all 0.8s ease-in-out;
+	}
+
+		.modern-video-section:hover{
+			box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+		}
+
+		.modern-video-section::after {
+			content: "";
+			position: absolute;
+			bottom: -10px;
+			left: 0;
+			width: 100%;
+			height: 10px;
+			/* background: url('your-image-path.jpg') no-repeat center center; */
+			background-size: cover;
+		}
+
+
+		.modern-video-section.show {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+
+.modern-video-section h3 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-weight: 700;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+}
+
+.modern-video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modern-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 16px;
+}
+
+/* Animations */
+@@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+	/* Responsive */
+	
+
+	/* من 1024 لـ 769px = عناصر جنب بعض لكن تصغير وعرض مرن */
+	@@media (max-width: 1024px) and (min-width: 769px) {
+		.MyFeaturesDivs {
+			justify-content: center;
+			gap: 50px;
+		}
+
+		.feature-card {
+			width: 45%;
+			height: auto;
+		}
+
+		.VeryBigfoooooter p {
+			font-size: 20px;
+		}
+	}
+	/* أقل من 768px = موبايل = عناصر تحت بعض */
+	@@media (max-width: 768px) {
+		.MyFeaturesDivs {
+			flex-direction: column;
+			align-items: center;
+			gap: 20px;
+			margin-top:30px
+		}
+
+		.feature-card {
+			width: 90%;
+			height: auto;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			padding: 15px;
+		}
+
+		.feature-icon img {
+			width: 100px;
+			height: 60px;
+			margin-top: 10px;
+		}
+
+		.feature-text h4 {
+			font-size: 22px;
+		}
+
+		.feature-text p {
+			font-size: 16px;
+		}
+
+		.VeryBigfoooooter p {
+			font-size: 18px;
+			padding: 10px;
+		}
+
+		.modern-video-section h3 {
+			font-size: 22px;
+		}
+	}
+
+</style>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const videoSection = document.querySelector('.modern-video-section');
+
+		function onScroll() {
+			const rect = videoSection.getBoundingClientRect(); //بتجيب الابعاد 
+			if (rect.top <= window.innerHeight - 100) { // rect.top دى بتجيب المسافة بين العنصر لاول الصفحة
+				videoSection.classList.add('show');
+				window.removeEventListener('scroll', onScroll);
+			}
+		}
+
+		window.addEventListener('scroll', onScroll);
+		onScroll(); // لو العنصر ظاهر من الأول
+	});
+</script>

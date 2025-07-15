@@ -1,0 +1,259 @@
+﻿@{
+	Layout = null;
+}
+@model User
+@* <head>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="~/css/SignInUpStyle.css">
+    <style>
+        .error-message {
+            font-size: 18px;
+            text-align: center;
+            color: red !important;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+
+<div class="alll">
+    <a asp-action="index" asp-controller="Home"><i class="fa-solid fa-xmark"></i></a>
+    <div class="sign-in">
+        <form method="post" asp-action="SaveLogin" asp-controller="User">
+            <h2>PAB, Login Page</h2>
+            <div class="Inputs">
+                <label asp-for="Email">Email</label><br>
+                <input asp-for="Email" value="@Model?.Email" type="text"><br>
+
+            </div>
+            <div class="Inputs">
+                <label asp-for="Password">Password</label><br>
+                <input asp-for="Password" type="password">
+            </div>
+            <button type="submit">Log in</button>
+            <p>Not a member?&nbsp;&nbsp; <a asp-action="SignUp" asp-controller="User">Create account</a></p>
+        </form>
+
+        @if (TempData["WrongMessage"] != null)
+        {
+            <div class="error-message">
+                <p class="text-danger" style="font-size: 25px">@TempData["WrongMessage"]</p>
+            </div>
+        }
+    </div>
+</div>
+ *@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login Form</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		
+	@*For inter font*@
+	@*--------------------------------------------------------------------------------*@
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&family=Spline+Sans:wght@300..700&display=swap" rel="stylesheet">
+	@*--------------------------------------------------------------------------------*@
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Inter', sans-serif;
+		}
+
+		body {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			width: 100%;
+			background-color: #d3d3d3;
+			overflow: hidden; /* to contain the pseudo element */
+		}
+
+			body::before {
+				content: "";
+				position: absolute;
+				top: -10px;
+				left: -10px;
+				right: -10px;
+				bottom: -10px;
+				background-image: url('/Images/CarPhoto.jpeg');
+				background-size: 200% 200%;
+				background-repeat: no-repeat;
+				background-position: calc(50% - 420px) calc(50% + 100px);
+				/* filter: blur(6px); */
+				/* opacity: 0.8; */
+				z-index: -1;
+			}
+
+
+
+
+		.container {
+			background: rgba(250, 250, 250, 0.7);
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+			text-align: center;
+			width: 32%; /*Was 30%*/
+		}
+
+		h2 {
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 15px;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			text-align: left;
+		}
+
+		label {
+			font-size: 14px;
+			font-weight: bold;
+			margin: 10px 0 5px;
+		}
+
+
+		input[type="email"],
+		input[type="password"],
+		input[type="text"]
+		{
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background: #f8f8f8;
+		}
+
+		button {
+			background: black;
+			color: white;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+
+			button:hover {
+				background: #333;
+			}
+
+		p {
+			margin-top: 10px;
+			font-size: 15px;
+		}
+
+			p a {
+				color: #001B7E;
+				text-decoration: none;
+			}
+
+				p a:hover {
+					text-decoration: underline;
+				}
+
+		.error-message {
+			font-size: 12px;
+			text-align: center;
+			color: red !important;
+			margin-top: 10px;
+		}
+
+		@@media (max-width: 900px) {
+			.container {
+				width: 70%;
+			}
+			body::before {
+				content: "";
+				position: absolute;
+				top: -10px;
+				left: -10px;
+				right: -10px;
+				bottom: -10px;
+				background-image: url('/Images/CarPhoto.jpeg');
+				background-size: 200% 200%;
+				background-repeat: no-repeat;
+				background-position: calc(50% ) calc(50% + 100px);
+				/* filter: blur(6px); */
+				/* opacity: 0.8; */
+				z-index: -1;
+			}
+		}
+
+		@@media (max-width: 400px) {
+			.container {
+				width: 90%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Rakntak, Login</h2>
+		<form method="post" asp-action="SaveLogin" asp-controller="User">
+			<label asp-for="Email">Email</label>
+			<input type="email" asp-for="Email" placeholder="Enter your email" value="@Model?.Email" autocomplete="off" >
+
+			<label asp-for="Password">Password</label>
+			<div style="position: relative">
+				<input asp-for="Password" id="password" type="password" placeholder="Enter your password" style="padding-right: 30px;" autocomplete="off">
+				<span id="toggleIcon" onclick="togglePassword()" style="position: absolute; right: 10px; top: 40%; transform: translateY(-50%); cursor: pointer;">
+					<i id="eyeIcon" class="fa-regular fa-eye fa-fw" style="color:#333;"></i>
+				</span>
+			</div>
+			<button type="submit">Login</button>
+
+		</form>
+		<p>Don't have an account? <a asp-action="SignUp" asp-controller="User">Register now</a></p>
+		@if (TempData["WrongMessage"] != null)
+		{
+			<div class="error-message">
+				<p class="text-danger" style="font-size: 15px">@TempData["WrongMessage"]</p>
+			</div>
+		}
+
+	</div>
+	<script>
+		function togglePassword() {
+			const passwordInput = document.getElementById("password");
+			const eyeIcon = document.getElementById("eyeIcon");
+
+			// احفظ موقع الكارسر الحالي
+			const cursorPosition = passwordInput.selectionStart;
+
+			// غيّر نوع الحقل
+			if (passwordInput.type === "password") {
+				passwordInput.type = "text";
+				eyeIcon.classList.remove("fa-eye");
+				eyeIcon.classList.add("fa-eye-slash");
+			} else {
+				passwordInput.type = "password";
+				eyeIcon.classList.remove("fa-eye-slash");
+				eyeIcon.classList.add("fa-eye");
+			}
+
+			// رجّع الكارسر لمكانه
+			passwordInput.setSelectionRange(cursorPosition, cursorPosition);
+			// passwordInput.focus();
+		}
+
+	</script>
+
+</body>
+</html>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

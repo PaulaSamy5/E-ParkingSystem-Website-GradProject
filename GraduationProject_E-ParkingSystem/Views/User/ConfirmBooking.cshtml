@@ -1,0 +1,648 @@
+﻿@{
+	ViewData["Title"] = "ConfirmBooking";
+	Layout = null;
+}
+<title>Payment</title>
+@model UserSpotRecordDetailsViewModel
+@*
+@Model.SpotId
+@Model.SpotNumber
+@Model.Cost
+@Convert.ToDouble(Model.Cost).ToString("F2")
+@Model.UserId
+
+<form asp-action="Done" asp-controller="User" method="post">
+	<!-- Hidden Fields -->
+	<input  asp-for="PaymentMethod" placeholder="method" />
+	<input type="hidden" asp-for="UserId" />
+	<input type="hidden" asp-for="SpotId" />
+	<input type="hidden" asp-for="SpotNumber" />
+	<input type="hidden" asp-for="StartTime" />
+	<input type="hidden" asp-for="Duration" />
+	<input type="hidden" asp-for="EndTime" />
+	<input type="hidden" asp-for="vehicleType" />
+	<input type="hidden" asp-for="PlateNumber" />
+	<input type="hidden" asp-for="Cost" />
+	<!-- Buttons -->
+	<div class="buttons">
+		<button type="submit" class="confirm-btn" style="border: 1px solid black">Confirm and pay</button>
+		<button type="button" class="confirm-btn" style="border: 1px solid black" onclick="window.history.back();">Cancel</button>
+	</div>
+</form>
+ *@
+<div class="checkout-container">
+
+	<div class="order-summary">
+		<p class="order-title">Order Amount</p>
+		<p class="order-amount">
+			EGP @Convert.ToDouble(Model.Cost).ToString("F2")
+		</p>
+
+		@* @if (Model.vehicleType == "Car")
+		{
+		<a class="nav-link active navtext" aria-current="page" href="@Url.Action("MainPage", "User")">Go Back</a>
+		}
+		else
+		{
+		<a class="nav-link active navtext" aria-current="page" href="@Url.Action("MainPageBus", "User")">Go Back</a>
+		} *@
+	</div>
+
+	<div class="payment-section">
+		<h2>Checkout <span class="secure-payment">🔒 Secure payment</span></h2>
+
+		<p class="payment-label">Payment method</p>
+		<div class="payment-method">
+			<button class="payment-btn active" id="walletBtn">Wallet</button>
+			<button class="payment-btn" id="cardBtn">Card</button>
+		</div>
+
+		<!-- Wallet Section (Visible by Default) -->
+		<div class="wallet-section" id="walletSection">
+			<form asp-action="Done" asp-controller="User" method="post">
+				<input asp-for="PaymentMethod" value="E-Wallet" type="hidden" />
+				<input type="hidden" asp-for="UserId" />
+				<input type="hidden" asp-for="SpotId" />
+				<input type="hidden" asp-for="SpotNumber" />
+				<input type="hidden" asp-for="StartTime" />
+				<input type="hidden" asp-for="Duration" />
+				<input type="hidden" asp-for="EndTime" />
+				<input type="hidden" asp-for="vehicleType" />
+				<input type="hidden" asp-for="PlateNumber" />
+				<input type="hidden" asp-for="Cost" />
+				<p class="payment-label">Wallet mobile number</p>
+				<input type="text" id="walletInput" placeholder="01* *** *** **" autocomplete="off">
+				<span class="wallet-error" style="color: red; "></span>
+				<button type="submit" class="pay-btn">Pay</button>
+					
+			</form>
+		</div>
+
+		<!-- Card Section (Hidden by Default) -->
+		<div class="card-section" id="cardSection" style="display: none;">
+			<form asp-action="Done" asp-controller="User" method="post">
+				<input asp-for="PaymentMethod" value="Credit Card" type="hidden" />
+				<input type="hidden" asp-for="UserId" />
+				<input type="hidden" asp-for="SpotId" />
+				<input type="hidden" asp-for="SpotNumber" />
+				<input type="hidden" asp-for="StartTime" />
+				<input type="hidden" asp-for="Duration" />
+				<input type="hidden" asp-for="EndTime" />
+				<input type="hidden" asp-for="vehicleType" />
+				<input type="hidden" asp-for="PlateNumber" />
+				<input type="hidden" asp-for="Cost" />
+				<p class="payment-label">Card Number</p>
+				<input id="cardNumber" type="text" placeholder="1234 **** **** 5678">
+				<span class="card-error" style="color: red;"></span>
+				<div class="mainadditionaldeltails">
+					<div class="additiondelails">
+						<p class="payment-label" style="margin-top:0">Expiry Date</p>
+						<input id="info1" type="text" placeholder="MM/YY" />
+						<span style="height: 10px;" class="expiry-error error-message card-error"></span>
+					</div>
+					<div class="additiondelails">
+						<p class="payment-label" style="margin-top:0">CVV</p>
+						<input id="info2" type="text" placeholder="CVV" maxlength="4" />
+						<span style="height: 10px;" class="cvv-error text-danger card-error"></span>
+					</div>
+				</div>
+
+				<button type="submit" class="pay-btn cccbtn">Pay</button>
+			</form>
+		</div>
+
+	</div>
+</div>
+
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: Arial, sans-serif;
+	}
+
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		background-color: #d3d3d3;
+	}
+
+	.checkout-container {
+		display: flex;
+		width: 100vw;
+		height: 100vh; /* Ensure full height */
+		background: white;
+	}
+
+	.order-summary {
+		width: 60%;
+		background: #d3d3d3;
+		padding: 20px;
+		text-align: left;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+	}
+
+	.order-title {
+		font-size: 14px;
+		font-weight: bold;
+		color: gray;
+	}
+
+	.order-amount {
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.payment-section {
+		width: 60%;
+		padding: 20px;
+		text-align: left;
+	}
+
+	.secure-payment {
+		font-size: 12px;
+		color: blue;
+		float: right;
+	}
+
+
+	.payment-label {
+		font-size: 14px;
+		font-weight: bold;
+		margin-top: 15px;
+	}
+
+	.payment-method {
+		display: flex;
+		gap: 10px;
+		margin-top: 5px;
+	}
+
+	.payment-btn {
+		flex: 1;
+		padding: 10px;
+		border: 1px solid #ccc;
+		background: white;
+		font-size: 17px;
+		cursor: pointer;
+		border-radius: 5px;
+	}
+
+		.payment-btn.active {
+			border: 2px solid blue;
+			font-weight: bold;
+		}
+
+
+
+	.wallet-section input {
+		width: 100%;
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		background: #f8f8f8;
+		margin-top: 5px;
+	}
+
+
+	.pay-btn {
+		width: 100%;
+		padding: 12px;
+		background: #a5c9fc;
+		border: none;
+		border-radius: 5px;
+		font-size: 16px;
+		color: white;
+		cursor: pointer;
+		margin-top: 440px;
+	}
+
+	.cccbtn {
+		margin-top: 351px;
+	}
+
+	.pay-btn:hover {
+		background: #79a8f8;
+	}
+
+	.card-error {
+		margin-top: 10px;
+		color: red;
+		font-size: 14px;
+		min-height: 20px; /* Reserve space for the error message */
+		display: block;
+		padding: 0 3px;
+	}
+
+	.wallet-error {
+		margin-top: 10px;
+		color: red;
+		font-size: 14px;
+		min-height: 20px; /* Reserve space for the error message */
+		display: block;
+		padding: 0 3px;
+	}
+
+	.mainadditionaldeltails {
+		display: flex;
+		justify-content: space-between
+	}
+
+	.additiondelails {
+		width: 48%;
+	}
+
+	@@media (max-width: 600px) {
+		.checkout-container {
+			flex-direction: column;
+			width: 90%;
+		}
+
+		.order-summary {
+			width: 100%;
+			text-align: center;
+			border-radius: 10px 10px 0 0;
+		}
+
+		.payment-section {
+			width: 100%;
+		}
+
+		.pay-btn {
+			margin-top: 346px;
+		}
+
+		.cccbtn {
+			margin-top: 256.5px;
+		}
+	}
+
+	.card-section input {
+		width: 100%;
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		background: #f8f8f8;
+		margin-top: 5px;
+	}
+
+</style>
+
+<script>
+	// document.addEventListener("DOMContentLoaded", function () {
+	// 	const walletBtn = document.getElementById("walletBtn");
+	// 	const cardBtn = document.getElementById("cardBtn");
+	// 	const walletSection = document.getElementById("walletSection");
+	// 	const cardSection = document.getElementById("cardSection");
+
+	// 	// Default: Show Wallet, Hide Card
+	// 	walletSection.style.display = "block";
+	// 	cardSection.style.display = "none";
+	// 	walletBtn.classList.add("active");
+
+	// 	walletBtn.addEventListener("click", function () {
+	// 		walletBtn.classList.add("active");
+	// 		cardBtn.classList.remove("active");
+	// 		walletSection.style.display = "block";
+	// 		cardSection.style.display = "none";
+	// 	});
+
+	// 	cardBtn.addEventListener("click", function () {
+	// 		cardBtn.classList.add("active");
+	// 		walletBtn.classList.remove("active");
+	// 		walletSection.style.display = "none";
+	// 		cardSection.style.display = "block";
+	// 	});
+
+	// 	// Form validation
+	// 	document.querySelectorAll("form").forEach((form) => {
+	// 		form.addEventListener("submit", function (event) {
+	// 			let isValid = true;
+
+	// 			// Wallet validation
+	// 			const walletInput = form.querySelector("input[placeholder='01* *** *** **']");
+	// 			const walletError = form.querySelector(".wallet-error");
+
+	// 			if (walletInput && walletSection.style.display === "block") {
+	// 				if (walletInput.value.replace(/\s/g, "").trim() === "" || !/^01[0-9]{9}$/.test(walletInput.value.replace(/\s/g, ""))) {
+	// 					walletError.textContent = "Please enter a valid wallet number.";
+	// 					isValid = false;
+	// 				} else {
+	// 					walletError.textContent = "";
+	// 				}
+	// 			}
+
+
+
+	// 			// Card validation
+	// 			const cardInput = form.querySelector("input[placeholder='1234 **** **** 5678']");
+	// 			const cardError = form.querySelector(".card-error");
+
+	// 			if (cardInput && cardSection.style.display === "block") {
+	// 			if (cardInput.value.replace(/\s/g, "").length !== 16 || !/^\d{16}$/.test(cardInput.value.replace(/\s/g, ""))) {
+	// 					cardError.textContent = "Please enter a valid card number.";
+	// 					isValid = false;
+	// 				} else {
+	// 					cardError.textContent = "";
+	// 				}
+	// 			}
+
+	// 			if (!isValid) {
+	// 				event.preventDefault(); // Prevent form submission if invalid
+	// 			}
+	// 		});
+	// 		const cardInput = document.getElementById("cardNumber");
+
+	// 		cardInput.addEventListener("input", function (e) {
+	// 			let cursorPosition = cardInput.selectionStart; // Store cursor position
+	// 			let value = cardInput.value.replace(/\s/g, "").replace(/\D/g, ""); // Remove spaces & non-digits
+
+	// 			value = value.substring(0, 16); // Limit to 16 digits
+	// 			let formattedValue = value.replace(/(\d{4})/g, "$1 ").trim(); // Add space every 4 digits
+
+	// 			let spacesBefore = (cardInput.value.substring(0, cursorPosition).match(/\s/g) || []).length;
+	// 			let spacesAfter = (formattedValue.substring(0, cursorPosition).match(/\s/g) || []).length;
+
+	// 			cardInput.value = formattedValue;
+
+	// 			// Adjust cursor position
+	// 			let newCursorPosition = cursorPosition + (spacesAfter - spacesBefore);
+	// 			cardInput.setSelectionRange(newCursorPosition, newCursorPosition);
+	// 		});
+
+
+	// 		document.getElementById("walletInput").addEventListener("input", function (event) {
+	// 			let input = event.target.value.replace(/\D/g, ""); // Remove non-digit characters
+
+	// 			if (input.length > 11) input = input.substring(0, 11); // Restrict to 11 digits
+
+	// 			let formatted = "";
+	// 			if (input.length > 0) formatted += input.substring(0, 3); // First 3 digits
+	// 			if (input.length > 3) formatted += " " + input.substring(3, 6); // Next 3 digits
+	// 			if (input.length > 6) formatted += " " + input.substring(6, 9); // Next 3 digits
+	// 			if (input.length > 9) formatted += " " + input.substring(9, 11); // Last 2 digits
+
+	// 			event.target.value = formatted; // Update input field with formatted value
+	// 		});
+
+	// 		// Prevent typing more than 11 digits
+	// 		document.getElementById("walletInput").addEventListener("keypress", function (event) {
+	// 			if (!/[0-9]/.test(event.key) || event.target.value.replace(/\D/g, "").length >= 11) {
+	// 				event.preventDefault();
+	// 			}
+	// 		});
+	// 	});
+	// });
+	document.addEventListener("DOMContentLoaded", function () {
+
+		const walletBtn = document.getElementById("walletBtn");
+		const cardBtn = document.getElementById("cardBtn");
+		const walletSection = document.getElementById("walletSection");
+		const cardSection = document.getElementById("cardSection");
+
+		// Default: Show Wallet, Hide Card
+		walletSection.style.display = "block";
+		cardSection.style.display = "none";
+		walletBtn.classList.add("active");
+
+		walletBtn.addEventListener("click", function () {
+			walletBtn.classList.add("active");
+			cardBtn.classList.remove("active");
+			walletSection.style.display = "block";
+			cardSection.style.display = "none";
+		});
+
+		cardBtn.addEventListener("click", function () {
+			cardBtn.classList.add("active");
+			walletBtn.classList.remove("active");
+			walletSection.style.display = "none";
+			cardSection.style.display = "block";
+		});
+
+		// Form validation
+		document.querySelectorAll("form").forEach((form) => {
+			form.addEventListener("submit", function (event) {
+				let isValid = true;
+				let errors = [];
+				// Wallet validation
+				const walletInput = form.querySelector("input[placeholder='01* *** *** **']");
+				const walletError = form.querySelector(".wallet-error");
+
+				if (walletInput && walletSection.style.display === "block") {
+					let walletValue = walletInput.value.replace(/\s/g, "").trim();
+					if (walletValue === "" || !/^(010|011|012|015)\d{8}$/.test(walletValue)) {
+						walletError.textContent = "Please enter a valid wallet number.";
+						errors.push(walletInput);
+						isValid = false;
+					} else {
+						walletError.textContent = "";
+					}
+				}
+
+				// Card validation
+				const cardInput = form.querySelector("input[placeholder='1234 **** **** 5678']");
+				const cardError = form.querySelector(".card-error");
+
+				if (cardInput && cardSection.style.display === "block") {
+					let cardValue = cardInput.value.replace(/\s/g, "");
+					if (cardValue.length !== 16 || !/^\d{16}$/.test(cardValue)) {
+						cardError.textContent = "Please enter a valid card number.";
+						errors.push(cardInput);
+						isValid = false;
+					} else {
+						cardError.textContent = "";
+					}
+				}
+
+				// Expiry Date validation
+				const expiryInput = form.querySelector("input[placeholder='MM/YY']");
+				const expiryError = form.querySelector(".expiry-error");
+
+				if (expiryInput) {
+					let expiryValue = expiryInput.value.trim();
+					if (!/^\d{2}\/?\d{2}$/.test(expiryValue)) {
+						expiryError.textContent = "Please enter a valid expiry date (MM/YY).";
+						errors.push(expiryInput);
+						isValid = false;
+					} else {
+						let match = expiryValue.match(/^(\d{2})\/?(\d{2})$/);
+						let month = parseInt(match[1], 10);
+						let year = parseInt(match[2], 10);
+
+						if (month < 1 || month > 12) {
+							expiryError.textContent = "Please enter a valid month (01 to 12).";
+							isValid = false;
+						} else {
+							let now = new Date();
+							let expiryDate = new Date(year + 2000, month - 1, 1);
+							if (expiryDate < now) {
+								expiryError.textContent = "The expiry date must be in the future.";
+								isValid = false;
+							} else {
+								expiryError.textContent = "";
+							}
+						}
+					}
+				}
+
+				// CVV validation
+				const cvvInput = form.querySelector("input[placeholder='CVV']");
+				const cvvError = form.querySelector(".cvv-error");
+
+				if (cvvInput) {
+					let cvvValue = cvvInput.value.trim();
+					if (!/^\d{3,4}$/.test(cvvValue)) {
+						cvvError.textContent = "Please enter a valid CVV (3 or 4 digits).";
+						errors.push(cvvInput);
+						isValid = false;
+					} else {
+						cvvError.textContent = "";
+					}
+				}
+
+				if (!isValid) {
+					if (errors.length === 1) {
+						errors[0].focus();
+						event.preventDefault();
+
+					}
+					event.preventDefault();
+				}
+
+			});
+
+			// Card number input formatting
+			const cardInput = document.getElementById("cardNumber");
+
+			cardInput.addEventListener("input", function (event) {
+				let cursorPosition = event.target.selectionStart;
+				let value = event.target.value.replace(/\D/g, "").substring(0, 16); // فقط أرقام، وأقصى حد 16 رقم
+
+				let formatted = "";
+				for (let i = 0; i < value.length; i++) {
+					if (i > 0 && i % 4 === 0) formatted += " ";
+					formatted += value[i];
+				}
+
+				// حساب عدد المسافات قبل وبعد
+				let spacesBefore = (event.target.value.substring(0, cursorPosition).match(/\s/g) || []).length;
+				let spacesAfter = (formatted.substring(0, cursorPosition).match(/\s/g) || []).length;
+
+				event.target.value = formatted;
+
+				let newCursorPosition = cursorPosition + (spacesAfter - spacesBefore);
+				event.target.setSelectionRange(newCursorPosition, newCursorPosition);
+			});
+
+			cardInput.addEventListener("keypress", function (event) {
+				// يمنع كتابة أكثر من 16 رقم أو أي شيء غير رقم
+				if (!/[0-9]/.test(event.key) || cardInput.value.replace(/\D/g, "").length >= 16) {
+					event.preventDefault();
+				}
+			});
+
+
+			// Wallet input formatting
+			const walletInputField = document.getElementById("walletInput");
+
+			walletInputField.addEventListener("input", function (event) {
+				let cursorPosition = event.target.selectionStart;
+				let value = event.target.value.replace(/\D/g, "");
+
+				if (value.length > 11) value = value.substring(0, 11);
+
+				let formatted = "";
+				if (value.length > 0) formatted += value.substring(0, 3);
+				if (value.length > 3) formatted += " " + value.substring(3, 6);
+				if (value.length > 6) formatted += " " + value.substring(6, 9);
+				if (value.length > 9) formatted += " " + value.substring(9, 11);
+
+				let spacesBefore = (event.target.value.substring(0, cursorPosition).match(/\s/g) || []).length;
+				let spacesAfter = (formatted.substring(0, cursorPosition).match(/\s/g) || []).length;
+
+				event.target.value = formatted;
+
+				let newCursorPosition = cursorPosition + (spacesAfter - spacesBefore);
+				event.target.setSelectionRange(newCursorPosition, newCursorPosition);
+			});
+
+			walletInputField.addEventListener("keypress", function (event) {
+				if (!/[0-9]/.test(event.key) || event.target.value.replace(/\D/g, "").length >= 11) {
+					event.preventDefault();
+				}
+			});
+
+			// Expiry Date formatting
+			const expiryInput = document.querySelector("input[placeholder='MM/YY']");
+
+			expiryInput.addEventListener("keydown", function (event) {
+				if (event.key === "Backspace") {
+					let pos = expiryInput.selectionStart;
+
+					if (pos === 3 && expiryInput.value.charAt(2) === "/") {
+						// Prevent default backspace and delete only the digit before the slash
+						event.preventDefault();
+
+						let value = expiryInput.value;
+						// Remove the character at position 1 (second digit)
+						let newValue = value.charAt(0) + "/" + value.substring(3);
+
+						expiryInput.value = newValue;
+						expiryInput.setSelectionRange(1, 1); // Place cursor after first digit
+					}
+				}
+			});
+
+
+			expiryInput.addEventListener("input", function (event) {
+				let cursorPosition = event.target.selectionStart;
+				let value = event.target.value.replace(/\D/g, "");
+
+				if (value.length > 4) value = value.substring(0, 4);
+
+				let formatted = "";
+				if (value.length >= 2) {
+					formatted = value.substring(0, 2) + "/" + value.substring(2, 4);
+					if (cursorPosition === 2) cursorPosition += 1; // Skip over the /
+				} else {
+					formatted = value;
+				}
+
+
+				event.target.value = formatted;
+
+				// Adjust cursor to new position
+				let slashCountBefore = (event.target.value.substring(0, cursorPosition).match(/\//g) || []).length;
+				let slashCountAfter = (formatted.substring(0, cursorPosition).match(/\//g) || []).length;
+				let newCursorPosition = cursorPosition + (slashCountAfter - slashCountBefore);
+
+				event.target.setSelectionRange(newCursorPosition, newCursorPosition);
+			});
+
+			expiryInput.addEventListener("keypress", function (event) {
+				if (!/[0-9]/.test(event.key) || event.target.value.replace(/\D/g, "").length >= 4) {
+					event.preventDefault();
+				}
+			});
+			// ✅ CVV input formatting (info2)
+			const cvvInputField = document.getElementById("info2");
+
+			cvvInputField.addEventListener("input", function (event) {
+				let value = event.target.value.replace(/\D/g, "");
+				if (value.length > 4) value = value.substring(0, 4);
+				event.target.value = value;
+			});
+
+			cvvInputField.addEventListener("keypress", function (event) {
+				if (!/[0-9]/.test(event.key) || cvvInputField.value.length >= 4) {
+					event.preventDefault();
+				}
+			});
+		});
+	});
+
+</script>

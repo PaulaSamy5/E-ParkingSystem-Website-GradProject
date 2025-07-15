@@ -1,0 +1,167 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = GraduationProject_E_ParkingSystem
+build_property.RootNamespace = GraduationProject_E_ParkingSystem
+build_property.ProjectDir = F:\GraduationProject_E-ParkingSystem3\GraduationProject_E-ParkingSystem\GraduationProject_E-ParkingSystem\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = F:\GraduationProject_E-ParkingSystem3\GraduationProject_E-ParkingSystem\GraduationProject_E-ParkingSystem
+build_property._RazorSourceGeneratorDebug = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/AdminDashboard/Adminstrator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5EYXNoYm9hcmRcQWRtaW5zdHJhdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/AdminDashboard/BookingRecords.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5EYXNoYm9hcmRcQm9va2luZ1JlY29yZHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/AdminDashboard/FeedbacksForAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5EYXNoYm9hcmRcRmVlZGJhY2tzRm9yQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/AdminDashboard/OurSlots.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5EYXNoYm9hcmRcT3VyU2xvdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/AdminDashboard/OurUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5EYXNoYm9hcmRcT3VyVXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/AdminDashboard/ParkingSettings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5EYXNoYm9hcmRcUGFya2luZ1NldHRpbmdzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/AdminDashboard/UserDetailsForAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5EYXNoYm9hcmRcVXNlckRldGFpbHNGb3JBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/ParkingSpots/AddParkingSpots.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFya2luZ1Nwb3RzXEFkZFBhcmtpbmdTcG90cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/Shared/_HomeLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ib21lTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/Shared/_MyLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NeUxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/Adminstrator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZG1pbnN0cmF0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/BookingConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxCb29raW5nQ29uZmlybWF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/ConfirmBooking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDb25maXJtQm9va2luZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/Done.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEb25lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/EnterDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFbnRlckRldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/EnterDetails2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFbnRlckRldGFpbHMyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/Feedback.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxGZWVkYmFjay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/HomePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxIb21lUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/M.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxNLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/MainPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxNYWluUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/MainPageBus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxNYWluUGFnZUJ1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/OurBestFetures.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxPdXJCZXN0RmV0dXJlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/PayFine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQYXlGaW5lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaWduSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaWduVXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/User/UpdateProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVcGRhdGVQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GraduationProject_E-ParkingSystem3/GraduationProject_E-ParkingSystem/GraduationProject_E-ParkingSystem/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ltluhrhxup

@@ -1,0 +1,520 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model GraduationProject_E_ParkingSystem.Models.ViewModel.UserSpotRecordDetailsViewModel
+@{
+    ViewData["HideFooter"] = "true";
+}
+
+
+<style>
+    body {
+        height: 10vh;
+        overflow-y: hidden;
+    }
+
+    .form-container {
+        position: absolute;
+        width: 588px;
+        height: 600px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 50px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        border-radius: 8px;
+        margin-top: 50px;
+    }
+
+        .form-container h1 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .form-container p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+.duration-options {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 10px;
+    max-width: 100%;
+    /* background-color: #eee; */
+}
+/* Scrollbar Customization - Soft Modern for White Background */
+.duration-options::-webkit-scrollbar {
+    height: 8px;
+}
+
+.duration-options::-webkit-scrollbar-track {
+    background: #f9f9f9; /* لون فاتح جدا */
+    border-radius: 10px;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.05);
+}
+
+.duration-options::-webkit-scrollbar-thumb {
+    background: #c0c0c0; /* رمادي فاتح */
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: background 0.3s ease;
+}
+
+.duration-options::-webkit-scrollbar-thumb:hover {
+    background: #999999; /* رمادي أغمق شوي */
+    box-shadow: 0 1px 6px rgba(0,0,0,0.15);
+}
+
+
+/* Hide the radio buttons */
+.duration-options input[type="radio"] {
+    display: none;
+}
+
+.duration-options label {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* مهم جدًا */
+    transition: background-color 0.3s;
+}
+
+.duration-options input[type="radio"]:checked + label {
+    background-color: #000;
+    color: #fff;
+}
+
+
+    .vehicle-options {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+
+        .vehicle-options label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+        .button-group button {
+            width: 45%;
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    .submit {
+        background-color: #000;
+        transition: all 0.4s;
+    }
+
+        .submit:hover {
+            background-color: #dbdada;
+            color: #000;
+            border: 1px solid #000;
+        }
+
+    .cancel {
+        background-color: #000;
+        transition: all 0.4s;
+    }
+
+        .cancel:hover {
+            background-color: #dbdada;
+            color: #000;
+            border: 1px solid #000;
+        }
+
+@*
+
+        Elta3deelaaat 
+        mediaquery 
+        1000
+        451
+*@
+
+        @@media(max-width: 1000px){
+        .form-container
+        {
+            width: 80%;
+            min-height: 92vh;
+            margin-top: 40px;
+        }
+
+        h1 {
+            font-size: 30px !important;
+        }
+
+        p {
+            font-size: 22px !important;
+        }
+
+        input {
+            font-size: 22px !important;
+        }
+
+        label {
+            font-size: 22px !important;
+        }
+
+        button {
+            font-size: 23px !important;
+        }
+        }
+         @@media(max-width: 600px){
+        .form-container {
+            width: 100%;
+            height: 80vh;
+        }
+         }
+        @@media(max-width:451px) {
+        .form-container {
+            width: 100%;
+            height: 80vh;
+
+        }
+        h1{
+            font-size: 17px !important;
+        }
+        p{
+            font-size: 13px !important;
+        }
+        input{
+            font-size: 13px !important;
+        }
+        label{
+            font-size: 13px !important;
+        }
+        .button-group{
+            display: block;
+            margin: auto !important;
+            text-align: center;
+        }
+        button{
+            width: 100% !important;
+            margin-top: 7px;
+            font-size: 13px !important;
+        }
+        }
+</style>
+
+<div class="form-container">
+    <h1>Slot @Model.SpotNumber</h1>
+    <p>Today: @DateTime.Now.ToShortDateString()</p>
+    <p>Your booking will start after 30 minutes</p>
+    <form asp-action="BookTheSlot" asp-controller="User" method="post">
+        <input type="hidden" name="UserId" asp-for="UserId" />
+        <input type="hidden" name="SpotId" asp-for="SpotId" />
+        <input type="hidden" name="SpotNumber" asp-for="SpotNumber" />
+
+
+        <div class="form-group">
+            <label>Duration (hour)</label>
+            <div class="duration-options" style="margin-bottom: 0">
+    <input type="radio" id="duration1" name="Duration" value="1" asp-for="Duration" />
+    <label for="duration1">1</label>
+
+    <input type="radio" id="duration2" name="Duration" value="2" asp-for="Duration" />
+    <label for="duration2">2</label>
+
+    <input type="radio" id="duration3" name="Duration" value="3" asp-for="Duration" />
+    <label for="duration3">3</label>
+
+    <input type="radio" id="duration4" name="Duration" value="4" asp-for="Duration" />
+    <label for="duration4">4</label>
+
+    <input type="radio" id="duration5" name="Duration" value="5" asp-for="Duration" />
+    <label for="duration5">5</label>
+
+    <input type="radio" id="duration6" name="Duration" value="6" asp-for="Duration" />
+    <label for="duration6">6</label>
+
+    <input type="radio" id="duration7" name="Duration" value="7" asp-for="Duration" />
+    <label for="duration7">7</label>
+
+    <input type="radio" id="duration8" name="Duration" value="8" asp-for="Duration" />
+    <label for="duration8">8</label>
+
+    <input type="radio" id="duration9" name="Duration" value="9" asp-for="Duration" />
+    <label for="duration9">9</label>
+
+    <input type="radio" id="duration10" name="Duration" value="10" asp-for="Duration" />
+    <label for="duration10">10</label>
+
+    <input type="radio" id="duration11" name="Duration" value="11" asp-for="Duration" />
+    <label for="duration11">11</label>
+
+    <input type="radio" id="duration12" name="Duration" value="12" asp-for="Duration" />
+    <label for="duration12">12</label>
+</div>
+
+<span id="duration-error"
+      style="display: inline-block; max-height: 10px;"
+      class="text-danger">
+</span>
+
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+
+        @* <div class="form-group">
+            <label>Vehicle Type</label>
+            <div class="vehicle-options">
+                <label>
+                    <input type="radio" name="vehicleType" value="car" asp-for="vehicleType" />
+                    Car
+                </label>
+                <label>
+                    <input type="radio" name="vehicleType" value="bus" asp-for="vehicleType" />
+                    Bus
+                </label>
+                <label>
+                    <input type="radio" name="vehicleType" value="bike" asp-for="vehicleType" />
+                    Bike
+                </label>
+            </div>
+            <span asp-validation-for="vehicleType" class="text-danger"></span>
+        </div> *@   
+
+        <div class="input-group mb-3" >
+  <span class="input-group-text" id="inputGroup-sizing-default" style="font-weight: bold">Vehicle Type</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" asp-for="vehicleType" value="@Model.vehicleType" readonly aria-describedby="inputGroup-sizing-default">
+</div>
+        
+        <div class="form-group" style="margin-top: 30px">
+            <label asp-for="PlateNumber">Plate Number</label>
+            <input type="text" id="plate-number" asp-for="PlateNumber" placeholder="Enter your plate number" class="form-control" autocomplete="off"/>
+            
+            
+            <span id="plate-number-error" class="text-danger" style="display: block;margin-top:6px; height: 30px; "></span> <!-- عرض الخطأ هنا -->
+
+
+            <span asp-validation-for="PlateNumber" class="text-danger"></span>
+        </div>
+
+        <div class="button-group" style="margin-top: 0">
+            <button type="submit" class="submit">Submit</button>
+            @if(Model.vehicleType == "Car"){
+                <button type="button" class="cancel" onclick="window.location.href='@Url.Action("MainPage", "User")'">Cancel</button>
+            }
+            else
+            {
+                                <button type="button" class="cancel" onclick="window.location.href='@Url.Action("MainPageBus", "User")'">Cancel</button>
+
+            }
+          
+            </div>
+    </form>
+</div>
+<style>
+    /* تضبيط الشكل عند الخطأ */
+        .is-invalid {
+        border: 2px solid red;
+    }
+
+</style>
+<script>
+	const durationRadios = document.querySelectorAll('.duration-options input[type="radio"]');
+    durationRadios.forEach(function (radio) {
+    radio.addEventListener('change', function () {
+        document.getElementById('duration-error').textContent = "";
+    });
+});
+    window.onload = function () {
+        document.querySelector('form').reset();
+    }
+    const plateInput = document.getElementById('plate-number');
+    let plateNumberValid = false;
+
+    // عند تغيير النص في المدخل
+    plateInput.addEventListener('input', async function () {
+        let raw = plateInput.value.replace(/[^A-Z\u0621-\u064A0-9]/gi, '').toUpperCase();
+        let letters = '';
+        let numbers = '';
+
+//         for (let i = 0; i < raw.length; i++) {
+//     const char = raw[i];
+//     if ((/[A-Z\u0621-\u064A]/.test(char)) && letters.length < 3) {
+//         letters += char;
+//     } else if (/[0-9]/.test(char) && numbers.length < 4) {
+//         numbers += char;
+//     }
+// }
+
+        // تقسيم النص إلى حروف وأرقام
+        for (let i = 0; i < raw.length; i++) {
+    const char = raw[i];
+    if ((/[\u0621-\u064A]/.test(char)) && letters.length < 3) {
+        letters += char;
+    } else if (/[0-9]/.test(char) && numbers.length < 4) {
+
+        numbers += char;
+    }
+}
+
+
+        // تنسيق النص النهائي مع إضافة مسافة بين الحروف فقط في واجهة المستخدم
+        const formatted = letters.split('').join(' ') + (letters && numbers ? ' | ' : '') + numbers;
+        plateInput.value = formatted;
+
+        // إزالة المسافات عند التحقق
+        const plateRegex = /^[A-Z\u0621-\u064A]{2,3}\|?\d{3,4}$/i;
+        // const plateRegex = /^[A-Z\u0621-\u064A]{2,3}\|?\d{4}$/i;
+        const errorElement = document.getElementById('plate-number-error');
+
+        // إذا كان التنسيق غير صحيح
+        if (!plateRegex.test(letters + numbers)) {  // التحقق بدون المسافات
+            errorElement.textContent = "Invalid format. Use 2-3 Arabic letters followed by 4 digits.";
+            plateInput.classList.add('is-invalid');
+            plateNumberValid = false;
+        } else {
+            errorElement.textContent = ''; // إذا التنسيق صحيح، نزيل الرسالة
+            plateInput.classList.remove('is-invalid');
+            plateNumberValid = true;
+        }
+
+        // إذا كان التنسيق صحيح، نتأكد من السيرفر
+        if (plateRegex.test(letters + numbers)) {
+            const response = await fetch('/User/CarPlateValidation?plateNumber=' + encodeURIComponent(formatted), {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const data = await response.json();
+
+            if (data.success === false) {
+                errorElement.textContent = data.message;
+                plateInput.classList.add('is-invalid');
+                plateNumberValid = false;
+            } else {
+                errorElement.textContent = '';
+                plateInput.classList.remove('is-invalid');
+                plateNumberValid = true;
+            }
+        }
+    });
+    plateInput.addEventListener("keypress", function (event) {
+    const char = event.key.toUpperCase();
+    const currentValue = plateInput.value.replace(/[^A-Z\u0621-\u064A0-9]/gi, '').toUpperCase();
+
+    let letters = '';
+    let numbers = '';
+
+    for (let i = 0; i < currentValue.length; i++) {
+        const c = currentValue[i];
+        if (/[\u0621-\u064A]/.test(c) && letters.length < 3) {
+            letters += c;
+        } else if (/[0-9]/.test(c) && numbers.length < 4) {
+            numbers += c;
+        }
+    }
+
+    // الآن نتحقق إذا الضغط الحالي هيتجاوز الحد
+    if (/[\u0621-\u064A]/.test(char)) {
+        if (letters.length >= 3) {
+            event.preventDefault();
+        }
+    } else if (/[0-9]/.test(char)) {
+        if (numbers.length >= 4) {
+            event.preventDefault();
+        }
+    } else {
+        // لو مش حرف عربي ولا رقم، نمنعه برضو
+        event.preventDefault();
+    }
+});
+document.querySelector('form').addEventListener('submit', function (event) {
+    const plateNumber = plateInput.value.trim();
+    const selectedDuration = document.querySelector('input[name="Duration"]:checked');
+    const durationError = document.getElementById('duration-error');
+    const plateError = document.getElementById('plate-number-error');
+
+    let hasError = false;
+    let focused = false;
+
+    // التحقق من رقم اللوحة: فاضي
+    if (plateNumber === '') {
+        plateError.textContent = "Plate number cannot be empty.";
+        plateInput.classList.add('is-invalid');
+        if (!focused) {
+            plateInput.focus();
+            focused = true;
+        }
+        hasError = true;
+    } else if (!plateNumberValid) {
+        plateInput.classList.add('is-invalid');
+        if (!focused) {
+            plateInput.focus();
+            focused = true;
+        }
+        hasError = true;
+    } else {
+        plateError.textContent = '';
+        plateInput.classList.remove('is-invalid');
+    }
+
+    // التحقق من اختيار المدة
+    if (!selectedDuration) {
+        durationError.textContent = "Please select a duration.";
+        hasError = true;
+    } else {
+        durationError.textContent = '';
+    }
+
+    if (hasError) {
+        event.preventDefault();
+    }
+});
+
+</script>
+
+

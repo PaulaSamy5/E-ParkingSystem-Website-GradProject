@@ -1,0 +1,175 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+
+.all {
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-image: url(../Images/3.webp);
+}
+
+    .all .home {
+        width: 100%;
+        height: 100vh;
+        background-size: 100% 100%;
+        overflow: hidden;
+    }
+/*My CSS for the first page*/
+.ads {
+    /*background-color: red;*/
+    margin-top: 100px;
+    width: 40%;
+    margin: auto;
+    text-align: center;
+}
+
+    .ads h1 {
+        font-size: 70px;
+        color: white;
+    }
+
+.content {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+    .content .info {
+        width: 50%;
+        height: 300px;
+    }
+
+        .content .info h2 {
+            text-align: center;
+            font-size: 75px;
+            font-weight: 750;
+            color: white;
+        }
+
+        .content .info p {
+            text-align: center;
+            font-size: 22px;
+            padding-left: 25px;
+            color: whitesmoke;
+        }
+
+        .content .info .buttons {
+            margin: auto;
+            width: 80%;
+            text-align: center;
+        }
+
+            .content .info .buttons button {
+                width: 35%;
+                padding: 3px 0;
+                margin: 10px;
+                border: none;
+                background-color: rgb(181, 117, 204);
+                font-weight: 500;
+                border-radius: 12px;
+                font-size: 26px;
+            }
+
+                .content .info .buttons button a {
+                    text-decoration: none;
+                    color: #222;
+                }
+
+                .content .info .buttons button:hover {
+                    background-color: rgb(160, 100, 180);
+                    color: #fff;
+                }
+
+                    .content .info .buttons button:hover > a {
+                        color: #fff;
+                    }
+
+            .content .info .buttons .vip {
+                width: 50%;
+                background-color: gold;
+                padding: 7px;
+            }
+
+                .content .info .buttons .vip:hover {
+                    background-color: rgb(202, 172, 0);
+                    cursor: pointer;
+                }
+
+        .content .info h2 span {
+            color: rgb(224, 158, 249);
+        }
+
+    .content .ph {
+        width: 45%;
+    }
+
+    .content img {
+        margin: 10px;
+        width: 570px;
+        border-radius: 12px;
+    }
+
+.welcome-text {
+    color: black; /* Change to your desired color for "Welcome" */
+    /*font-weight: bold;*/ /* Optional: make it bold */
+}
+
+.user-name {
+    color: #E1A900; /* Change to your desired color for the user's name */
+    /*font-weight: bold;*/ /* Optional: make it bold */
+}
+
+    .user-name span {
+        color: green; /* Change to your desired color for the user's name */
+        /*font-weight: bold;*/ /* Optional: make it bold */
+    }
+
+.LogOutButton {
+    align-items: center;
+    justify-content: center;
+    align-items: center
+}
+
+    .LogOutButton a {
+        background-color: blue !important;
+    }
+
+.things {
+    justify-content: center;
+    align-items: center;
+}
+
+.navtext {
+    color: black;
+    font-weight: bold;
+    font-size: 17px
+}
+
+    .navtext:hover {
+        color: orange; /* Change text color on hover */
+        border-bottom: 1px solid orange;
+        transform: scale(1.05); /* Slightly scale the element up */
+    }

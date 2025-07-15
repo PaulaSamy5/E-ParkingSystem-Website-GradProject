@@ -1,0 +1,1672 @@
+﻿@{
+	ViewData["Title"] = "Main Page";
+
+    var spots = Model.Spots as List<ParkingSpots>;
+    var availableCount = spots?.Count(s => !s.Isbooked && s.IsAvailable) ?? 0;
+}
+@model dynamic
+
+@* @((IEnumerable<ParkingSpots>)Model.spots).Count(s => !s.Isbooked && s.IsAvailable); *@
+    <div class="malomat">
+        <h4 style="margin: 20px;">The Price per hour: @(Model.price.PricePerHour)EGP</h4>
+        <h4 class="slll" style="margin: 20px;">Available Slots: @availableCount</h4>
+        </div>
+@* @Model.spots *@
+
+
+<div class="cards-wrapper" >
+
+<div class="cards-container" style="">
+
+	@foreach (var item in Model.Spots)
+	{
+
+		// Ensure cardClass is always assigned a value
+		string cardClass = "card available"; // Default to available if no other conditions apply
+
+		if (item.Isbooked)
+		{
+			cardClass = "card booked"; // If the spot is booked, the color will be blue
+			if (!item.IsAvailable)
+			{
+				cardClass = "card unavailable"; // If the spot is not available, the color will be red
+			}
+		}
+		else if (!item.IsAvailable)
+		{
+			cardClass = "card unavailable"; // If the spot is not available and not booked, color will be red
+		}
+
+		// Cast Model.records to a strongly-typed list
+		var recordsList = (List<GraduationProject_E_ParkingSystem.Models.ParkingRecord>)Model.records;
+
+		// Find the parking record for the current spot
+
+        
+
+
+        @* var record = recordsList.FirstOrDefault(r => r.ParkingSpotId == item.Id); *@
+
+
+
+
+
+		var record = recordsList.LastOrDefault(r => r.ParkingSpotId == item.Id);
+		@* var record2 = ((List<GraduationProject_E_ParkingSystem.Models.ParkingRecord>)Model.records)
+        .FirstOrDefault(r => r.ParkingSpotId == item.Id && r.UserId == Model.UserDetails.Id); *@
+
+        var record2 = ((List<GraduationProject_E_ParkingSystem.Models.ParkingRecord>)Model.records)
+        .LastOrDefault(r => r.ParkingSpotId == item.Id && r.UserId == Model.UserDetails.Id && r.IsFinished);
+
+		<div class="@cardClass">
+			<div class="card-body">
+                @if (item.Isbooked && record != null && record.UserId == Model.UserDetails.Id)
+                {
+                        @if (item.IsAvailable)
+                        {
+                           <!-- Trigger Button (Cancel Icon) -->
+                            <button type="button" class="btn btn-link p-0 border-0 text-danger position-absolute cancel-link no-focus" 
+                                    style="top: 17.5px; left: 15px;" 
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#cancelModal"
+                                    data-spotid="@item.Id"
+                                    data-recordid="@record.Id"
+                                    title="Cancel Booking">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+
+                        }
+                        else
+                        {
+                            @if (record != null)
+                            {
+                                <!-- الزرار اللى بيفتح المودال ومعاه recordId -->
+                                <button type="button"
+                                        class="btn btn-link p-0 border-0 update-link position-absolute no-focus"
+                                        style="top: 15px; left: 15px;"
+                                        title="Update Booking"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#addDurationModal"
+                                        data-record-id="@record.Id">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            }
+
+                        }
+
+                }
+                    <!-- Location Icon in the top-right corner -->
+                <a href="javascript:void(0)" class="location-link position-absolute" style="top: 15px; right: 15px;">
+                    <i class="fa-solid fa-location-dot"></i>
+                </a>
+
+				<h1>@item.SlotName</h1>
+				@if (item.Isbooked && record != null && record.UserId == Model.UserDetails.Id)
+				{
+					@if (item.IsAvailable)
+					{
+						<a asp-action="MarkArrived" asp-controller="User" asp-route-spotId="@item.Id">
+							<button type="button" class="btn btn-warning no-focus"  onclick="handleClick()">Arrived</button>
+						</a>
+					}
+					else
+					{
+                        @if (record != null)
+                        {
+                        <form asp-action="MarkLeaving" asp-controller="User" method="post">
+                            <input type="hidden" name="recordId" value="@record.Id" />
+        
+     
+                            <button type="submit" class="btn btn-warning no-focus"  onclick="handleClick()">Leaving</button>
+                        </form>
+                        }
+		
+					}
+				}
+
+
+
+                //NEW to be added
+
+                 else if(!item.IsAvailable && record != null && record.UserId == Model.UserDetails.Id){
+                     <!-- Use a form to submit recordId and slotId -->
+                        <form asp-action="MarkLeaving" asp-controller="User" method="post">
+                            <!-- Hidden input for the record ID -->
+                            <input type="hidden" name="recordId" value="@record.Id" />
+        
+                            <!-- Hidden input for the slot ID -->
+                            @* <input type="hidden" name="Id" value="@item.Id" /> *@
+        
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-warning no-focus"  onclick="handleClick()">Leaving</button>
+                        </form>
+                } 
+
+
+				else if (!item.Isbooked && item.IsAvailable)
+				{
+					<!-- If the spot is not booked, show "Book" button -->
+					<form asp-action="EnterDetails" asp-controller="User" method="post">
+                        <input type="hidden" name="UserId" value="@Model.UserDetails.Id"/>
+                        <input type="hidden" name="SpotId" value="@item.Id"/>
+
+						<button type="submit" class="btn btn-warning no-focus" 
+                        style="background-color: black;
+border: none;
+color: white;
+border-radius: 16px">Book</button>
+					</form>
+				}
+				else
+				{
+					@if (item.IsAvailable)
+					{
+						<!-- If the spot is booked by another user, show a disabled button -->
+						<button type="button" class="btn btn-secondary no-focus" disabled>Booked</button>
+					}
+					else
+					{
+						<button style="background-color: transparent; border: none; font-size: 30px" type="button" class="btn btn-secondary no-focus" disabled><i class="fa-solid fa-car"></i></button>
+					}
+				}
+			</div>
+		</div>
+	}
+</div>
+  </div>
+
+@* @{
+    ViewData["Title"] = "Main Page";
+}
+@model dynamic
+
+<div class="cards-container">
+    @foreach (var item in Model.Spots)
+    {
+        // Ensure cardClass is always assigned a value
+        string cardClass = "card available"; // Default to available if no other conditions apply
+
+        if (item.Isbooked)
+        {
+            cardClass = "card booked"; // If the spot is booked, the color will be blue
+            if (!item.IsAvailable)
+            {
+                cardClass = "card unavailable"; // If the spot is not available, the color will be red
+            }
+        }
+        else if (!item.IsAvailable)
+        {
+            cardClass = "card unavailable"; // If the spot is not available and not booked, color will be red
+        }
+
+        // Cast Model.records to a strongly-typed list
+        var recordsList = (List<GraduationProject_E_ParkingSystem.Models.ParkingRecord>)Model.records;
+
+        // Find the parking record for the current spot
+        var record = recordsList.FirstOrDefault(r => r.ParkingSpotId == item.Id);
+
+        if (item.SpotNumber != null && item.SpotNumber.Contains("A"))
+        {
+            <div class="A">
+                <div class="@cardClass">
+                    <div class="card-body">
+                        <h1>@item.SpotNumber</h1>
+                        @if (item.Isbooked && record != null && record.UserId == Model.UserDetails.Id)
+                        {
+                            @if (item.IsAvailable)
+                            {
+                                <!-- If the spot is available and booked by the user, show "Arrived" button -->
+                                <a asp-action="MarkArrived" asp-controller="User" asp-route-spotId="@item.Id">
+                                    <button type="button" class="btn btn-success no-focus">Arrived</button>
+                                </a>
+                            }
+                            else
+                            {
+                                <!-- If the spot is booked but unavailable, show "Leaving" button -->
+                                <a asp-action="MarkLeaving" asp-controller="User" asp-route-spotId="@item.Id">
+                                    <button type="button" class="btn btn-warning no-focus">Leaving</button>
+                                </a>
+                            }
+                        }
+                        else if (!item.Isbooked && item.IsAvailable)
+                        {
+                            <!-- If the spot is not booked, show "Book" button -->
+                            <a asp-action="EnterDetails" asp-controller="User" asp-route-userId="@Model.UserDetails.Id" asp-route-spotId="@item.Id">
+                                <button type="button" class="btn btn-warning no-focus">Book</button>
+                            </a>
+                        }
+                        else
+                        {
+                            @if (item.IsAvailable)
+                            {
+                                <!-- If the spot is booked by another user, show a disabled button -->
+                                <button type="button" class="btn btn-secondary no-focus" disabled>Booked</button>
+                            }
+                            else
+                            {
+                                <button style="background: red; border: none; font-size: 20px" type="button" class="btn btn-secondary no-focus" disabled><i class="fa-solid fa-car"></i></button>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+		else if (item.SpotNumber != null && item.SpotNumber.Contains("z"))
+        {
+            <div class="B" style="">
+                <div class="@cardClass">
+                    <div class="card-body">
+                        <h1>@item.SpotNumber</h1>
+                        @if (item.Isbooked && record != null && record.UserId == Model.UserDetails.Id)
+                        {
+                            @if (item.IsAvailable)
+                            {
+                                <!-- If the spot is available and booked by the user, show "Arrived" button -->
+                                <a asp-action="MarkArrived" asp-controller="User" asp-route-spotId="@item.Id">
+                                    <button type="button" class="btn btn-success no-focus">Arrived</button>
+                                </a>
+                            }
+                            else
+                            {
+                                <!-- If the spot is booked but unavailable, show "Leaving" button -->
+                                <a asp-action="MarkLeaving" asp-controller="User" asp-route-spotId="@item.Id">
+                                    <button type="button" class="btn btn-warning no-focus">Leaving</button>
+                                </a>
+                            }
+                        }
+                        else if (!item.Isbooked && item.IsAvailable)
+                        {
+                            <!-- If the spot is not booked, show "Book" button -->
+                            <a asp-action="EnterDetails" asp-controller="User" asp-route-userId="@Model.UserDetails.Id" asp-route-spotId="@item.Id">
+                                <button type="button" class="btn btn-warning no-focus">Book</button>
+                            </a>
+                        }
+                        else
+                        {
+                            @if (item.IsAvailable)
+                            {
+                                <!-- If the spot is booked by another user, show a disabled button -->
+                                <button type="button" class="btn btn-secondary no-focus" disabled>Booked</button>
+                            }
+                            else
+                            {
+                                <button style="background: red; border: none; font-size: 20px" type="button" class="btn btn-secondary no-focus" disabled><i class="fa-solid fa-car"></i></button>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+</div>  *@
+@* <div class="cards-container">
+    @foreach (var item in Model.Spots)
+    {
+        // Set default card class
+        string cardClass = "card available"; // Default to available if no other conditions apply
+
+        if (item.Isbooked)
+        {
+            cardClass = "card booked"; // If the spot is booked, the color will be blue
+            if (!item.IsAvailable)
+            {
+                cardClass = "card unavailable"; // If the spot is not available, the color will be red
+            }
+        }
+        else if (!item.IsAvailable)
+        {
+            cardClass = "card unavailable"; // If the spot is not available and not booked, color will be red
+        }
+
+        // Cast Model.records to a strongly-typed list
+        var recordsList = (List<GraduationProject_E_ParkingSystem.Models.ParkingRecord>)Model.records;
+
+        // Find the parking record for the current spot
+        var record = recordsList.FirstOrDefault(r => r.ParkingSpotId == item.Id);
+
+        // Check if the spot number matches "A" or "z" and render accordingly
+        if (!string.IsNullOrEmpty(item.SpotNumber))
+        {
+            if (item.SpotNumber.Contains("A"))
+            {
+                <div class="A">
+                    <div class="@cardClass">
+                        <div class="card-body">
+                            <h1>@item.SpotNumber</h1>
+@if (item.Isbooked && record != null && record.UserId == Model.UserDetails.Id)
+                        {
+                            @if (item.IsAvailable)
+                            {
+                                <!-- If the spot is available and booked by the user, show "Arrived" button -->
+                                <a asp-action="MarkArrived" asp-controller="User" asp-route-spotId="@item.Id">
+                                    <button type="button" class="btn btn-success no-focus">Arrived</button>
+                                </a>
+                            }
+                            else
+                            {
+                                <!-- If the spot is booked but unavailable, show "Leaving" button -->
+                                <a asp-action="MarkLeaving" asp-controller="User" asp-route-spotId="@item.Id">
+                                    <button type="button" class="btn btn-warning no-focus">Leaving</button>
+                                </a>
+                            }
+                        }
+                        else if (!item.Isbooked && item.IsAvailable)
+                        {
+                            <!-- If the spot is not booked, show "Book" button -->
+                            <a asp-action="EnterDetails" asp-controller="User" asp-route-userId="@Model.UserDetails.Id" asp-route-spotId="@item.Id">
+                                <button type="button" class="btn btn-warning no-focus">Book</button>
+                            </a>
+                        }
+                        else
+                        {
+                            @if (item.IsAvailable)
+                            {
+                                <!-- If the spot is booked by another user, show a disabled button -->
+                                <button type="button" class="btn btn-secondary no-focus" disabled>Booked</button>
+                            }
+                            else
+                            {
+                                <button style="background: red; border: none; font-size: 20px" type="button" class="btn btn-secondary no-focus" disabled><i class="fa-solid fa-car"></i></button>
+                            }
+                        }                        </div>
+                    </div>
+                </div>
+            }
+            else if (item.SpotNumber.Contains("z"))
+            {
+                            <div class="B">
+
+                    <div class="@cardClass">
+                        <div class="card-body">
+                            <h1>@item.SpotNumber</h1>
+                        @if (item.Isbooked && record != null && record.UserId == Model.UserDetails.Id)
+                        {
+                            @if (item.IsAvailable)
+                            {
+                                <!-- If the spot is available and booked by the user, show "Arrived" button -->
+                                <a asp-action="MarkArrived" asp-controller="User" asp-route-spotId="@item.Id">
+                                    <button type="button" class="btn btn-success no-focus">Arrived</button>
+                                </a>
+                            }
+                            else
+                            {
+                                <!-- If the spot is booked but unavailable, show "Leaving" button -->
+                                <a asp-action="MarkLeaving" asp-controller="User" asp-route-spotId="@item.Id">
+                                    <button type="button" class="btn btn-warning no-focus">Leaving</button>
+                                </a>
+                            }
+                        }
+                        else if (!item.Isbooked && item.IsAvailable)
+                        {
+                            <!-- If the spot is not booked, show "Book" button -->
+                            <a asp-action="EnterDetails" asp-controller="User" asp-route-userId="@Model.UserDetails.Id" asp-route-spotId="@item.Id">
+                                <button type="button" class="btn btn-warning no-focus">Book</button>
+                            </a>
+                        }
+                        else
+                        {
+                            @if (item.IsAvailable)
+                            {
+                                <!-- If the spot is booked by another user, show a disabled button -->
+                                <button type="button" class="btn btn-secondary no-focus" disabled>Booked</button>
+                            }
+                            else
+                            {
+                                <button style="background: red; border: none; font-size: 20px" type="button" class="btn btn-secondary no-focus" disabled><i class="fa-solid fa-car"></i></button>
+                            }
+                        }
+                        </div>
+                    </div>
+                                 </div>
+
+            }
+
+        }
+    }
+</div>
+ *@
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+    .malomat{
+        display: flex;
+        padding-top: 1%;
+        padding-left: 3%
+    }
+    .malomat .slll{
+        @* margin: 500px; *@
+        padding-left: 50%;
+    }
+	.card {
+		transition: background-color 0.3s ease;
+	}
+
+		.card.booked {
+			background-color: #008109; /* Blue background for booked spots */
+			color: white; /* White text color for better visibility */
+		}
+
+		.card.available {
+			background-color: white; /* White background for available spots */
+			color: black; /* Black text color */
+		}
+
+		.card.unavailable {
+			background-color: #EA2727; /* Red background for unavailable spots */
+			color: white; /* White text color */
+		}
+
+
+		
+	.no-focus:focus {
+		outline: none;
+		box-shadow: none;
+	}
+@* 	.cards-container {
+		margin-top: 30px;
+		display: block;
+		background-color: blue;
+		padding: 20px;
+
+		 width: 4000px; 
+		height: 500px;
+
+	} *@
+@*This the code for the traditional slots*@
+    .cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    gap: 20px; /* Optional: Adds space between the cards */
+    padding: 20px; /* Padding inside the container */
+    @* justify-content: flex-start; /* Align items to the left */ *@
+    margin-left: 40px;
+}
+
+.card {
+    width: 200px; /* Set a fixed width for each card */
+    height: 150px; /* Set a fixed height for each card */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+@* 	.cards-container {
+		display: flex;
+		flex-wrap: wrap; /* allows cards to wrap to a new row */
+		gap: 20px;
+		justify-content: flex-start; /* cards start from the left */
+		padding: 20px;
+		margin: auto; /* centers the container horizontally */
+		text-align: center;
+		align-content: center;
+		@* width: 4000px; 
+	} *@
+
+@* .cards-container {
+    margin-top: 30px;
+    display: block; /* Default block display */     background-color: blue;
+  padding: 20px;
+    max-width: 4000px; /* Avoid any overflow, setting a maximum width */
+    margin-left: 0; /* Ensure no automatic left margin */
+    margin-right: 0; /* Ensure no automatic right margin */
+	height: auto;
+} *@
+
+	
+
+@* 	.cards-container {
+		display: flex;
+		flex-wrap: wrap; /* Allows cards to wrap to a new row */
+		justify-content: center;
+		gap: 20px;
+		justify-content: flex-start; /* Cards start from the left */
+		padding: 20px;
+		margin: auto; /* Centers the container horizontally */
+		text-align: center;
+		align-content: center;
+		width: 4000px;
+	} *@
+ 
+@*  .A {
+   background-color: red;
+    display: flex; /* Use flexbox to arrange items in a row */
+    flex-direction: row; /* Ensure the items are in a horizontal line */
+	float:left;
+	margin: 5px
+} *@
+@*  .B {
+
+	position: absolute;
+	top: 50%;
+    left: 500px;
+    background-color: red;
+   display: flex; /* Use flexbox to arrange items in a row */
+    flex-direction: row; /* Ensure the items are in a horizontal line */
+    gap: 20px; /* Optional: Adds space between the cards */
+    align-items: center; /* Align items vertically in the center */
+	float:left;
+	margin: 5px
+} *@
+	.card {
+		width: 12.5%; /* Card width */
+		border: 2px solid black;
+		border-bottom: none;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		margin: auto 0;
+		margin-top: 10px;
+		padding: 10px;
+		text-align: center;
+		width: 150px;
+		float:left
+	}
+
+	.card-body {
+		padding: 15px;
+		height: 120px
+	}
+
+		.card-body button {
+			color: black;
+			font-weight: 500;
+			border: 3px #ffc107 solid;
+			transition: all 0.3s;
+		}
+
+			.card-body button:hover {
+				background-color: white;
+				color: #0b0046;
+			}
+
+	.card-img-top {
+		width: 100%;
+		height: auto;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+</style>
+
+
+<!-- Modal -->
+<div id="popupModal" class="modal-dash">
+<h3 class="modal-header-dash">
+    <i class="fa-regular fa-clock icon-dash"></i>
+            @* <span onclick="closeModal()" style="cursor: pointer; font-size: 20px; position: absolute; top: 5px; right: 10px;">&times;</span> *@
+
+</h3>
+@* @TempData["recordId"] *@
+    <p class="modal-content-dash" style="font-weight: 500">Your time has been exceeded. You should pay a fine of <span style="font-weight: 550; color: cornflowerblue">@TempData["FineAmount"] EGP</span> </p>
+    <form asp-action="FineLeaving" asp-controller="User" method="post">
+        <input name="recordId" value="@TempData["recordId"]" type="hidden"/>
+        <input name="FineAmount" value="@TempData["FineAmount"]" type="hidden"/>
+    <button type="submit" onclick="handleClick()" @* onclick="closeModal()" *@ class="btn-dash">Pay</button>
+    </form>
+</div>
+
+
+
+
+
+
+<style>
+    /* Style for the modal */
+    #popupModal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        z-index: 1050;
+        width: 350px; /* Adjust width for better design */
+        text-align: center;
+        height: auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+        transition: all 0.3s ease-in-out; /* Smooth transition for modal */
+        opacity: 0; /* Hidden by default */
+        animation: fadeIn 0.5s forwards; /* Fade-in animation */
+        z-index: 10000;
+    }
+    /* Keyframe for fade-in effect */
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -60%);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
+     .btn-dash {
+        width: 40%;
+        padding: 10px 20px;
+        background-color: #3498db; /* Modern blue color */
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-dash:hover {
+        background-color: #2980b9; /* Darker blue on hover */
+        transform: scale(1.05); /* Slight zoom effect */
+    }
+
+    .btn-dash:active {
+        transform: scale(1); /* Remove zoom on click */
+    }
+
+    .modal-header-dash {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .modal-content-dash {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #555;
+    }
+    .icon-dash {
+    font-size: 50px; /* Increase size of the icon */
+    color: cornflowerblue; /* Red color for the clock icon */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition effects */
+}
+
+
+.icon-dash:active {
+    transform: scale(1); /* Return to normal size when clicked */
+}
+     .location-link {
+        text-decoration: none;
+        color: #1e90ff; /* لون أزرق ناعم */
+        transition: all 0.3s ease;
+        font-size: 20px;
+    }
+
+    .location-link:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+     .location-link {
+        text-decoration: none;
+        color: #1e90ff;
+        transition: all 0.3s ease;
+        font-size: 20px;
+    }
+
+    .location-link:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+.cancel-link {
+    font-size: 20px;
+    color: #dc3545;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1; /* مهم جداً لإلغاء المسافات الرأسية */
+}
+.cancel-link:hover{
+    background-color: #008109
+}
+.cancel-link i {
+    color: #dc3545;
+    background-color: #008109;
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    padding-bottom: 2px;    
+}
+
+.cancel-link:hover i {
+    color: #a71d2a;
+    background-color: #008109;
+}
+
+.no-focus:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+.update-link {
+    font-size: 20px;
+    color: #ffffff !important; /* أبيض */
+    background-color: transparent; /* شفافية الزر */
+    border-radius: 5px;
+    transition: color 0.5s ease, background-color 0.3s ease;
+}
+
+.update-link:hover {
+    color: #cce6ff !important; /* درجة أفتح من الأبيض – هادية */
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.update-link i {
+    padding: 2px;
+    background-color: #EA2727;
+    padding-top:5px;
+    padding-bottom:6px;
+}
+
+
+@@media (max-width: 1400px) {
+    .malomat .slll{
+           padding-left: 45%;
+
+    }
+.cards-container {
+overflow-x: auto
+}
+}
+@@media (max-width: 1250px) {
+    .malomat .slll{
+           padding-left: 43%;
+
+    }
+
+}
+@@media (max-width: 1200px) {
+    .malomat .slll{
+           padding-left: 35%;
+
+    }
+}
+@@media (max-width: 1025px) {
+    body{
+        width: 100%
+    }
+     .cards-container {
+    @* width: 100%; *@
+        margin-left: 44px;
+
+   }
+  @*  .card{
+       width: 20%;
+   } *@
+   .malomat .slll{
+           padding-left: 34%; 
+
+    }
+
+}
+@@media (max-width: 990px) {
+        .malomat .slll{
+           padding-left: 15%;
+
+    }
+}
+
+@@media (max-width: 900px) {
+@*    .cards-container {
+    width: 100%;
+   }
+   .card{
+       width: 20%;
+   } *@
+
+       .malomat .slll{
+           padding-left: 16%;
+
+    }
+    #popupModal{
+        width: 50%;
+         @* height: 40%; *@
+    }
+}
+@@media (max-width: 769px) {
+   .malomat .slll{
+           padding-left: 30%!important
+    }
+       .malomat h4{
+           @* color: red; *@
+           font-size: 18px !important;
+       }
+
+   .cards-container {
+   margin-left: 30px;
+   min-width: 1000px !important;
+
+   }
+   .card{
+       width: 120px;
+   }
+
+}
+    @@media (max-width: 501px) {
+
+              .malomat .slll{
+           padding-left: 0;
+    }
+    .malomat h4{
+    font-size: 11px
+    }
+    .cards-container {
+        width: 100px;
+   margin-left: 0px;
+   }
+   .card{
+       width: 100px
+   }
+   .btn{
+       @* width: 100%; *@
+        font-size: 13px
+   }
+    }
+   
+   #arrivedModal{
+       display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    text-align: center;
+    z-index: 10000;
+   }
+   #leavingModal{
+        display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    text-align: center;
+   }
+   @@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+.duration-options-updateeeeeee {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.duration-options-updateeeeeee::-webkit-scrollbar {
+    height: 6px;
+}
+.duration-options-updateeeeeee::-webkit-scrollbar-track {
+    background: transparent;
+}
+.duration-options-updateeeeeee::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border-radius: 4px;
+}
+.duration-options-updateeeeeee::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+/* Hide radio */
+.duration-options-updateeeeeee input[type="radio"] {
+    display: none;
+}
+
+.duration-options-updateeeeeee label.duration-btn-updateeeeeee {
+    min-width: 55px;
+    height: 55px;
+    background-color: #e0e0e0; /* رمادي فاتح */
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 55px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* لما يتحدد */
+.duration-options-updateeeeeee input[type="radio"]:checked + label.duration-btn-updateeeeeee {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.duration-options-updateeeeeee {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 6px 6px; /* ✅ زودنا padding يمين وشمال */
+    white-space: nowrap;
+}
+
+/* Hide radios */
+.duration-options-updateeeeeee input[type="radio"] {
+    display: none;
+}
+
+/* مربعات أصغر ومودرن */
+.duration-btn-updateeeeeee {
+    width: 42px;
+    height: 42px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 42px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+/* لما يتحدد */
+input[type="radio"]:checked + .duration-btn-updateeeeeee {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.modal-updateeeeeee {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999999;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.modal-box-updateeeeeee {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100% !important;
+  max-width: 700px !important; /* زودنا العرض */
+  padding: 30px 40px;
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.25);
+  animation: zoomInModal 0.4s ease forwards;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+.modal-box-updateeeeeee h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+.modal-box-updateeeeeee p {
+  margin: 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+.modal-box-updateeeeeee .text-muted {
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+.btn-outline-success {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid #198754;
+  background-color: transparent;
+  color: #198754;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-outline-success:hover {
+  background-color: #198754;
+  color: white;
+}
+
+@@keyframes zoomInModal {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+.commonModal {
+    animation: fadeIn 0.5s forwards;
+    opacity: 0; /* Start hidden */
+    transition: all 0.3s ease-in-out;
+}
+.custom-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    z-index: 999999999;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    opacity: 0;
+}
+
+.custom-modal.fadeIn {
+    opacity: 1;
+}
+
+/*تعديل عند قفل المودل*/
+.fadeIn {
+    animation: fadeIn 0.5s forwards;
+}
+
+.fadeOut {
+    animation: fadeOut 0.5s forwards;
+}
+
+@@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+}
+
+/* ثابت في كل الشاشات */
+.cards-wrapper {
+    overflow-x: auto; /* السكرول هنا */
+    width: 100%; /* ياخد عرض الشاشة */
+}
+
+/* داخل اللفافة wrapper */
+.cards-container {
+    display: flex;
+    @* flex-wrap: nowrap; /* مهم جداً: خليه ما يلفش */ *@
+    gap: 20px;
+    padding: 20px;
+    @* margin-left: 0; *@
+    overflow-x: hidden; /* يسمح بالسكرول العرضي */
+    overflow-y: hidden;
+/* بدلها بـ max-width أو شيلها لو مش محتاجاها */
+max-width: 100%;
+    min-width: 1235px; /* العرض الفعلي اللي ممكن يتسكرول */
+
+}
+
+ @@media (max-width: 501px) {
+
+              .malomat .slll{
+           padding-left: 0;
+    }
+    .malomat h4{
+    font-size: 11px
+    }
+    .cards-container {
+    min-width: 860px !important;  /* العرض الفعلي اللي ممكن يتسكرول */
+   margin-left: 0px;
+   }
+   .card{
+       width: 100px
+   }
+   .btn{
+       @* width: 100%; *@
+        font-size: 13px
+   }
+    }
+   
+ @@media (max-width: 340px) {
+    .malomat{
+        padding-left: 0
+    }
+        .malomat h4{
+        font-size: 14px !important;
+        }
+
+ }
+ 		footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			background-color: rgba(248, 248, 248, 0.95); /* لون أوضح وأقل شفافية */
+			border-top: 1px solid #ddd;
+			padding: 15px 30px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			z-index: 1000; /* أعلى من باقي العناصر */
+			box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+			backdrop-filter: blur(4px); /* تأثير الزجاج الضبابي */
+			font-weight: 700;
+			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+		}
+</style>
+
+<!-- Arrived Modal -->
+<div id="arrivedModal" class="commonModal" style="
+   
+">
+    <h3 style="margin-bottom: 10px;">
+        <i class="fa-solid fa-circle-check" style="color: green; font-size: 30px;"></i>
+    </h3>
+    <p style="font-weight: 500;">You have arrived on time. Enjoy your parking!</p>
+    <button onclick="closeModal()" style="margin-top: 15px; padding: 10px 20px; border: none; background-color: green; color: white; border-radius: 5px; cursor: pointer;">OK</button>
+</div>
+
+
+<!-- Leaving Modal -->
+<div id="leavingModal" class="commonModal" style="
+   
+
+">
+    <h3 style="margin-bottom: 10px;">
+        <i class="fa-solid fa-circle-check" style="color: #007bff; font-size: 30px;"></i>
+    </h3>
+    <p style="font-weight: 500;">Thanks for visiting! Looking forward to seeing you again.</p>
+    <button onclick="closeModal()" style="margin-top: 15px; padding: 10px 20px; border: none; background-color: #007bff; color: white; border-radius: 5px; cursor: pointer;">OK</button>
+</div>
+
+<!-- Cancel Modal -->
+<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="cancelModalLabel">Cancel Booking</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+<div class="modal-body">
+    Are you sure you want to cancel this booking?<br />
+    <strong>Note:</strong> A 20% cancellation fee will be applied, and 80% of the amount will be refunded to you.
+</div>
+
+
+      <div class="modal-footer">
+        <form asp-action="CancelBooking" asp-controller="User" method="post">
+            <input type="hidden"  id="modalRecordId" name="recordId" />
+            <input  type="hidden" id="modalSpotId" name="spotId" />
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" onclick="handleClick()" class="btn btn-danger">Yes, Cancel</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Refund Modal -->
+<div id="refundModal" class="custom-modal" style="display: none;">
+    <div class="custom-modal-content">
+        <h2>Refund</h2>
+        <p>Booking cancelled successfully. You have been refunded 80% of the amount.</p>
+        @* @TempData["RefundAmount"] *@
+        <button onclick="closeModal()" style="float: right" class="btn btn-success">OK</button>
+    </div>
+</div>
+<!-- Update Modal -->
+<div class="modal fade" id="addDurationModal" tabindex="-1" aria-labelledby="addDurationLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg border-0 rounded-4">
+
+      <!-- Header -->
+      <div class="modal-header bg-light border-bottom-0 rounded-top-4">
+        <h5 class="modal-title d-flex align-items-center gap-2 text-primary" id="addDurationLabel">
+          <i class="fa-solid fa-pen-to-square"></i>
+          Edit Duration
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- Form -->
+      <form method="post" asp-action="UpdateDuration">
+        <div class="modal-body pt-0">
+          <!-- Hidden recordId -->
+          <input type="hidden" name="recordId" id="recordIdInput" />
+
+          <!-- Duration Label -->
+<label class="fw-semibold mb-2 d-block">
+  Add Extra Duration (in hours):
+</label>
+
+          <!-- Duration Options -->
+          <div class="duration-options-updateeeeeee">
+            @for (int i = 1; i <= 12; i++)
+            {
+                var durationId = $"duration{i}-updateeeeeee";
+                <div>
+                    <input type="radio" id="@durationId" name="duration" value="@i" />
+                    <label for="@durationId" class="duration-btn-updateeeeeee">@i</label>
+                </div>
+            }
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="modal-footer border-top-0 d-flex justify-content-between">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+            <i class="fa-solid fa-xmark me-1"></i> Cancel
+          </button>
+            <!-- زر الحفظ (لا يرسل الفورم مباشرة) -->
+            <button type="button" class="btn btn-success" id="saveDurationBtn" disabled>
+                <i class="fa-solid fa-check me-1"></i> Save Changes
+            </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="modal fade" id="confirmDurationModal" tabindex="-1" aria-labelledby="confirmDurationLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+
+      <form method="post" id="confirmForm" asp-action="UpdateDuration" asp-controller="User">
+
+        <!-- Header -->
+     <div class="modal-header border-0 pb-0 pt-4 px-4">
+  <div class="d-flex align-items-center w-100 justify-content-between">
+    <div class="d-flex align-items-center gap-2">
+      <i class="fa-solid fa-credit-card text-primary fs-4"></i>
+      <h5 class="modal-title mb-0 text-dark fw-semibold">Confirm Duration Payment</h5>
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+</div>
+
+        <!-- Body -->
+        <div class="modal-body text-center py-4">
+          <i class="fa-solid fa-wallet fa-3x text-primary mb-3"></i>
+          <p class="fs-5 mb-2 text-dark">
+            You will be charged <strong id="chargeAmountText">XX</strong> EGP
+          </p>
+          <p class="fs-6 text-muted mb-3">
+            For <strong id="durationValueText">X hours</strong>
+          </p>
+          <p class="text-muted small mb-0" style="font-weight:bold">
+            The amount will be deducted from your current balance.
+          </p>
+
+          <!-- Hidden Inputs -->
+          <input type="hidden" name="recordId" id="hiddenRecordId" />
+          <input type="hidden" name="duration" id="hiddenDuration" />
+          <input type="hidden" name="amount" id="hiddenAmount" />
+
+        </div>
+
+        <!-- Footer -->
+        <div class="modal-footer border-top-0 d-flex justify-content-center gap-3 pb-4">
+          <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-success rounded-pill px-4" onclick="handleClick()">
+            <i class="fa-solid fa-check me-1"></i> Confirm
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- Update Success Modal -->
+<div id="duration-update-success-modal" class="modal-updateeeeeee" style="display: none;">
+  <div class="modal-box-updateeeeeee">
+    <div class="d-flex align-items-center gap-3 mb-3">
+      <i class="fa-solid fa-circle-check text-success fs-3"></i>
+      <h5 class="mb-0 text-dark fw-bold">Update Successful</h5>
+    </div>
+<p class="mb-2">
+  Extra duration of <strong>@TempData["AddedDuration"] hour@(TempData["AddedDuration"]?.ToString() == "1" ? "" : "s")</strong> has been added.
+</p>
+<p class="text-muted">
+  <strong>@TempData["DeductedBalance"] EGP</strong> was deducted from your balance.
+</p>
+    
+    <div class="text-end mt-4">
+      <button onclick="closeModal()" class="btn btn-outline-success">
+        <i class="fa-solid fa-check me-1"></i> Okay
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Overlay to dim the background -->
+<div id="modalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); z-index: 9999;"></div>
+<footer class="simple-footer">
+			<div class="footer-left">
+				Contact us: 01289562111
+			</div>
+			<div class="footer-right">
+				© 2025 All rights reserved
+			</div>
+		</footer>
+<script>
+
+window.onload = function () {
+    const showPopup = '@TempData["ShowPopup"]';
+    const hasArrived = '@TempData["Arrived"]'; // ✅ أضفته هنا
+    const isLeaving = '@TempData["Leaving"]';
+    const refund = '@TempData["Refund"]'; // ✅ هنا الجديد
+    const confirmUpdate = '@TempData["ConfirmUpdateRecord"]';
+
+    // استرجاع مكان الاسكرول لو موجود
+   @*  const scrollPos = localStorage.getItem('scrollPos');
+    if (scrollPos) {
+        window.scrollTo(0, scrollPos);
+        localStorage.removeItem('scrollPos');
+    } *@
+
+    if (showPopup === 'True') {
+        document.getElementById('popupModal').style.display = 'block';
+        document.getElementById('modalOverlay').style.display = 'block';
+
+        // 🔒 منع الاسكرول
+        document.body.style.overflow = 'hidden';
+    }
+
+      if (hasArrived === 'True') {
+            document.getElementById('arrivedModal').style.display = 'block';
+            document.getElementById('modalOverlay').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        if (isLeaving === 'True') {
+    document.getElementById('leavingModal').style.display = 'block';
+    document.getElementById('modalOverlay').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+if (refund === 'True') {
+    const modal = document.getElementById('refundModal');
+    const overlay = document.getElementById('modalOverlay');
+
+    if (modal && overlay) {
+        modal.classList.remove('fadeOut');
+        modal.classList.add('fadeIn');
+        modal.style.display = 'block';
+
+        overlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+if (confirmUpdate === 'True') {
+    const updateModal = document.getElementById('duration-update-success-modal');
+    const overlay = document.getElementById('modalOverlay');
+
+    if (updateModal && overlay) {
+        updateModal.classList.remove('fadeOut');
+        updateModal.classList.add('fadeIn');
+        updateModal.style.display = 'block';
+
+        overlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+
+
+};
+
+@*         // Show the modal if the condition is met
+    window.onload = function () {
+        const showPopup = '@TempData["ShowPopup"]';
+        
+        // استرجاع مكان الاسكرول لو موجود
+        const scrollPos = localStorage.getItem('scrollPos');
+        if (scrollPos) {
+            window.scrollTo(0, scrollPos);
+            localStorage.removeItem('scrollPos');
+        }
+
+        if (showPopup === 'True') {
+            document.getElementById('popupModal').style.display = 'block';
+            document.getElementById('modalOverlay').style.display = 'block';
+        }
+    }; *@
+    // Close the modal
+@* function closeModal() {
+    const popup = document.getElementById('popupModal');
+    const arrived = document.getElementById('arrivedModal');
+    const leaving = document.getElementById('leavingModal'); // ✅ أضفنا دا
+
+    if (popup) popup.style.display = 'none';
+    if (arrived) arrived.style.display = 'none';
+    if (leaving) leaving.style.display = 'none'; // ✅ غلق موديال الخروج
+
+    document.getElementById('modalOverlay').style.display = 'none';
+    document.body.style.overflow = 'auto';
+} *@
+function closeModal() {
+    const popup = document.getElementById('popupModal');
+    const arrived = document.getElementById('arrivedModal');
+    const leaving = document.getElementById('leavingModal');
+    const refund = document.getElementById('refundModal'); 
+    const updateConfirmation = document.getElementById('duration-update-success-modal');
+
+    const overlay = document.getElementById('modalOverlay');
+
+    const modals = [popup, arrived, leaving, refund, updateConfirmation];
+
+    modals.forEach(modal => {
+        if (modal) {
+            // احذف fadeIn لو موجود
+            modal.classList.remove('fadeIn');
+            // ضيف fadeOut
+            modal.classList.add('fadeOut');
+
+            // استنى لحد ما الأنيميشن يخلص (0.5 ثانية) وبعدها اخفيه
+            setTimeout(() => {
+                modal.style.display = 'none';
+                modal.classList.remove('fadeOut');
+            }, 500);
+        }
+    });
+
+    if (overlay) {
+        overlay.style.display = 'none';
+    }
+
+    document.body.style.overflow = 'auto';
+}
+
+function handleClick() {
+    // احفظ الوضع الحالي
+    const wrapper = document.querySelector('.cards-wrapper');
+    localStorage.setItem('scrollPosY', window.scrollY);
+    if (wrapper) {
+        localStorage.setItem('scrollPosX', wrapper.scrollLeft);
+    }
+
+    // بعد الريلود ورجوع الصفحة، يتم الاسترجاع
+    setTimeout(() => {
+        location.reload();
+    }, 100);
+}
+// بعد الريلود، نتحقق إذا في قيم ونرجع لها
+if (localStorage.getItem('scrollPosY') || localStorage.getItem('scrollPosX')) {
+    window.addEventListener('load', function () {
+        const scrollY = parseInt(localStorage.getItem('scrollPosY'));
+        const scrollX = parseInt(localStorage.getItem('scrollPosX'));
+        const wrapper = document.querySelector('.cards-wrapper');
+
+        if (!isNaN(scrollY)) {
+            window.scrollTo(0, scrollY);
+        }
+
+        if (!isNaN(scrollX) && wrapper) {
+            wrapper.scrollLeft = scrollX;
+        }
+
+        // امسح القيم عشان ما تتنفذش كل مرة بعد كده
+        localStorage.removeItem('scrollPosY');
+        localStorage.removeItem('scrollPosX');
+    });
+}
+     // لما المودال يفتح
+    var cancelModal = document.getElementById('cancelModal');
+    cancelModal.addEventListener('show.bs.modal', function (event) {
+        // الزر اللي فتح المودال
+        var button = event.relatedTarget;
+
+        // جلب البيانات من الـ attributes
+        var spotId = button.getAttribute('data-spotid');
+        var recordId = button.getAttribute('data-recordid');
+
+        // حط القيم دي جوه الـ input بتاع المودال
+        document.getElementById('modalSpotId').value = spotId;
+        document.getElementById('modalRecordId').value = recordId;
+    });
+ const modal = document.getElementById('addDurationModal');
+
+  modal.addEventListener('show.bs.modal', function (event) {
+      const button = event.relatedTarget;
+      const recordId = button.getAttribute('data-record-id');
+      document.getElementById('recordIdInput').value = recordId;
+
+      // Clear radio selection
+      const radios = modal.querySelectorAll('input[name="duration"]');
+      radios.forEach(r => r.checked = false);
+
+      // Disable save button initially
+      document.getElementById('saveDurationBtn').disabled = true;
+  });
+
+  // Listen for change on duration options
+  document.querySelectorAll('input[name="duration"]').forEach(input => {
+      input.addEventListener('change', function () {
+          document.getElementById('saveDurationBtn').disabled = false;
+      });
+  });
+  const pricePerHour = @Model.price.PricePerHour;
+  document.getElementById('saveDurationBtn').addEventListener('click', function () {
+    const selected = document.querySelector('input[name="duration"]:checked');
+    if (!selected) return;
+
+    const hours = selected.value;
+    const amount = hours * pricePerHour; // سعر الساعة
+
+    document.getElementById('chargeAmountText').innerText = `${amount}`;
+    document.getElementById('durationValueText').innerText = `${hours} hour${hours > 1 ? 's' : ''}`;
+
+    // تعبئة القيم المخفية
+    document.getElementById('hiddenRecordId').value = document.getElementById('recordIdInput').value;
+    document.getElementById('hiddenDuration').value = hours;
+    document.getElementById('hiddenAmount').value = amount;
+
+    // عرض المودال التاني
+    const confirmModal = new bootstrap.Modal(document.getElementById('confirmDurationModal'));
+    confirmModal.show();
+});
+
+</script>
+
+
+@* <script src="~/lib/jquery/dist/jquery.min.js"></script> *@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function () {
+		// Function to periodically check for expired bookings
+		function checkBookingStatus() {
+			console.log("Checking booking status...");
+
+			// Send AJAX request to check and update the spot's booking status
+			$.ajax({
+				url: '@Url.Action("CheckAndUpdateBookingStatus", "ParkingSpots")',
+				type: 'GET',
+				success: function (response) {
+					if (response.success) {
+						console.log("Spot status updated successfully.");
+                        
+                           // حفظ التمرير الأفقي (X) قبل إعادة التحميل
+                    const wrapper = document.querySelector('.cards-wrapper');
+                    if (wrapper) {
+                         setTimeout(() => {
+     localStorage.setItem('scrollPosX', wrapper.scrollLeft);  // حفظ التمرير الأفقي
+     // الآن نعيد تحميل الصفحة
+     location.reload(); // إعادة تحميل الصفحة
+ }, 0); // تأخير بسيط لجعل الحفظ يحدث قبل إعادة التحميل
+
+                        }
+                    // Optional: reload the page
+					} else {
+						console.log("Error updating spot status.");
+					}
+				},
+				error: function () {
+					console.log("Error while checking booking status.");
+				}
+			});
+		}
+
+		// Set an interval to check every minute (60000ms)
+		@* setInterval(checkBookingStatus, 60000); *@
+		setInterval(checkBookingStatus, 50000);
+	});
+</script>
+
