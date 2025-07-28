@@ -3,16 +3,36 @@
   "WorkspaceRootPath": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\user\\ourbestfetures.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\user\\ourbestfetures.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\user\\confirmbooking.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\user\\confirmbooking.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\user\\bookingconfirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\user\\bookingconfirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\shared\\_homelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\shared\\_homelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\shared\\_mylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\shared\\_mylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\user\\mainpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\user\\mainpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\user\\mainpagebus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\user\\mainpagebus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\user\\ourbestfetures.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\user\\ourbestfetures.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\admindashboard\\userdetailsforadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -25,14 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\user\\signin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\user\\signin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\user\\mainpagebus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\user\\mainpagebus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\user\\mainpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\user\\mainpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,16 +63,8 @@
       "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\user\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\shared\\_mylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\shared\\_mylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\user\\homepage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\user\\homepage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\shared\\_homelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\shared\\_homelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -73,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\user\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\user\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|solutionrelative:graduationproject_e-parkingsystem\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F8820D06-9F55-49FA-A1E9-2FE601271E37}|GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem.csproj|f:\\graduationproject_e-parkingsystem3\\graduationproject_e-parkingsystem\\graduationproject_e-parkingsystem\\views\\user\\updateprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -290,15 +290,81 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-01T17:09:32.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_HomeLayout.cshtml",
+              "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\Shared\\_HomeLayout.cshtml",
+              "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\Shared\\_HomeLayout.cshtml",
+              "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\Shared\\_HomeLayout.cshtml",
+              "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\Shared\\_HomeLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-22T16:52:26.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_MyLayout.cshtml",
+              "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\Shared\\_MyLayout.cshtml",
+              "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\Shared\\_MyLayout.cshtml",
+              "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\Shared\\_MyLayout.cshtml",
+              "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\Shared\\_MyLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-16T18:29:22.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "MainPage.cshtml",
               "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\MainPage.cshtml",
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\MainPage.cshtml",
               "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\MainPage.cshtml",
               "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\User\\MainPage.cshtml",
-              "ViewState": "AgIAAG0GAAAAAAAAAAAAAIgGAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFgGAAAAAAAAAAAAAGAGAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-15T21:18:52.886Z"
+              "WhenOpened": "2024-12-15T21:18:52.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookingConfirmation.cshtml",
+              "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\BookingConfirmation.cshtml",
+              "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\BookingConfirmation.cshtml",
+              "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\BookingConfirmation.cshtml",
+              "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\User\\BookingConfirmation.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-15T20:40:43.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConfirmBooking.cshtml",
+              "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\ConfirmBooking.cshtml",
+              "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\ConfirmBooking.cshtml",
+              "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\ConfirmBooking.cshtml",
+              "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\User\\ConfirmBooking.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-16T15:15:48.548Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -308,13 +374,27 @@
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\MainPageBus.cshtml",
               "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\MainPageBus.cshtml",
               "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\User\\MainPageBus.cshtml",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAAAKgAAACmAAAAAAAAAA==",
+              "ViewState": "AgIAAEkGAAAAAAAAAAAAAGAGAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-22T15:13:05.462Z"
+              "WhenOpened": "2025-02-22T15:13:05.462Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
+              "Title": "OurBestFetures.cshtml",
+              "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\OurBestFetures.cshtml",
+              "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\OurBestFetures.cshtml",
+              "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\OurBestFetures.cshtml",
+              "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\User\\OurBestFetures.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-01T14:58:07.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "UserDetailsForAdmin.cshtml",
               "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\AdminDashboard\\UserDetailsForAdmin.cshtml",
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\AdminDashboard\\UserDetailsForAdmin.cshtml",
@@ -326,44 +406,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BookingConfirmation.cshtml",
-              "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\BookingConfirmation.cshtml",
-              "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\BookingConfirmation.cshtml",
-              "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\BookingConfirmation.cshtml",
-              "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\User\\BookingConfirmation.cshtml",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-15T20:40:43.303Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ConfirmBooking.cshtml",
-              "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\ConfirmBooking.cshtml",
-              "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\ConfirmBooking.cshtml",
-              "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\ConfirmBooking.cshtml",
-              "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\User\\ConfirmBooking.cshtml",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAEwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-16T15:15:48.548Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OurBestFetures.cshtml",
-              "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\OurBestFetures.cshtml",
-              "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\OurBestFetures.cshtml",
-              "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\OurBestFetures.cshtml",
-              "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\User\\OurBestFetures.cshtml",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFEAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-01T14:58:07.877Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "ParkingRecord.cs",
               "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Models\\ParkingRecord.cs",
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Models\\ParkingRecord.cs",
@@ -375,7 +418,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "EnterDetails2.cshtml",
               "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\EnterDetails2.cshtml",
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\EnterDetails2.cshtml",
@@ -387,7 +430,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "UserController.cs",
               "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Controllers\\UserController.cs",
@@ -399,7 +442,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "SignIn.cshtml",
               "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\SignIn.cshtml",
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\SignIn.cshtml",
@@ -411,7 +454,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "OurSlots.cshtml",
               "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\AdminDashboard\\OurSlots.cshtml",
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\AdminDashboard\\OurSlots.cshtml",
@@ -423,7 +466,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "SignUp.cshtml",
               "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\SignUp.cshtml",
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\SignUp.cshtml",
@@ -435,31 +478,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "_HomeLayout.cshtml",
-              "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\Shared\\_HomeLayout.cshtml",
-              "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\Shared\\_HomeLayout.cshtml",
-              "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\Shared\\_HomeLayout.cshtml",
-              "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\Shared\\_HomeLayout.cshtml",
-              "ViewState": "AgIAABQBAAAAAAAAAAAAACMBAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-22T16:52:26.009Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "_MyLayout.cshtml",
-              "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\Shared\\_MyLayout.cshtml",
-              "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\Shared\\_MyLayout.cshtml",
-              "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\Shared\\_MyLayout.cshtml",
-              "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\Shared\\_MyLayout.cshtml",
-              "ViewState": "AgIAAPMAAAAAAAAAAAAAAP8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-16T18:29:22.633Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "HomePage.cshtml",
               "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\HomePage.cshtml",
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\HomePage.cshtml",
@@ -471,19 +490,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "_AdminLayout.cshtml",
-              "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\Shared\\_AdminLayout.cshtml",
-              "ToolTip": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeToolTip": "GraduationProject_E-ParkingSystem\\Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAAAHQAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-01T17:09:32.253Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "AdminDashboardController.cs",
               "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Controllers\\AdminDashboardController.cs",
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Controllers\\AdminDashboardController.cs",
@@ -495,7 +502,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "BookingRecords.cshtml",
               "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\AdminDashboard\\BookingRecords.cshtml",
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\AdminDashboard\\BookingRecords.cshtml",
@@ -519,7 +526,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Profile.cshtml",
               "DocumentMoniker": "F:\\GraduationProject_E-ParkingSystem3\\GraduationProject_E-ParkingSystem\\GraduationProject_E-ParkingSystem\\Views\\User\\Profile.cshtml",
               "RelativeDocumentMoniker": "GraduationProject_E-ParkingSystem\\Views\\User\\Profile.cshtml",

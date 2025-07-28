@@ -507,3 +507,4 @@ F:\GraduationProject_E-ParkingSystem3\GraduationProject_E-ParkingSystem\Graduati
 F:\GraduationProject_E-ParkingSystem3\GraduationProject_E-ParkingSystem\GraduationProject_E-ParkingSystem\obj\Debug\net8.0\GraduationProject_E-ParkingSystem.genruntimeconfig.cache
 F:\GraduationProject_E-ParkingSystem3\GraduationProject_E-ParkingSystem\GraduationProject_E-ParkingSystem\obj\Debug\net8.0\ref\GraduationProject_E-ParkingSystem.dll
 F:\GraduationProject_E-ParkingSystem3\GraduationProject_E-ParkingSystem\GraduationProject_E-ParkingSystem\bin\Debug\net8.0\QRCoder.dll
+F:\GraduationProject_E-ParkingSystem3\GraduationProject_E-ParkingSystem\GraduationProject_E-ParkingSystem\obj\Debug\net8.0\GraduationProject_E-ParkingSystem.sourcelink.json
