@@ -8,7 +8,7 @@ Users can view and book available spots, while admins can add slots, update pric
 ---
 
 ## 🔗 Demo Video  
-[Watch Demo]([(https://youtu.be/csyXDZezEsA?si=ZFAUu1aoGbTJfJ-Y))  
+[Watch Demo](https://youtu.be/csyXDZezEsA?si=ZFAUu1aoGbTJfJ-Y)  
 
 ## 📄 Documentation  
 [View Documentation]((https://drive.google.com/file/d/1rBIK_cfjXjcnRFPT55RBZb5Sk-TIeHbt/view?usp=sharing))  
